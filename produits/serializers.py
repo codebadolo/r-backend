@@ -8,7 +8,7 @@ from .models import (
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = '__all__'
+        fields = ['id', 'name', 'logo']
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:

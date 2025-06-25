@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from rest_framework import viewsets
 from .models import (
@@ -18,11 +18,11 @@ from .serializers import (
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
-
+    permission_classes = [IsAuthenticated]
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-
+    permission_classes = [IsAuthenticated]
 class ProductTypeViewSet(viewsets.ModelViewSet):
     queryset = ProductType.objects.all()
     serializer_class = ProductTypeSerializer
