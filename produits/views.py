@@ -15,6 +15,7 @@ from .serializers import (
     ProduitSpecificationSerializer
 )
 
+
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
