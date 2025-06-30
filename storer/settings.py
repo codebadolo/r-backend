@@ -62,7 +62,13 @@ INSTALLED_APPS = [
     'avis',
     'corsheaders',
            'drf_yasg',
+            'django_extensions',
 ]
+
+GRAPH_MODELS ={
+    'all_applications': True,
+    'graph_models': True,
+     }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
