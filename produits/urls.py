@@ -6,7 +6,9 @@ from .views import (
     StockViewSet, SectionSpecificationViewSet, CleSpecificationViewSet,
     ProduitSpecificationViewSet
 )
-
+from rest_framework.generics import RetrieveAPIView
+from .views import ProductDetailBySlugView
+from django.urls import path ,include
 router = DefaultRouter()
 router.register(r'brands', BrandViewSet)
 router.register(r'categories', CategoryViewSet)
@@ -22,5 +24,6 @@ router.register(r'stocks', StockViewSet)
 router.register(r'section-specifications', SectionSpecificationViewSet)
 router.register(r'cle-specifications', CleSpecificationViewSet)
 router.register(r'produit-specifications', ProduitSpecificationViewSet)
+
 
 urlpatterns = router.urls

@@ -1,0 +1,327 @@
+[
+  {
+    "name": "Dell Latitude 5420",
+    "description": "Laptop professionnel 14 pouces, Intel i5, 16Go RAM",
+    "category": "Laptops",
+    "category_parent": "Computers",
+    "brand": "Dell",
+    "product_type": "Laptop",
+    "attributes": [
+      {"name": "Processor", "value": "Intel Core i5-1135G7"},
+      {"name": "RAM", "value": "16GB"},
+      {"name": "Storage", "value": "512GB SSD"},
+      {"name": "Operating System", "value": "Windows 11 Pro"}
+    ],
+    "variants": [
+      {
+        "sku": "DL5420-16GB-512",
+        "retail_price": 1349.99,
+        "store_price": 1249.99,
+        "is_default": true,
+        "values": [
+          {"name": "RAM", "value": "16GB"},
+          {"name": "Storage", "value": "512GB SSD"}
+        ]
+      },
+      {
+        "sku": "DL5420-32GB-1TB",
+        "retail_price": 1549.99,
+        "store_price": 1449.99,
+        "is_default": false,
+        "values": [
+          {"name": "RAM", "value": "32GB"},
+          {"name": "Storage", "value": "1TB SSD"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Écran", "key": "Taille", "value": "14 pouces"},
+      {"section": "Batterie", "key": "Capacité", "value": "63 Wh"}
+    ],
+    "images": [
+      {"img_url": "products/media/dell-5420-main.jpg", "alt_text": "Dell Latitude 5420 - Vue avant", "is_feature": true}
+    ]
+  },
+  {
+    "name": "HP ProDesk 400 G7",
+    "description": "PC de bureau compact pour entreprise",
+    "category": "Desktops",
+    "category_parent": "Computers",
+    "brand": "HP",
+    "product_type": "Desktop",
+    "attributes": [
+      {"name": "Processor", "value": "Intel Core i5-10500"},
+      {"name": "RAM", "value": "8GB"},
+      {"name": "Storage", "value": "256GB SSD"},
+      {"name": "Operating System", "value": "Windows 10 Pro"}
+    ],
+    "variants": [
+      {
+        "sku": "HP400G7-8GB-256",
+        "retail_price": 899.99,
+        "store_price": 799.99,
+        "is_default": true,
+        "values": [
+          {"name": "RAM", "value": "8GB"},
+          {"name": "Storage", "value": "256GB SSD"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Châssis", "key": "Format", "value": "SFF"},
+      {"section": "Connectivité", "key": "USB", "value": "6 ports"}
+    ],
+    "images": [
+      {"img_url": "products/media/hp-prodesk400.jpg", "alt_text": "HP ProDesk 400 G7", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Apple MacBook Pro 14",
+    "description": "MacBook Pro avec puce M1 Pro, 16 Go RAM, 512 Go SSD",
+    "category": "Laptops",
+    "category_parent": "Computers",
+    "brand": "Apple",
+    "product_type": "Laptop",
+    "attributes": [
+      {"name": "Processor", "value": "Apple M1 Pro"},
+      {"name": "RAM", "value": "16GB"},
+      {"name": "Storage", "value": "512GB SSD"},
+      {"name": "Operating System", "value": "macOS Monterey"}
+    ],
+    "variants": [
+      {
+        "sku": "MBP14-16GB-512",
+        "retail_price": 1999.99,
+        "store_price": 1899.99,
+        "is_default": true,
+        "values": [
+          {"name": "RAM", "value": "16GB"},
+          {"name": "Storage", "value": "512GB SSD"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Écran", "key": "Résolution", "value": "3024 x 1964"},
+      {"section": "Poids", "key": "Poids", "value": "1.6 kg"}
+    ],
+    "images": [
+      {"img_url": "products/media/macbookpro14.jpg", "alt_text": "MacBook Pro 14 pouces", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "description": "Ultrabook professionnel, 14 pouces, 16 Go RAM",
+    "category": "Laptops",
+    "category_parent": "Computers",
+    "brand": "Lenovo",
+    "product_type": "Laptop",
+    "attributes": [
+      {"name": "Processor", "value": "Intel Core i7-1165G7"},
+      {"name": "RAM", "value": "16GB"},
+      {"name": "Storage", "value": "1TB SSD"},
+      {"name": "Operating System", "value": "Windows 11 Pro"}
+    ],
+    "variants": [
+      {
+        "sku": "X1C-16GB-1TB",
+        "retail_price": 1799.99,
+        "store_price": 1699.99,
+        "is_default": true,
+        "values": [
+          {"name": "RAM", "value": "16GB"},
+          {"name": "Storage", "value": "1TB SSD"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Écran", "key": "Type", "value": "IPS"},
+      {"section": "Autonomie", "key": "Durée", "value": "15 heures"}
+    ],
+    "images": [
+      {"img_url": "products/media/thinkpad-x1.jpg", "alt_text": "Lenovo ThinkPad X1 Carbon", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Cisco Catalyst 2960-X",
+    "description": "Switch réseau 48 ports Gigabit",
+    "category": "Switches",
+    "category_parent": "Networking",
+    "brand": "Cisco",
+    "product_type": "Switch",
+    "attributes": [
+      {"name": "Ports", "value": "48"},
+      {"name": "Throughput", "value": "216 Gbps"},
+      {"name": "Vendor", "value": "Cisco"}
+    ],
+    "variants": [
+      {
+        "sku": "C2960X-48",
+        "retail_price": 2499.99,
+        "store_price": 2299.99,
+        "is_default": true,
+        "values": [
+          {"name": "Ports", "value": "48"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Réseau", "key": "Empilable", "value": "Oui"},
+      {"section": "Garantie", "key": "Années", "value": "3"}
+    ],
+    "images": [
+      {"img_url": "products/media/cisco-2960x.jpg", "alt_text": "Cisco Catalyst 2960-X", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Synology DS920+",
+    "description": "NAS 4 baies pour PME, extensible jusqu'à 9 disques",
+    "category": "NAS",
+    "category_parent": "Systems",
+    "brand": "Synology",
+    "product_type": "NAS",
+    "attributes": [
+      {"name": "Storage", "value": "4 x 16TB"},
+      {"name": "RAM", "value": "4GB"},
+      {"name": "Vendor", "value": "Synology"}
+    ],
+    "variants": [
+      {
+        "sku": "DS920-4x16TB",
+        "retail_price": 1499.99,
+        "store_price": 1399.99,
+        "is_default": true,
+        "values": [
+          {"name": "Storage", "value": "4 x 16TB"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Baies", "key": "Nombre", "value": "4"},
+      {"section": "Extension", "key": "Max disques", "value": "9"}
+    ],
+    "images": [
+      {"img_url": "products/media/synology-ds920.jpg", "alt_text": "Synology DS920+", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Fortinet FortiGate 60F",
+    "description": "Firewall UTM pour PME, 10 ports Gigabit",
+    "category": "Firewalls",
+    "category_parent": "Networking",
+    "brand": "Fortinet",
+    "product_type": "Firewall",
+    "attributes": [
+      {"name": "Ports", "value": "10"},
+      {"name": "Throughput", "value": "10 Gbps"},
+      {"name": "Vendor", "value": "Fortinet"}
+    ],
+    "variants": [
+      {
+        "sku": "FG60F-10G",
+        "retail_price": 1199.99,
+        "store_price": 1099.99,
+        "is_default": true,
+        "values": [
+          {"name": "Ports", "value": "10"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Performance", "key": "UTM", "value": "700 Mbps"},
+      {"section": "Garantie", "key": "Années", "value": "1"}
+    ],
+    "images": [
+      {"img_url": "products/media/fortigate-60f.jpg", "alt_text": "FortiGate 60F", "is_feature": true}
+    ]
+  },
+  {
+    "name": "Microsoft Windows 11 Pro",
+    "description": "Système d'exploitation professionnel 64 bits",
+    "category": "Operating Systems",
+    "category_parent": "Software",
+    "brand": "Microsoft",
+    "product_type": "Operating System",
+    "attributes": [
+      {"name": "License", "value": "OEM"},
+      {"name": "Operating System", "value": "Windows 11 Pro"}
+    ],
+    "variants": [
+      {
+        "sku": "WIN11PRO-OEM",
+        "retail_price": 219.99,
+        "store_price": 199.99,
+        "is_default": true,
+        "values": [
+          {"name": "License", "value": "OEM"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Architecture", "key": "Type", "value": "64 bits"},
+      {"section": "Langue", "key": "Inclus", "value": "Français, Anglais"}
+    ],
+    "images": [
+      {"img_url": "products/media/win11pro.jpg", "alt_text": "Windows 11 Pro", "is_feature": true}
+    ]
+  },
+  {
+    "name": "VMware vSphere Essentials",
+    "description": "Plateforme de virtualisation pour petites entreprises",
+    "category": "Virtualization",
+    "category_parent": "Software",
+    "brand": "VMware",
+    "product_type": "Virtualization Platform",
+    "attributes": [
+      {"name": "License", "value": "Essentials"},
+      {"name": "Vendor", "value": "VMware"}
+    ],
+    "variants": [
+      {
+        "sku": "VS-ESS",
+        "retail_price": 599.99,
+        "store_price": 549.99,
+        "is_default": true,
+        "values": [
+          {"name": "License", "value": "Essentials"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Hôtes", "key": "Max", "value": "3"},
+      {"section": "VM", "key": "Max", "value": "144"}
+    ],
+    "images": [
+      {"img_url": "products/media/vsphere-ess.jpg", "alt_text": "VMware vSphere Essentials", "is_feature": true}
+    ]
+  },
+  {
+    "name": "APC Smart-UPS 1500VA",
+    "description": "Onduleur professionnel, 1500 VA, LCD",
+    "category": "UPS",
+    "category_parent": "Systems",
+    "brand": "APC",
+    "product_type": "UPS",
+    "attributes": [
+      {"name": "Power", "value": "1500 VA"},
+      {"name": "Vendor", "value": "APC"}
+    ],
+    "variants": [
+      {
+        "sku": "APC1500VA",
+        "retail_price": 499.99,
+        "store_price": 449.99,
+        "is_default": true,
+        "values": [
+          {"name": "Power", "value": "1500 VA"}
+        ]
+      }
+    ],
+    "specifications": [
+      {"section": "Batterie", "key": "Type", "value": "Plomb-acide"},
+      {"section": "Affichage", "key": "Type", "value": "LCD"}
+    ],
+    "images": [
+      {"img_url": "products/media/apc-1500va.jpg", "alt_text": "APC Smart-UPS 1500VA", "is_feature": true}
+    ]
+  }
+]

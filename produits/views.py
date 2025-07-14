@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 from rest_framework import viewsets
@@ -43,7 +44,13 @@ class ProductTypeAttributeViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    #lookup_field = 'slug'
     permission_classes = [IsAuthenticated]
+class ProductDetailBySlugView(RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'slug'
+    permission_classes = [IsAuthenticated]  # Ou mets [IsAuthenticated] si tu veux protéger
 class ProductInventoryViewSet(viewsets.ModelViewSet):
     queryset = ProductInventory.objects.all()
     serializer_class = ProductInventorySerializer
