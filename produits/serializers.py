@@ -74,3 +74,15 @@ class ProduitSpecificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProduitSpecification
         fields = '__all__'
+
+class ProductAttributeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductAttribute
+        fields = ["id", "name", "description"]
+
+class ProductTypeAttributeSerializer(serializers.ModelSerializer):
+    product_attribute = ProductAttributeSerializer(read_only=True)
+
+    class Meta:
+        model = ProductTypeAttribute
+        fields = ['id', 'product_attribute', 'product_type']

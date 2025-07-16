@@ -16,7 +16,11 @@ from .serializers import (
     ProduitSpecificationSerializer
 )
 
-
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import viewsets
+from .models import ProductType, ProductTypeAttribute
+from .serializers import ProductTypeAttributeSerializer
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
@@ -27,8 +31,14 @@ class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 class ProductTypeViewSet(viewsets.ModelViewSet):
     queryset = ProductType.objects.all()
-    serializer_class = ProductTypeSerializer
-    permission_classes = [IsAuthenticated]
+    serializer_class = ProductTypeSerializer  # ton serializer ProductType
+
+    @action(detail=True, methods=["get"], url_path="attributes")
+    def attributes(self, request, pk=None):
+        # Récupère tous les ProductTypeAttribute liés au ProductType pk
+        attributes = ProductTypeAttribute.objects.filter(product_type_id=pk)
+        serializer = ProductTypeAttributeSerializer(attributes, many=True)
+        return Response(serializer.data)
 class ProductAttributeViewSet(viewsets.ModelViewSet):
     queryset = ProductAttribute.objects.all()
     serializer_class = ProductAttributeSerializer
