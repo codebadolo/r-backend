@@ -16,15 +16,23 @@ class LoginSerializer(serializers.Serializer):
             return data
         raise serializers.ValidationError("Email ou mot de passe incorrect")
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'date_joined']
-
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
         fields = ['id', 'name', 'description']
+class UserSerializer(serializers.ModelSerializer):
+    roles = RoleSerializer(many=True, read_only=True, source='user_roles.role')
+
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'date_joined' , 'roles']
+
+    def get_roles(self, obj):
+        return RoleSerializer(
+            [ur.role for ur in obj.user_roles.all()],
+            many=True
+        ).data
+
 
 class UserRoleSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
