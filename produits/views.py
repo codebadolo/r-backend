@@ -32,7 +32,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class ProductTypeViewSet(viewsets.ModelViewSet):
     queryset = ProductType.objects.all()
     serializer_class = ProductTypeSerializer  # ton serializer ProductType
-
+    permission_classes = [IsAuthenticated]
     @action(detail=True, methods=["get"], url_path="attributes")
     def attributes(self, request, pk=None):
         # Récupère tous les ProductTypeAttribute liés au ProductType pk
