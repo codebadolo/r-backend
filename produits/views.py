@@ -24,7 +24,7 @@ from .serializers import ProductTypeAttributeSerializer
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -55,7 +55,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     #lookup_field = 'slug'
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 class ProductDetailBySlugView(RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
