@@ -29,6 +29,7 @@ class ProductTypeSerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
 
 
+
 class ProductAttributeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductAttribute
