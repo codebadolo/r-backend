@@ -1,91 +1,164 @@
-from django.shortcuts import render
-from rest_framework.generics import RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
-# Create your views here.
-from rest_framework import viewsets
+from rest_framework import generics
 from .models import (
-    Brand, Category, ProductType, ProductAttribute, ProductAttributeValue,
-    ProductTypeAttribute, Product, ProductInventory, ProductAttributeValues,
-    Media, Stock, SectionSpecification, CleSpecification, ProduitSpecification
+    Category, Brand, ProductType, Product,
+    ProductAttribute, ProductAttributeValue,
+    ProductImage, Stock, Warehouse, ProductAttributeOption
 )
 from .serializers import (
-    BrandSerializer, CategorySerializer, ProductTypeSerializer, ProductAttributeSerializer,
-    ProductAttributeValueSerializer, ProductTypeAttributeSerializer, ProductSerializer,
-    ProductInventorySerializer, ProductAttributeValuesSerializer, MediaSerializer,
-    StockSerializer, SectionSpecificationSerializer, CleSpecificationSerializer,
-    ProduitSpecificationSerializer
+    CategorySerializer,
+    BrandSerializer,
+    ProductTypeSerializer,
+    ProductSerializer,
+    ProductDetailSerializer ,
+    ProductAttributeSerializer,
+    ProductAttributeValueReadSerializer,
+    ProductAttributeValueWriteSerializer,
+    ProductImageSerializer,
+    StockSerializer,
+    WarehouseSerializer,
+    ProductCreateUpdateSerializer,
+    ProductAttributeOptionSerializer
 )
+from rest_framework.parsers import MultiPartParser, FormParser
 
-from rest_framework.decorators import action
-from rest_framework.response import Response
-from rest_framework import viewsets
-from .models import ProductType, ProductTypeAttribute
-from .serializers import ProductTypeAttributeSerializer
-class BrandViewSet(viewsets.ModelViewSet):
-    queryset = Brand.objects.all()
-    serializer_class = BrandSerializer
-    #permission_classes = [IsAuthenticated]
-class CategoryViewSet(viewsets.ModelViewSet):
+# CATEGORY
+class CategoryListCreateAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticated]
-class ProductTypeViewSet(viewsets.ModelViewSet):
+
+
+class CategoryRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+# BRAND
+class BrandListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+
+
+class BrandRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+
+
+# PRODUCT TYPE
+class ProductTypeListCreateAPIView(generics.ListCreateAPIView):
     queryset = ProductType.objects.all()
-    serializer_class = ProductTypeSerializer  # ton serializer ProductType
-    permission_classes = [IsAuthenticated]
-    @action(detail=True, methods=["get"], url_path="attributes")
-    def attributes(self, request, pk=None):
-        # Récupère tous les ProductTypeAttribute liés au ProductType pk
-        attributes = ProductTypeAttribute.objects.filter(product_type_id=pk)
-        serializer = ProductTypeAttributeSerializer(attributes, many=True)
-        return Response(serializer.data)
-class ProductAttributeViewSet(viewsets.ModelViewSet):
+    serializer_class = ProductTypeSerializer
+
+
+class ProductTypeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductType.objects.all()
+    serializer_class = ProductTypeSerializer
+
+
+# PRODUCT ATTRIBUTE
+class ProductAttributeListCreateAPIView(generics.ListCreateAPIView):
     queryset = ProductAttribute.objects.all()
     serializer_class = ProductAttributeSerializer
-    permission_classes = [IsAuthenticated]
-class ProductAttributeValueViewSet(viewsets.ModelViewSet):
+
+
+class ProductAttributeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductAttribute.objects.all()
+    serializer_class = ProductAttributeSerializer
+
+
+# PRODUCT ATTRIBUTE VALUE
+class ProductAttributeValueListCreateAPIView(generics.ListCreateAPIView):
     queryset = ProductAttributeValue.objects.all()
-    serializer_class = ProductAttributeValueSerializer
-    permission_classes = [IsAuthenticated]
-class ProductTypeAttributeViewSet(viewsets.ModelViewSet):
-    queryset = ProductTypeAttribute.objects.all()
-    serializer_class = ProductTypeAttributeSerializer
-    permission_classes = [IsAuthenticated]
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    #lookup_field = 'slug'
-    #permission_classes = [IsAuthenticated]
-class ProductDetailBySlugView(RetrieveAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    lookup_field = 'slug'
-    permission_classes = [IsAuthenticated]  # Ou mets [IsAuthenticated] si tu veux protéger
-class ProductInventoryViewSet(viewsets.ModelViewSet):
-    queryset = ProductInventory.objects.all()
-    serializer_class = ProductInventorySerializer
-    permission_classes = [IsAuthenticated]
-class ProductAttributeValuesViewSet(viewsets.ModelViewSet):
-    queryset = ProductAttributeValues.objects.all()
-    serializer_class = ProductAttributeValuesSerializer
-    permission_classes = [IsAuthenticated]
-class MediaViewSet(viewsets.ModelViewSet):
-    queryset = Media.objects.all()
-    serializer_class = MediaSerializer
-    permission_classes = [IsAuthenticated]
-class StockViewSet(viewsets.ModelViewSet):
+
+    def get_serializer_class(self):
+        if self.request.method in ['POST', 'PUT', 'PATCH']:
+            return ProductAttributeValueWriteSerializer
+        return ProductAttributeValueReadSerializer
+
+
+class ProductAttributeValueRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductAttributeValue.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method in ['PUT', 'PATCH']:
+            return ProductAttributeValueWriteSerializer
+        return ProductAttributeValueReadSerializer
+
+
+# PRODUCT ATTRIBUTE OPTION
+from django_filters.rest_framework import DjangoFilterBackend
+
+class ProductAttributeOptionListCreateAPIView(generics.ListCreateAPIView):
+    queryset = ProductAttributeOption.objects.all()
+    serializer_class = ProductAttributeOptionSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['attribute']  # Permet de filtrer par ?attribute=ID
+
+
+
+class ProductAttributeOptionRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductAttributeOption.objects.all()
+    serializer_class = ProductAttributeOptionSerializer
+
+
+# PRODUCT IMAGE
+class ProductImageListCreateAPIView(generics.ListCreateAPIView):
+    queryset = ProductImage.objects.all()
+    serializer_class = ProductImageSerializer
+    parser_classes = [MultiPartParser, FormParser]
+
+
+class ProductImageRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ProductImage.objects.all()
+    serializer_class = ProductImageSerializer
+    parser_classes = [MultiPartParser, FormParser]
+
+
+# WAREHOUSE
+class WarehouseListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehouseSerializer
+
+
+class WarehouseRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Warehouse.objects.all()
+    serializer_class = WarehouseSerializer
+
+
+# STOCK
+class StockListCreateAPIView(generics.ListCreateAPIView):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
-    permission_classes = [IsAuthenticated]
-class SectionSpecificationViewSet(viewsets.ModelViewSet):
-    queryset = SectionSpecification.objects.all()
-    serializer_class = SectionSpecificationSerializer
-    permission_classes = [IsAuthenticated]
-class CleSpecificationViewSet(viewsets.ModelViewSet):
-    queryset = CleSpecification.objects.all()
-    serializer_class = CleSpecificationSerializer
-    permission_classes = [IsAuthenticated]
-class ProduitSpecificationViewSet(viewsets.ModelViewSet):
-    queryset = ProduitSpecification.objects.all()
-    serializer_class = ProduitSpecificationSerializer
-    permission_classes = [IsAuthenticated]
+
+
+class StockRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Stock.objects.all()
+    serializer_class = StockSerializer
+
+
+# # PRODUCT
+# class ProductListCreateAPIView(generics.ListCreateAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
+
+
+# class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
+
+
+class ProductListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return ProductCreateUpdateSerializer
+        return ProductDetailSerializer  # GET list utilise lecture enrichie
+
+
+class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.method in ['PUT', 'PATCH']:
+            return ProductCreateUpdateSerializer
+        return ProductDetailSerializer  # GET détail utilise lecture enrichie
