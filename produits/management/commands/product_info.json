@@ -1,0 +1,152 @@
+{
+  "categories": [
+    {"name": "Electronics", "parent": null},
+    {"name": "Networking Devices", "parent": "Electronics"},
+    {"name": "Routers", "parent": "Networking Devices"},
+    {"name": "Switches", "parent": "Networking Devices"},
+    {"name": "Computers", "parent": "Electronics"},
+    {"name": "Laptops", "parent": "Computers"},
+    {"name": "Desktops", "parent": "Computers"},
+    {"name": "Computer Components", "parent": "Computers"},
+    {"name": "RAM", "parent": "Computer Components"},
+    {"name": "Storage", "parent": "Computer Components"},
+    {"name": "Software", "parent": null},
+    {"name": "Productivity Software", "parent": "Software"},
+    {"name": "Antivirus", "parent": "Software"},
+    {"name": "Mobile Devices", "parent": "Electronics"},
+    {"name": "Smartphones", "parent": "Mobile Devices"},
+    {"name": "Tablets", "parent": "Mobile Devices"},
+    {"name": "Computer Accessories", "parent": "Computers"},
+    {"name": "Mice", "parent": "Computer Accessories"},
+    {"name": "Monitors", "parent": "Computer Accessories"}
+  ],
+
+  "brands": [
+    "Apple",
+    "Lenovo",
+    "Dell",
+    "Netgear",
+    "Microsoft",
+    "Adobe",
+    "Samsung",
+    "Corsair",
+    "Intel",
+    "NVIDIA",
+    "TP-Link",
+    "Asus",
+    "HP",
+    "Logitech",
+    "ESET",
+    "Kaspersky"
+  ],
+
+  "product_types": [
+    "Laptop",
+    "Router",
+    "Switch",
+    "Software Suite",
+    "Graphics Software",
+    "SSD",
+    "RAM",
+    "CPU",
+    "Graphics Card",
+    "Smartphone",
+    "Wireless Headphones",
+    "Tablet",
+    "Mouse",
+    "Monitor",
+    "Antivirus Software",
+    "Office Software"
+  ],
+
+  "product_attributes": [
+    {
+      "name": "RAM",
+      "product_type": "Laptop",
+      "options": ["4GB", "8GB", "16GB", "32GB", "64GB"]
+    },
+    {
+      "name": "Storage Capacity",
+      "product_type": "SSD",
+      "options": ["128GB", "256GB", "512GB", "1TB", "2TB"]
+    },
+    {
+      "name": "Processor",
+      "product_type": "Laptop",
+      "options": ["Intel Core i5", "Intel Core i7", "Intel Core i9", "AMD Ryzen 5", "AMD Ryzen 7", "Apple M1", "Apple M2"]
+    },
+    {
+      "name": "Color",
+      "product_type": "Laptop",
+      "options": ["Black", "Silver", "Gray", "White"]
+    },
+    {
+      "name": "Screen Size",
+      "product_type": "Laptop",
+      "options": ["13 inch", "14 inch", "15 inch", "17 inch"]
+    },
+    {
+      "name": "License Type",
+      "product_type": "Software Suite",
+      "options": ["Subscription", "Perpetual"]
+    },
+    {
+      "name": "Platform",
+      "product_type": "Software Suite",
+      "options": ["Windows", "Mac", "Linux"]
+    },
+    {
+      "name": "Speed",
+      "product_type": "Router",
+      "options": ["1Gbps", "3Gbps", "6Gbps", "10Gbps"]
+    },
+    {
+      "name": "Wireless Standard",
+      "product_type": "Router",
+      "options": ["802.11ac", "802.11ax", "802.11n"]
+    },
+    {
+      "name": "Ports",
+      "product_type": "Switch",
+      "options": ["8", "16", "24", "48"]
+    },
+    {
+      "name": "Battery Life",
+      "product_type": "Wireless Headphones",
+      "options": ["15 hours", "20 hours", "30 hours", "40 hours"]
+    },
+    {
+      "name": "Connector Type",
+      "product_type": "Mouse",
+      "options": ["Wireless", "Wired", "Bluetooth"]
+    },
+    {
+      "name": "Resolution",
+      "product_type": "Monitor",
+      "options": ["1080p", "1440p", "4K", "5K"]
+    }
+  ],
+
+  "warehouses": [
+    {
+      "name": "Ouagadougou Central Warehouse",
+      "location": "Zone industrielle, Ouagadougou"
+    },
+    {
+      "name": "Bobo-Dioulasso Storage",
+      "location": "Quartier Dioulassoba, Bobo-Dioulasso"
+    },
+    {
+      "name": "Koudougou Depot",
+      "location": "Périphérie Sud, Koudougou"
+    },
+    {
+      "name": "Banfora Regional Warehouse",
+      "location": "PK7, Banfora"
+    },
+    {
+      "name": "Ouahigouya Logistics Center",
+      "location": "Zone commerciale, Ouahigouya"
+    }
+  ]
+}

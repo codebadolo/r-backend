@@ -1,41 +1,41 @@
 [
   {
     "name": "Lenovo ThinkPad X1 Carbon Gen 11",
-    "category": "Laptops",
+    "category": "Ordinateurs portables",
     "brand": "Lenovo",
-    "product_type": "Laptop",
-    "description": "Ultra-light professional laptop with Intel Core i7, 16GB RAM, 1TB SSD, 14\" FHD display.",
+    "product_type": "Portable",
+    "description": "Ultraportable professionnel avec Intel Core i7, 16 Go RAM, 1 To SSD, écran 14\" Full HD.",
     "price": 1499.99,
     "is_active": true,
     "attributes": [
-      {"attribute_name": "RAM", "value": "16GB"},
-      {"attribute_name": "Color", "value": "Black"},
-      {"attribute_name": "CPU", "value": "Intel Core i7"}
+      { "attribute_name": "RAM", "value": "16 Go" },
+      { "attribute_name": "Couleur", "value": "Noir" },
+      { "attribute_name": "Processeur", "value": "Intel Core i7" }
     ],
     "images": [
       {
-        "url": "https://img.alicdn.com/imgextra/i4/34652298/O1CN01vBGLf81PGeIGpNPgi_!!34652298.jpg",
-        "alt_text": "Lenovo ThinkPad X1 Carbon front"
-      },
-      {
         "url": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/lenovo-thinkpad-x1-carbon-gen9-20xw004qus-1200x1200.jpg",
-        "alt_text": "Lenovo ThinkPad X1 Carbon closed"
+        "alt_text": "Lenovo ThinkPad X1 Carbon Fermé"
       }
     ],
-    "stock": {"units": 38, "units_sold": 4}
+    "stock": {
+      "units": 40,
+      "units_sold": 5,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
   },
   {
     "name": "Apple MacBook Air M2",
-    "category": "Laptops",
+    "category": "Ordinateurs portables",
     "brand": "Apple",
-    "product_type": "Laptop",
-    "description": "Apple Silicon M2, 8GB RAM, 256GB SSD, Silver.",
+    "product_type": "Portable",
+    "description": "Apple Silicium M2, 8 Go RAM, 256 Go SSD, couleur argent.",
     "price": 1150.00,
     "is_active": true,
     "attributes": [
-      {"attribute_name": "RAM", "value": "8GB"},
-      {"attribute_name": "Color", "value": "Silver"},
-      {"attribute_name": "CPU", "value": "Apple M2"}
+      { "attribute_name": "RAM", "value": "8 Go" },
+      { "attribute_name": "Couleur", "value": "Argent" },
+      { "attribute_name": "Processeur", "value": "Apple M2" }
     ],
     "images": [
       {
@@ -43,27 +43,1011 @@
         "alt_text": "MacBook Air M2 Midnight"
       }
     ],
-    "stock": {"units": 12, "units_sold": 2}
+    "stock": {
+      "units": 25,
+      "units_sold": 3,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
   },
   {
     "name": "Dell XPS 13 Plus",
-    "category": "Laptops",
+    "category": "Ordinateurs portables",
     "brand": "Dell",
-    "product_type": "Laptop",
-    "description": "Compact ultrabook, 13.4 inch OLED, 16GB RAM, 512GB SSD, Silver.",
+    "product_type": "Portable",
+    "description": "Ultrabook compact, écran OLED 13.4\", 16 Go RAM, 512 Go SSD, Argent.",
     "price": 1390.00,
     "is_active": true,
     "attributes": [
-      {"attribute_name": "RAM", "value": "16GB"},
-      {"attribute_name": "Color", "value": "Silver"},
-      {"attribute_name": "CPU", "value": "Intel Core i7-1260P"}
+      { "attribute_name": "RAM", "value": "16 Go" },
+      { "attribute_name": "Couleur", "value": "Argent" },
+      { "attribute_name": "Processeur", "value": "Intel Core i7-1260P" }
     ],
     "images": [
       {
         "url": "https://img.alicdn.com/imgextra/i3/34652298/O1CN01q4xyAt1PGeLpeFGbr_!!34652298.jpg",
-        "alt_text": "Dell XPS 13 Plus front"
+        "alt_text": "Dell XPS 13 Plus"
       }
     ],
-    "stock": {"units": 20, "units_sold": 7}
+    "stock": {
+      "units": 30,
+      "units_sold": 8,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+  {
+    "name": "Netgear Nighthawk AX12",
+    "category": "Réseaux",
+    "brand": "Netgear",
+    "product_type": "Routeur",
+    "description": "Routeur WiFi 6 puissant avec 12 flux pour des débits ultra-rapides.",
+    "price": 349.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Vitesse", "value": "10.8 Gbps" },
+      { "attribute_name": "Bandes", "value": "Double bande" },
+      { "attribute_name": "Ports", "value": "5 ports Ethernet" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/netgear_nighthawk_ax12.jpg",
+        "alt_text": "Netgear Nighthawk AX12"
+      }
+    ],
+    "stock": {
+      "units": 45,
+      "units_sold": 10,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "Cisco Catalyst 2960",
+    "category": "Réseaux",
+    "brand": "Cisco",
+    "product_type": "Commutateur",
+    "description": "Commutateur Layer 2 24 ports, idéal pour PME.",
+    "price": 1200.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Ports", "value": "24" },
+      { "attribute_name": "Vitesse", "value": "1 Gbps" },
+      { "attribute_name": "Géré", "value": "Oui" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/cisco_catalyst_2960.jpg",
+        "alt_text": "Cisco Catalyst 2960"
+      }
+    ],
+    "stock": {
+      "units": 18,
+      "units_sold": 4,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+
+  {
+    "name": "Samsung 970 EVO Plus 1 To SSD",
+    "category": "Composants informatiques",
+    "brand": "Samsung",
+    "product_type": "SSD",
+    "description": "SSD NVMe M.2 très rapide avec lecture jusqu'à 3500 MB/s.",
+    "price": 139.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "1 To" },
+      { "attribute_name": "Format", "value": "M.2 2280" },
+      { "attribute_name": "Interface", "value": "NVMe PCIe Gen3" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/samsung_970_evo_plus.jpg",
+        "alt_text": "Samsung 970 EVO Plus"
+      }
+    ],
+    "stock": {
+      "units": 40,
+      "units_sold": 10,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+
+  {
+    "name": "Corsair Vengeance LPX 32 Go DDR4 RAM",
+    "category": "Composants informatiques",
+    "brand": "Corsair",
+    "product_type": "RAM",
+    "description": "Kit RAM DDR4 3200MHz haute performance avec dissipateur thermique.",
+    "price": 159.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "32 Go" },
+      { "attribute_name": "Fréquence", "value": "3200 MHz" },
+      { "attribute_name": "Type", "value": "DDR4" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/corsair_vengeance_lpx.jpg",
+        "alt_text": "Corsair Vengeance LPX"
+      }
+    ],
+    "stock": {
+      "units": 25,
+      "units_sold": 6,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+
+  {
+    "name": "Logitech MX Master 3",
+    "category": "Accessoires informatiques",
+    "brand": "Logitech",
+    "product_type": "Souris",
+    "description": "Souris sans fil avancée avec design ergonomique et boutons personnalisables.",
+    "price": 99.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Connectivité", "value": "Sans fil Bluetooth" },
+      { "attribute_name": "Autonomie batterie", "value": "70 jours" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/logitech_mx_master_3.jpg",
+        "alt_text": "Logitech MX Master 3"
+      }
+    ],
+    "stock": {
+      "units": 50,
+      "units_sold": 15,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+
+  {
+    "name": "Microsoft Office 365 Licence",
+    "category": "Logiciels",
+    "brand": "Microsoft",
+    "product_type": "Suite bureautique",
+    "description": "Licence abonnement Office 365 incluant Word, Excel, PowerPoint.",
+    "price": 99.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Type de licence", "value": "Abonnement" },
+      { "attribute_name": "Plateforme", "value": "Windows, Mac" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/office365.jpg",
+        "alt_text": "Microsoft Office 365"
+      }
+    ],
+    "stock": {
+      "units": 100,
+      "units_sold": 20,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+
+
+
+  {
+    "name": "HP EliteDesk 800 G6 SFF",
+    "category": "Ordinateurs de bureau",
+    "brand": "HP",
+    "product_type": "PC de bureau",
+    "description": "PC compact performant avec processeur Intel Core i7 et 16 Go RAM.",
+    "price": 1200.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Form Factor", "value": "SFF" },
+      { "attribute_name": "Processeur", "value": "Intel Core i7" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/hp_elitedesk_800_g6_sff.jpg",
+        "alt_text": "HP EliteDesk 800 G6 SFF"
+      }
+    ],
+    "stock": {
+      "units": 30,
+      "units_sold": 7,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+
+  {
+    "name": "ASUS ROG Strix G15",
+    "category": "Ordinateurs portables",
+    "brand": "Asus",
+    "product_type": "Portable",
+    "description": "PC gamer puissant avec Ryzen 9, RTX 3070, 16 Go RAM, 1 To SSD.",
+    "price": 1799.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Processeur", "value": "AMD Ryzen 9" },
+      { "attribute_name": "Carte graphique", "value": "NVIDIA RTX 3070" },
+      { "attribute_name": "RAM", "value": "16 Go" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/asus_rog_strix_g15.jpg",
+        "alt_text": "ASUS ROG Strix G15"
+      }
+    ],
+    "stock": {
+      "units": 18,
+      "units_sold": 5,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+
+  {
+    "name": "Synology DiskStation DS220+ NAS",
+    "category": "Stockage",
+    "brand": "Synology",
+    "product_type": "Serveur NAS",
+    "description": "Serveur NAS 2 baies pour stockage et sauvegarde à domicile.",
+    "price": 320.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Nombre de baies", "value": "2" },
+      { "attribute_name": "Processeur", "value": "Intel Celeron J4025" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/synology_ds220_plus.jpg",
+        "alt_text": "Synology DS220+"
+      }
+    ],
+    "stock": {
+      "units": 10,
+      "units_sold": 2,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+
+  {
+    "name": "Jabra Evolve2 65 Casque sans fil",
+    "category": "Audio & Communication",
+    "brand": "Jabra",
+    "product_type": "Casque sans fil",
+    "description": "Casque sans fil professionnel avec annulation de bruit et longue autonomie.",
+    "price": 189.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Connectivité", "value": "Bluetooth" },
+      { "attribute_name": "Autonomie", "value": "37 heures" }
+    ],
+    "images": [
+      {
+        "url": "https://example.com/images/jabra_evolve2_65.jpg",
+        "alt_text": "Jabra Evolve2 65"
+      }
+    ],
+    "stock": {
+      "units": 28,
+      "units_sold": 9,
+      "warehouse_name": "Koudougou Depot"
+    }
   }
+  ,
+   {
+    "name": "Brother HL-L3270CDW Imprimante laser couleur",
+    "category": "Imprimantes",
+    "brand": "Brother",
+    "product_type": "Imprimante",
+    "description": "Imprimante laser couleur rapide avec Wi-Fi et impression recto-verso automatique.",
+    "price": 320.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Vitesse", "value": "24 ppm" },
+      { "attribute_name": "Connectivité", "value": "Wi-Fi, USB" }
+    ],
+    "images": [
+      {
+        "url": "https://www.brother.fr/-/media/brother/product-cards/hl-l3270cdw_card.png",
+        "alt_text": "Brother HL-L3270CDW"
+      }
+    ],
+    "stock": {
+      "units": 27,
+      "units_sold": 6,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "MSI Optix MAG272CQR Écran incurvé 27 pouces",
+    "category": "Moniteurs",
+    "brand": "MSI",
+    "product_type": "Écran PC",
+    "description": "Écran incurvé QHD 165 Hz avec technologie FreeSync pour jeux immersifs.",
+    "price": 350.50,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille", "value": "27 pouces" },
+      { "attribute_name": "Fréquence", "value": "165 Hz" }
+    ],
+    "images": [
+      {
+        "url": "https://fr.msi.com/Moniteur/photo-gallery/MAG272CQR",
+        "alt_text": "MSI Optix MAG272CQR"
+      }
+    ],
+    "stock": {
+      "units": 13,
+      "units_sold": 4,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Western Digital My Passport 2 To",
+    "category": "Stockage",
+    "brand": "Western Digital",
+    "product_type": "Disque dur externe",
+    "description": "Disque dur portable USB 3.0 compact d’une capacité de 2 To pour sauvegardes rapides.",
+    "price": 85.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "2 To" },
+      { "attribute_name": "Interface", "value": "USB 3.0" }
+    ],
+    "images": [
+      {
+        "url": "https://www.westerndigital.com/content/dam/store/en-us/assets/products/portable-drives/my-passport-usb-3-0/gallery/black/angle-hero-mypassport-black.png",
+        "alt_text": "WD My Passport 2 To"
+      }
+    ],
+    "stock": {
+      "units": 39,
+      "units_sold": 11,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "TP-Link Deco M5 Pack de 3 WiFi Mesh",
+    "category": "Réseaux",
+    "brand": "TP-Link",
+    "product_type": "Répéteur Wi-Fi",
+    "description": "Système WiFi maison mesh triple pack, couvre jusqu’à 400 m² avec sécurité intégrée.",
+    "price": 150.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Type", "value": "WiFi Mesh" },
+      { "attribute_name": "Nombre d’unités", "value": "3" }
+    ],
+    "images": [
+      {
+        "url": "https://static.tp-link.com/Deco_M5_3-Pack_1.0_01_normal_1513897600421o.jpg",
+        "alt_text": "TP-Link Deco M5"
+      }
+    ],
+    "stock": {
+      "units": 21,
+      "units_sold": 3,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+  {
+    "name": "Philips 243V7QDSB/00 Moniteur 24 pouces",
+    "category": "Moniteurs",
+    "brand": "Philips",
+    "product_type": "Écran PC",
+    "description": "Écran full HD avec technologie IPS, ultra-fin pour poste de travail moderne.",
+    "price": 120.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille", "value": "24 pouces" },
+      { "attribute_name": "Technologie", "value": "IPS" }
+    ],
+    "images": [
+      {
+        "url": "https://www.download.p4c.philips.com/files/2/243v7qdsb_00/243v7qdsb_00_pss_frfr.jpg",
+        "alt_text": "Philips 243V7QDSB"
+      }
+    ],
+    "stock": {
+      "units": 31,
+      "units_sold": 7,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+  {
+    "name": "Canon PIXMA TS8350A Imprimante Multifonction",
+    "category": "Imprimantes",
+    "brand": "Canon",
+    "product_type": "Imprimante multifonction",
+    "description": "Imprimante couleur compacte avec impression, copie et scanner intégrés, Wi-Fi.",
+    "price": 175.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Technologie", "value": "Jet d’encre" },
+      { "attribute_name": "Connectivité", "value": "Wi-Fi" }
+    ],
+    "images": [
+      {
+        "url": "https://www.canon.fr/media/ts8350a-front-slant-black_tcm79-2069297.png",
+        "alt_text": "Canon PIXMA TS8350A"
+      }
+    ],
+    "stock": {
+      "units": 14,
+      "units_sold": 2,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "Kingston A400 SSD 480 Go",
+    "category": "Composants informatiques",
+    "brand": "Kingston",
+    "product_type": "SSD",
+    "description": "SSD fiable 2,5'' SATA de 480 Go pour booster la réactivité des PC portables et fixes.",
+    "price": 44.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "480 Go" },
+      { "attribute_name": "Format", "value": "2,5 pouces" }
+    ],
+    "images": [
+      {
+        "url": "https://media.kingston.com/kingston/product/FKC-SUV400S37-480G-1_zm.jpg",
+        "alt_text": "Kingston A400 SSD"
+      }
+    ],
+    "stock": {
+      "units": 54,
+      "units_sold": 8,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "HP 250 G8 Ordinateur portable",
+    "category": "Ordinateurs portables",
+    "brand": "HP",
+    "product_type": "Portable",
+    "description": "Portable léger 15,6 pouces idéal pour étudiants et télétravail, Intel Core i5, 8 Go RAM.",
+    "price": 619.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille d’écran", "value": "15,6 pouces" },
+      { "attribute_name": "RAM", "value": "8 Go" }
+    ],
+    "images": [
+      {
+        "url": "https://store.hp.com/FranceStore/Html/Merch/Images/c06581201_1750x1285.jpg",
+        "alt_text": "HP 250 G8"
+      }
+    ],
+    "stock": {
+      "units": 19,
+      "units_sold": 6,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Apple Magic Keyboard Français",
+    "category": "Accessoires informatiques",
+    "brand": "Apple",
+    "product_type": "Clavier",
+    "description": "Clavier sans fil compact AZERTY avec batterie rechargeable et pavé numérique.",
+    "price": 119.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Disposition", "value": "AZERTY" },
+      { "attribute_name": "Connexion", "value": "Bluetooth" }
+    ],
+    "images": [
+      {
+        "url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK2A3F/A?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1645110035719",
+        "alt_text": "Apple Magic Keyboard Français"
+      }
+    ],
+    "stock": {
+      "units": 17,
+      "units_sold": 4,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+  {
+    "name": "Acer Aspire C24-1650 All-in-One",
+    "category": "Ordinateurs de bureau",
+    "brand": "Acer",
+    "product_type": "Tout-en-un",
+    "description": "Ordinateur tout-en-un ultra-fin, écran 23,8 pouces Full HD, Intel Core i3, 8 Go RAM.",
+    "price": 699.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Type", "value": "All-in-one" },
+      { "attribute_name": "Taille écran", "value": "23,8 pouces" }
+    ],
+    "images": [
+      {
+        "url": "https://static.acer.com/up/Resource/Aspire/All-In-One/Aspire_C24-1650/Images/20210224/AspireC24-1650_bl_01a.png",
+        "alt_text": "Acer Aspire C24-1650"
+      }
+    ],
+    "stock": {
+      "units": 12,
+      "units_sold": 2,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+   {
+    "name": "Brother HL-L3270CDW Imprimante laser couleur",
+    "category": "Imprimantes",
+    "brand": "Brother",
+    "product_type": "Imprimante",
+    "description": "Imprimante laser couleur rapide avec Wi-Fi et impression recto-verso automatique.",
+    "price": 320.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Vitesse", "value": "24 ppm" },
+      { "attribute_name": "Connectivité", "value": "Wi-Fi, USB" }
+    ],
+    "images": [
+      {
+        "url": "https://www.brother.fr/-/media/brother/product-cards/hl-l3270cdw_card.png",
+        "alt_text": "Brother HL-L3270CDW"
+      }
+    ],
+    "stock": {
+      "units": 27,
+      "units_sold": 6,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "MSI Optix MAG272CQR Écran incurvé 27 pouces",
+    "category": "Moniteurs",
+    "brand": "MSI",
+    "product_type": "Écran PC",
+    "description": "Écran incurvé QHD 165 Hz avec technologie FreeSync pour jeux immersifs.",
+    "price": 350.50,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille", "value": "27 pouces" },
+      { "attribute_name": "Fréquence", "value": "165 Hz" }
+    ],
+    "images": [
+      {
+        "url": "https://fr.msi.com/Moniteur/photo-gallery/MAG272CQR",
+        "alt_text": "MSI Optix MAG272CQR"
+      }
+    ],
+    "stock": {
+      "units": 13,
+      "units_sold": 4,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Western Digital My Passport 2 To",
+    "category": "Stockage",
+    "brand": "Western Digital",
+    "product_type": "Disque dur externe",
+    "description": "Disque dur portable USB 3.0 compact d’une capacité de 2 To pour sauvegardes rapides.",
+    "price": 85.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "2 To" },
+      { "attribute_name": "Interface", "value": "USB 3.0" }
+    ],
+    "images": [
+      {
+        "url": "https://www.westerndigital.com/content/dam/store/en-us/assets/products/portable-drives/my-passport-usb-3-0/gallery/black/angle-hero-mypassport-black.png",
+        "alt_text": "WD My Passport 2 To"
+      }
+    ],
+    "stock": {
+      "units": 39,
+      "units_sold": 11,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "TP-Link Deco M5 Pack de 3 WiFi Mesh",
+    "category": "Réseaux",
+    "brand": "TP-Link",
+    "product_type": "Répéteur Wi-Fi",
+    "description": "Système WiFi maison mesh triple pack, couvre jusqu’à 400 m² avec sécurité intégrée.",
+    "price": 150.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Type", "value": "WiFi Mesh" },
+      { "attribute_name": "Nombre d’unités", "value": "3" }
+    ],
+    "images": [
+      {
+        "url": "https://static.tp-link.com/Deco_M5_3-Pack_1.0_01_normal_1513897600421o.jpg",
+        "alt_text": "TP-Link Deco M5"
+      }
+    ],
+    "stock": {
+      "units": 21,
+      "units_sold": 3,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+  {
+    "name": "Philips 243V7QDSB/00 Moniteur 24 pouces",
+    "category": "Moniteurs",
+    "brand": "Philips",
+    "product_type": "Écran PC",
+    "description": "Écran full HD avec technologie IPS, ultra-fin pour poste de travail moderne.",
+    "price": 120.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille", "value": "24 pouces" },
+      { "attribute_name": "Technologie", "value": "IPS" }
+    ],
+    "images": [
+      {
+        "url": "https://www.download.p4c.philips.com/files/2/243v7qdsb_00/243v7qdsb_00_pss_frfr.jpg",
+        "alt_text": "Philips 243V7QDSB"
+      }
+    ],
+    "stock": {
+      "units": 31,
+      "units_sold": 7,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+  {
+    "name": "Canon PIXMA TS8350A Imprimante Multifonction",
+    "category": "Imprimantes",
+    "brand": "Canon",
+    "product_type": "Imprimante multifonction",
+    "description": "Imprimante couleur compacte avec impression, copie et scanner intégrés, Wi-Fi.",
+    "price": 175.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Technologie", "value": "Jet d’encre" },
+      { "attribute_name": "Connectivité", "value": "Wi-Fi" }
+    ],
+    "images": [
+      {
+        "url": "https://www.canon.fr/media/ts8350a-front-slant-black_tcm79-2069297.png",
+        "alt_text": "Canon PIXMA TS8350A"
+      }
+    ],
+    "stock": {
+      "units": 14,
+      "units_sold": 2,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "Kingston A400 SSD 480 Go",
+    "category": "Composants informatiques",
+    "brand": "Kingston",
+    "product_type": "SSD",
+    "description": "SSD fiable 2,5'' SATA de 480 Go pour booster la réactivité des PC portables et fixes.",
+    "price": 44.99,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "480 Go" },
+      { "attribute_name": "Format", "value": "2,5 pouces" }
+    ],
+    "images": [
+      {
+        "url": "https://media.kingston.com/kingston/product/FKC-SUV400S37-480G-1_zm.jpg",
+        "alt_text": "Kingston A400 SSD"
+      }
+    ],
+    "stock": {
+      "units": 54,
+      "units_sold": 8,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "HP 250 G8 Ordinateur portable",
+    "category": "Ordinateurs portables",
+    "brand": "HP",
+    "product_type": "Portable",
+    "description": "Portable léger 15,6 pouces idéal pour étudiants et télétravail, Intel Core i5, 8 Go RAM.",
+    "price": 619.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille d’écran", "value": "15,6 pouces" },
+      { "attribute_name": "RAM", "value": "8 Go" }
+    ],
+    "images": [
+      {
+        "url": "https://store.hp.com/FranceStore/Html/Merch/Images/c06581201_1750x1285.jpg",
+        "alt_text": "HP 250 G8"
+      }
+    ],
+    "stock": {
+      "units": 19,
+      "units_sold": 6,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Apple Magic Keyboard Français",
+    "category": "Accessoires informatiques",
+    "brand": "Apple",
+    "product_type": "Clavier",
+    "description": "Clavier sans fil compact AZERTY avec batterie rechargeable et pavé numérique.",
+    "price": 119.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Disposition", "value": "AZERTY" },
+      { "attribute_name": "Connexion", "value": "Bluetooth" }
+    ],
+    "images": [
+      {
+        "url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK2A3F/A?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1645110035719",
+        "alt_text": "Apple Magic Keyboard Français"
+      }
+    ],
+    "stock": {
+      "units": 17,
+      "units_sold": 4,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+  {
+    "name": "Acer Aspire C24-1650 All-in-One",
+    "category": "Ordinateurs de bureau",
+    "brand": "Acer",
+    "product_type": "Tout-en-un",
+    "description": "Ordinateur tout-en-un ultra-fin, écran 23,8 pouces Full HD, Intel Core i3, 8 Go RAM.",
+    "price": 699.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Type", "value": "All-in-one" },
+      { "attribute_name": "Taille écran", "value": "23,8 pouces" }
+    ],
+    "images": [
+      {
+        "url": "https://static.acer.com/up/Resource/Aspire/All-In-One/Aspire_C24-1650/Images/20210224/AspireC24-1650_bl_01a.png",
+        "alt_text": "Acer Aspire C24-1650"
+      }
+    ],
+    "stock": {
+      "units": 12,
+      "units_sold": 2,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },{
+    "name": "Dell UltraSharp U2723QE Moniteur 27 pouces 4K",
+    "category": "Moniteurs",
+    "brand": "Dell",
+    "product_type": "Écran PC",
+    "description": "Moniteur professionnel IPS 4K Ultra HD, connectique USB-C, idéal pour le graphisme.",
+    "price": 619.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille", "value": "27 pouces" },
+      { "attribute_name": "Résolution", "value": "3840 x 2160" }
+    ],
+    "images": [
+      {
+        "url": "https://i.dell.com/sites/imagecontent/products/PublishingImages/monitors/dell/u2723qe/monitor-dell-u2723qe-gallery-4.jpg",
+        "alt_text": "Dell UltraSharp U2723QE"
+      }
+    ],
+    "stock": {
+      "units": 22,
+      "units_sold": 5,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "Samsung Galaxy Tab S8 Plus",
+    "category": "Tablettes",
+    "brand": "Samsung",
+    "product_type": "Tablette tactile",
+    "description": "Tablette Android 12, écran Super AMOLED 12,4 pouces, 128 Go, S Pen inclus.",
+    "price": 849.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille d’écran", "value": "12,4 pouces" },
+      { "attribute_name": "Mémoire", "value": "8 Go" }
+    ],
+    "images": [
+      {
+        "url": "https://images.samsung.com/is/image/samsung/p6pim/fr/2202/gallery/fr-galaxy-tab-s8-plus-gsm-t735-sm-t735nzaaeue-530293328",
+        "alt_text": "Samsung Galaxy Tab S8 Plus"
+      }
+    ],
+    "stock": {
+      "units": 18,
+      "units_sold": 3,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "Epson EcoTank ET-3850 Imprimante Multifonction",
+    "category": "Imprimantes",
+    "brand": "Epson",
+    "product_type": "Imprimante multifonction",
+    "description": "Jet d’encre 3-en-1 sans cartouche avec Wi-Fi et chargeur automatique de documents.",
+    "price": 329.95,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Technologie", "value": "Jet d'encre sans cartouche" },
+      { "attribute_name": "Fonctionnalités", "value": "Impression, copie, scan" }
+    ],
+    "images": [
+      {
+        "url": "https://assets.epson.eu/img/product/models/eco-tank/et-3850/EcoTank_ET-3850_front_690x460.jpg",
+        "alt_text": "Epson EcoTank ET-3850"
+      }
+    ],
+    "stock": {
+      "units": 15,
+      "units_sold": 2,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+  {
+    "name": "HP ProBook 450 G9",
+    "category": "Ordinateurs portables",
+    "brand": "HP",
+    "product_type": "Portable",
+    "description": "PC portable pour PME, Intel Core i5-1235U, 8 Go RAM, 512 Go SSD, écran 15,6 pouces.",
+    "price": 889.95,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Taille d’écran", "value": "15,6 pouces" },
+      { "attribute_name": "Processeur", "value": "Intel Core i5-1235U" }
+    ],
+    "images": [
+      {
+        "url": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c07662466.png",
+        "alt_text": "HP ProBook 450 G9"
+      }
+    ],
+    "stock": {
+      "units": 16,
+      "units_sold": 4,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Toshiba Canvio Basics 1 To USB 3.2",
+    "category": "Stockage",
+    "brand": "Toshiba",
+    "product_type": "Disque dur externe",
+    "description": "Disque dur portable 1 To, USB 3.2, compact et sans alimentation externe.",
+    "price": 47.50,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Capacité", "value": "1 To" },
+      { "attribute_name": "Interface", "value": "USB 3.2" }
+    ],
+    "images": [
+      {
+        "url": "https://www.toshiba-storage.com/wp-content/uploads/2018/06/Canvio-Basics-A3-1TB-black-HDDB4A3AZA10_range.png",
+        "alt_text": "Toshiba Canvio Basics 1 To"
+      }
+    ],
+    "stock": {
+      "units": 60,
+      "units_sold": 20,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  },
+  {
+    "name": "Yealink T54W Téléphone IP sans fil",
+    "category": "Téléphonie",
+    "brand": "Yealink",
+    "product_type": "Téléphone IP",
+    "description": "Téléphone professionnel VoIP, écran couleur réglable, Wi-Fi, Bluetooth intégré.",
+    "price": 199.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Connexions", "value": "Wi-Fi, Bluetooth" },
+      { "attribute_name": "Écran", "value": "Couleur 4.3 pouces" }
+    ],
+    "images": [
+      {
+        "url": "https://www.yealink.com/upfiles/products/201910/15710422922183972.png",
+        "alt_text": "Yealink T54W"
+      }
+    ],
+    "stock": {
+      "units": 20,
+      "units_sold": 7,
+      "warehouse_name": "Banfora Regional Warehouse"
+    }
+  },
+  {
+    "name": "Intel NUC 11 Essential Mini-PC",
+    "category": "Ordinateurs de bureau",
+    "brand": "Intel",
+    "product_type": "Mini-PC",
+    "description": "Mini ordinateur de bureau ultra-compact avec Celeron N5105 et Windows 11 Pro.",
+    "price": 335.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Format", "value": "Mini-PC" },
+      { "attribute_name": "Système", "value": "Windows 11 Pro" }
+    ],
+    "images": [
+      {
+        "url": "https://www.intel.fr/content/dam/products/servers/nuc/nuc-11-essential/chiclet/nuc11atkc4-frontangle-c1-rwd.png",
+        "alt_text": "Intel NUC 11 Essential"
+      }
+    ],
+    "stock": {
+      "units": 9,
+      "units_sold": 1,
+      "warehouse_name": "Ouagadougou Central Warehouse"
+    }
+  },
+  {
+    "name": "Aruba Instant On 1930 Switch 24G 4SFP+",
+    "category": "Réseaux",
+    "brand": "Aruba",
+    "product_type": "Switch",
+    "description": "Switch géré à 24 ports Gigabit pour PME, 4 ports fibre SFP+.",
+    "price": 359.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Ports", "value": "24 RJ45 + 4 SFP+" },
+      { "attribute_name": "Fonction", "value": "Switch manageable" }
+    ],
+    "images": [
+      {
+        "url": "https://www.arubainstanton.com/wp-content/uploads/2020/01/aruba-instant-on-switch-1930.png",
+        "alt_text": "Aruba 1930 Switch"
+      }
+    ],
+    "stock": {
+      "units": 26,
+      "units_sold": 4,
+      "warehouse_name": "Koudougou Depot"
+    }
+  },
+  {
+    "name": "Microsoft Surface Laptop Go 2 Bleu glacier",
+    "category": "Ordinateurs portables",
+    "brand": "Microsoft",
+    "product_type": "Portable",
+    "description": "PC portable léger 12,4 pouces, Intel Core i5, 8 Go RAM, SSD 256 Go.",
+    "price": 679.00,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Couleur", "value": "Bleu glacier" },
+      { "attribute_name": "Stockage", "value": "256 Go SSD" }
+    ],
+    "images": [
+      {
+        "url": "https://c.s-microsoft.com/fr-fr/CMSImages/Surface-Laptop-Go-2_Light-Blue_Gallery-2.jpg",
+        "alt_text": "Surface Laptop Go 2"
+      }
+    ],
+    "stock": {
+      "units": 14,
+      "units_sold": 6,
+      "warehouse_name": "Ouahigouya Logistics Center"
+    }
+  },
+  {
+    "name": "Logitech H340 Casque USB",
+    "category": "Audio & Communication",
+    "brand": "Logitech",
+    "product_type": "Casque filaire",
+    "description": "Casque stéréo USB confortable pour appels et visio, micro anti-bruit pivotant.",
+    "price": 27.90,
+    "is_active": true,
+    "attributes": [
+      { "attribute_name": "Connectivité", "value": "USB filaire" },
+      { "attribute_name": "Micro", "value": "Oui, anti-bruit" }
+    ],
+    "images": [
+      {
+        "url": "https://resource.logitech.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/headsets/h340/gallery/h340-gallery-1.png?v=1",
+        "alt_text": "Logitech H340"
+      }
+    ],
+    "stock": {
+      "units": 35,
+      "units_sold": 11,
+      "warehouse_name": "Bobo-Dioulasso Storage"
+    }
+  }
+
 ]
