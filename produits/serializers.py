@@ -140,9 +140,9 @@ class ProductSerializer(serializers.ModelSerializer):
     product_type = ProductTypeSerializer(read_only=True)
     product_type_id = serializers.PrimaryKeyRelatedField(queryset=ProductType.objects.all(), source='product_type', write_only=True)
 
-    attribute_values = ProductAttributeValueReadSerializer(many=True, read_only=True)  # lecture imbriquée
+    attribute_values = ProductAttributeValueReadSerializer(many=True, read_only=True)
     images = ProductImageSerializer(many=True, read_only=True)
-    stocks = StockSerializer(many=True, read_only=True)
+    stocks = StockSerializer(many=True, read_only=True, source='stock_set')  # <-- Ajout important
 
     class Meta:
         model = Product
@@ -153,3 +153,4 @@ class ProductSerializer(serializers.ModelSerializer):
             'created_at', 'updated_at',
             'attribute_values', 'images', 'stocks'
         ]
+
