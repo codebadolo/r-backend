@@ -8,6 +8,13 @@ from .models import (
 )
 from unfold.admin import ModelAdmin ,TabularInline
 
+
+admin.site.register(Category)
+admin.site.register(Brand)
+
+admin.site.register(ProductImage)
+
+
 # Enregistrement admin du modèle ProductAttributeOption nécessaire pour autocomplete_fields
 @admin.register(ProductAttributeOption)
 class ProductAttributeOptionAdmin(ModelAdmin):

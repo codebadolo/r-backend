@@ -16,9 +16,18 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'parent']
 
 class BrandSerializer(serializers.ModelSerializer):
+    logo = serializers.SerializerMethodField()
+
     class Meta:
         model = Brand
         fields = ['id', 'name', 'logo']
+
+    def get_logo(self, obj):
+        request = self.context.get('request')
+        if obj.logo and hasattr(obj.logo, 'url'):
+            return request.build_absolute_uri(obj.logo.url)
+        return None
+
 
 class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:

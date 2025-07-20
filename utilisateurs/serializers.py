@@ -21,28 +21,27 @@ class RoleSerializer(serializers.ModelSerializer):
         model = Role
         fields = ['id', 'name', 'description']
 class UserSerializer(serializers.ModelSerializer):
-    roles = RoleSerializer(many=True, read_only=True, source='user_roles.role')
+    roles = serializers.SerializerMethodField()
 
     class Meta:
         model = User
-        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'date_joined' , 'roles']
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'date_joined', 'roles']
 
     def get_roles(self, obj):
-        return RoleSerializer(
-            [ur.role for ur in obj.user_roles.all()],
-            many=True
-        ).data
+        return RoleSerializer([ur.role for ur in obj.user_roles.all()], many=True).data
+
 
 
 class UserRoleSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
-    role = RoleSerializer(read_only=True)
+    role = RoleSerializer(read_only=True)  # décommenté ici
     user_id = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), source='user', write_only=True)
-    role_id = serializers.PrimaryKeyRelatedField(queryset=Role.objects.all(), source='role', write_only=True)
+    role_id = serializers.PrimaryKeyRelatedField(queryset=Role.objects.all(), source='role', write_only=True)  # Ajoutez role_id
 
     class Meta:
         model = UserRole
         fields = ['id', 'user', 'role', 'assigned_at', 'user_id', 'role_id']
+
 
 class PermissionSerializer(serializers.ModelSerializer):
     class Meta:

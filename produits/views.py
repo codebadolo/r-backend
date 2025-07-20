@@ -36,13 +36,17 @@ class CategoryRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView
 class BrandListCreateAPIView(generics.ListCreateAPIView):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
+    parser_classes = (MultiPartParser, FormParser)  # Important pour 
 
-
+    def get_serializer_context(self):
+        return {'request': self.request}
 class BrandRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
+    parser_classes = (MultiPartParser, FormParser)  # Important pour 
 
-
+    def get_serializer_context(self):
+        return {'request': self.request}
 # PRODUCT TYPE
 class ProductTypeListCreateAPIView(generics.ListCreateAPIView):
     queryset = ProductType.objects.all()

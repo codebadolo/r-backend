@@ -37,6 +37,7 @@ class LoginAPIView(APIView):
 # users/views.py
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
+
 from rest_framework.decorators import api_view, permission_classes
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -57,21 +58,49 @@ class LogoutAPIView(APIView):
         # Supprime le token pour déconnecter l’utilisateur
         Token.objects.filter(user=request.user).delete()
         return Response({"detail": "Déconnexion réussie"}, status=status.HTTP_200_OK)
-
+from django.db.models import Prefetch
+from rest_framework.decorators import action
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.all().prefetch_related(
+        Prefetch('user_roles', queryset=UserRole.objects.select_related('role'))
+    )
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
+    @action(detail=True, methods=['get'], url_path='roles')
+    def roles(self, request, pk=None):
+        user = self.get_object()
+        roles = user.user_roles.all().select_related('role')
+        serialized_roles = RoleSerializer([ur.role for ur in roles], many=True)
+        return Response(serialized_roles.data)
+    @action(detail=False, methods=['get', 'patch'], permission_classes=[permissions.IsAuthenticated])
+    def me(self, request):
+        user = request.user
+
+        if request.method == 'GET':
+            serializer = self.get_serializer(user)
+            return Response(serializer.data)
+
+        elif request.method == 'PATCH':
+            serializer = self.get_serializer(user, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
 
 class RoleViewSet(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class UserRoleViewSet(viewsets.ModelViewSet):
-    queryset = UserRole.objects.all()
-    serializer_class = UserRoleSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class UserRolesViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = RoleSerializer
+
+    def get_queryset(self):
+        user_id = self.kwargs['id']
+        return Role.objects.filter(role_users__user__id=user_id)
+
+
+
 
 class PermissionViewSet(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
