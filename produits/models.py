@@ -1,5 +1,5 @@
 from django.db import models
-
+from storer import settings
 class Category(models.Model):
     nom = models.CharField(max_length=255)
     parent_category = models.ForeignKey(
@@ -144,4 +144,4 @@ class StockMovement(models.Model):
     quantite = models.IntegerField()
     date_mouvement = models.DateTimeField(auto_now_add=True)
     commentaire = models.TextField(blank=True, null=True)
-    user = models.ForeignKey('auth.User', null=True, blank=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)

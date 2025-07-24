@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from commandes.models import Commande
+from produits.models import Product,Category
 Utilisateur = get_user_model()
 
 class Promotion(models.Model):
@@ -49,8 +50,8 @@ class ConditionPromotion(models.Model):
     Condition d’éligibilité à une promotion spécifique.
     """
     promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, related_name='conditions')
-    produit = models.ForeignKey('catalogue.Produit', null=True, blank=True, on_delete=models.CASCADE)
-    categorie = models.ForeignKey('catalogue.Categorie', null=True, blank=True, on_delete=models.CASCADE)
+    produit = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
+    categorie = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     montant_min_panier = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     utilisateur = models.ForeignKey(Utilisateur, null=True, blank=True, on_delete=models.CASCADE)
     nb_utilisations_par_utilisateur = models.PositiveIntegerField(null=True, blank=True)
@@ -73,7 +74,7 @@ class ApplicationPromotion(models.Model):
     Enregistrement de l'utilisation d'une promotion sur une commande.
     """
     promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, related_name='applications')
-    commande = models.ForeignKey('commandes.Commande', on_delete=models.CASCADE, related_name='promotions_appliquees')
+    commande = models.ForeignKey(Commande, on_delete=models.CASCADE, related_name='promotions_appliquees')
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
     montant_remise = models.DecimalField(max_digits=10, decimal_places=2)
     date_application = models.DateTimeField(auto_now_add=True)
@@ -121,7 +122,7 @@ class UsageCoupon(models.Model):
     """
     coupon = models.ForeignKey(Coupon, on_delete=models.CASCADE, related_name='usages')
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
-    commande = models.ForeignKey('commandes.Commande', on_delete=models.CASCADE)
+    commande = models.ForeignKey(Commande, on_delete=models.CASCADE)
     date_utilisation = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

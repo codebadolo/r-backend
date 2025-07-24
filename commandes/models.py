@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from produits.models import Product , ProductVariant
 Utilisateur = get_user_model()
 
 class Adresse(models.Model):
@@ -42,8 +42,8 @@ class ElementPanier(models.Model):
     Ligne du panier : produit + variante + quantité
     """
     panier = models.ForeignKey(Panier, on_delete=models.CASCADE, related_name='elements')
-    produit = models.ForeignKey('catalogue.Produit', on_delete=models.PROTECT)
-    variante = models.ForeignKey('catalogue.VarianteProduit', null=True, blank=True, on_delete=models.PROTECT)
+    produit = models.ForeignKey(Product, on_delete=models.PROTECT)
+    variante = models.ForeignKey(ProductVariant, null=True, blank=True, on_delete=models.PROTECT)
     quantite = models.PositiveIntegerField(default=1)
 
     def prix_unitaire(self):
@@ -104,8 +104,8 @@ class ElementCommande(models.Model):
     Ligne détaillée d’une commande : produit, variante et quantités
     """
     commande = models.ForeignKey(Commande, on_delete=models.CASCADE, related_name='elements')
-    produit = models.ForeignKey('catalogue.Produit', on_delete=models.PROTECT)
-    variante = models.ForeignKey('catalogue.VarianteProduit', null=True, blank=True, on_delete=models.PROTECT)
+    produit = models.ForeignKey(Product, on_delete=models.PROTECT)
+    variante = models.ForeignKey(ProductVariant, null=True, blank=True, on_delete=models.PROTECT)
     quantite = models.PositiveIntegerField(default=1)
     prix_unitaire = models.DecimalField(max_digits=10, decimal_places=2)
     prix_total = models.DecimalField(max_digits=10, decimal_places=2)

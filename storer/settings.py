@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'utilisateurs',
     'commandes',
     'livraisons',
+    'marketing',
     'paiements',
     'promotions',
     'avis',
