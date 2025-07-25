@@ -2,24 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from produits.models import Product , ProductVariant
 Utilisateur = get_user_model()
-
-class Adresse(models.Model):
-    """
-    Adresse de facturation ou de livraison liée à un utilisateur
-    """
-    utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE, related_name='adresses')
-    nom_complet = models.CharField(max_length=255)
-    adresse_ligne1 = models.CharField(max_length=255)
-    adresse_ligne2 = models.CharField(max_length=255, blank=True)
-    ville = models.CharField(max_length=100)
-    code_postal = models.CharField(max_length=20)
-    pays = models.CharField(max_length=100)
-    telephone = models.CharField(max_length=20, blank=True)
-    est_facturation = models.BooleanField(default=False)
-    est_livraison = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f"{self.nom_complet} - {self.adresse_ligne1}, {self.ville}"
+from utilisateurs.models import Adresse
 
 
 class Panier(models.Model):
@@ -84,8 +67,8 @@ class Commande(models.Model):
     statut = models.CharField(max_length=20, choices=STATUTS, default='en_attente')
     mode_paiement = models.CharField(max_length=30, choices=MODES_PAIEMENT)
     paiement_valide = models.BooleanField(default=False)
-    adresse_livraison = models.ForeignKey(Adresse, related_name='livraisons', on_delete=models.PROTECT)
-    adresse_facturation = models.ForeignKey(Adresse, related_name='facturations', on_delete=models.PROTECT)
+    adresse_livraison = models.ForeignKey(Adresse, related_name='commandes_livraison', on_delete=models.PROTECT)
+    adresse_facturation = models.ForeignKey(Adresse, related_name='commandes_facturation', on_delete=models.PROTECT)
     telephone = models.CharField(max_length=20)
     prix_total = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     commentaire = models.TextField(blank=True, null=True)

@@ -1,24 +1,9 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from utilisateurs.models import Adresse
 
 Utilisateur = get_user_model()
 
-class AdresseLivraison(models.Model):
-    """
-    Adresse où l'on livre les commandes.
-    """
-    utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE, related_name='adresses_livraison')
-    nom_complet = models.CharField(max_length=255)
-    adresse_ligne1 = models.CharField(max_length=255)
-    adresse_ligne2 = models.CharField(max_length=255, blank=True, null=True)
-    ville = models.CharField(max_length=100)
-    code_postal = models.CharField(max_length=20)
-    pays = models.CharField(max_length=100)
-    telephone = models.CharField(max_length=20, blank=True, null=True)
-    instructions_livraison = models.TextField(blank=True, null=True)  # ex : "sonner à l'interphone"
-
-    def __str__(self):
-        return f"{self.nom_complet} - {self.adresse_ligne1}, {self.ville}"
 
 
 class Transporteur(models.Model):
@@ -57,7 +42,7 @@ class Expedition(models.Model):
     """
     commande = models.OneToOneField('commandes.Commande', on_delete=models.CASCADE, related_name='expedition')
     mode_livraison = models.ForeignKey(ModeLivraison, on_delete=models.PROTECT)
-    adresse_livraison = models.ForeignKey(AdresseLivraison, on_delete=models.PROTECT)
+    adresse_livraison = models.ForeignKey(Adresse, on_delete=models.PROTECT)
     numero_suivi = models.CharField(max_length=100, blank=True, null=True)
     date_expedition = models.DateTimeField(blank=True, null=True)
     date_livraison_prevue = models.DateTimeField(blank=True, null=True)
