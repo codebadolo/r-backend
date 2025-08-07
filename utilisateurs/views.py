@@ -1,113 +1,192 @@
-from django.shortcuts import render
+from rest_framework import viewsets, generics, status, permissions
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.contrib.auth import authenticate
+from rest_framework_simplejwt.tokens import RefreshToken
+from .serializers import *
+from django.contrib.auth import get_user_model
 
-# Create your views here.
-from rest_framework import viewsets, permissions
-from .models import User, Role, UserRole, Permission, RolePermission
-from .serializers import UserSerializer, RoleSerializer, UserRoleSerializer, PermissionSerializer, RolePermissionSerializer
+User = get_user_model()
 
-# users/views.py
+# Inscription d’un utilisateur
+class UserRegistrationView(generics.CreateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, permissions
+from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
-from .serializers import LoginSerializer
-from rest_framework.permissions import AllowAny
+from .serializers import UserSerializer
+
 class LoginAPIView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.AllowAny]
+
     def post(self, request):
-        serializer = LoginSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
+        email = request.data.get('email')
+        password = request.data.get('password')
 
-        # Création ou récupération du token
-        token, created = Token.objects.get_or_create(user=user)
+        if email is None or password is None:
+            return Response({'detail': 'Email et mot de passe requis.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Renvoyer token et infos utilisateur (ex: rôles)
-        roles = user.user_roles.values_list('role__name', flat=True)
-        return Response({
-            'token': token.key,
-            'user': {
-                'email': user.email,
-                'first_name': user.first_name,
-                'last_name': user.last_name,
-                'roles': list(roles),
-            }
-        })
+        # Authentification via email comme username
+        user = authenticate(request, username=email, password=password)
 
-# users/views.py
+        if user is not None:
+            if not user.is_active:
+                return Response({'detail': 'Compte désactivé.'}, status=status.HTTP_403_FORBIDDEN)
+
+            # Obtient ou crée un token TokenAuthentication
+            token, created = Token.objects.get_or_create(user=user)
+
+            serializer = UserSerializer(user)
+
+            return Response({
+                'token': token.key,
+                'user': serializer.data
+            }, status=status.HTTP_200_OK)
+
+        return Response({'detail': 'Identifiants invalides.'}, status=status.HTTP_401_UNAUTHORIZED)
+
+# Détail et mise à jour du profil utilisateur connecté uniquement
+class UserDetailView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+# Gestion des rôles attribués aux utilisateurs (list, add, remove)
+class UserRoleViewSet(viewsets.ModelViewSet):
+    serializer_class = UserRoleSerializer
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+
+    def get_queryset(self):
+        return UserRole.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+# Gestion des adresses
+class AdresseViewSet(viewsets.ModelViewSet):
+    serializer_class = AdresseSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Adresse.objects.filter(utilisateur=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(utilisateur=self.request.user)
+
+# Gestion profils entreprise et particulier (création / mise à jour par utilisateur)
+class ProfilEntrepriseViewSet(viewsets.ModelViewSet):
+    serializer_class = ProfilEntrepriseSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return ProfilEntreprise.objects.filter(utilisateur=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(utilisateur=self.request.user)
+
+class ProfilParticulierViewSet(viewsets.ModelViewSet):
+    serializer_class = ProfilParticulierSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return ProfilParticulier.objects.filter(utilisateur=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(utilisateur=self.request.user)
+
+from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from rest_framework import status
 
-from rest_framework.decorators import api_view, permission_classes
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def user_profile(request):
-    user = request.user
-    roles = user.user_roles.values_list('role__name', flat=True)
-    data = {
-        'email': user.email,
-        'first_name': user.first_name,
-        'last_name': user.last_name,
-        'roles': list(roles),
-    }
-    return Response(data)
-class LogoutAPIView(APIView):
+class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        # Supprime le token pour déconnecter l’utilisateur
-        Token.objects.filter(user=request.user).delete()
-        return Response({"detail": "Déconnexion réussie"}, status=status.HTTP_200_OK)
-from django.db.models import Prefetch
-from rest_framework.decorators import action
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().prefetch_related(
-        Prefetch('user_roles', queryset=UserRole.objects.select_related('role'))
-    )
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    
-    @action(detail=True, methods=['get'], url_path='roles')
-    def roles(self, request, pk=None):
-        user = self.get_object()
-        roles = user.user_roles.all().select_related('role')
-        serialized_roles = RoleSerializer([ur.role for ur in roles], many=True)
-        return Response(serialized_roles.data)
-    @action(detail=False, methods=['get', 'patch'], permission_classes=[permissions.IsAuthenticated])
-    def me(self, request):
-        user = request.user
+        serializer = ChangePasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            user = request.user
+            if not user.check_password(serializer.validated_data['old_password']):
+                return Response({"old_password": ["Mot de passe actuel incorrect."]}, status=status.HTTP_400_BAD_REQUEST)
 
-        if request.method == 'GET':
-            serializer = self.get_serializer(user)
-            return Response(serializer.data)
+            user.set_password(serializer.validated_data['new_password'])
+            user.save()
+            return Response({"detail": "Mot de passe modifié avec succès."}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        elif request.method == 'PATCH':
-            serializer = self.get_serializer(user, data=request.data, partial=True)
-            serializer.is_valid(raise_exception=True)
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.conf import settings
 
-class RoleViewSet(viewsets.ModelViewSet):
-    queryset = Role.objects.all()
-    serializer_class = RoleSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class PasswordResetRequestView(APIView):
+    permission_classes = [permissions.AllowAny]
 
-class UserRolesViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = RoleSerializer
+    def post(self, request):
+        serializer = PasswordResetRequestSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            try:
+                user = User.objects.get(email=email)
+            except User.DoesNotExist:
+                # Ne pas révéler si l'email n'existe pas pour éviter fuite d'information
+                return Response({"detail": "Un mail de réinitialisation a été envoyé si cet email est enregistré."})
 
-    def get_queryset(self):
-        user_id = self.kwargs['id']
-        return Role.objects.filter(role_users__user__id=user_id)
+            token_generator = PasswordResetTokenGenerator()
+            token = token_generator.make_token(user)
+            uid = user.pk
 
+            # Construire l'URL de réinitialisation à envoyer par email
+            reset_url = request.build_absolute_uri(
+                reverse('password-reset-confirm') + f"?uid={uid}&token={token}"
+            )
 
+            # Envoi email (adapter sujet et corps selon votre front / template)
+            send_mail(
+                subject="Réinitialisation de votre mot de passe",
+                message=f"Pour réinitialiser votre mot de passe, veuillez cliquer sur ce lien : {reset_url}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[email],
+            )
+            return Response({"detail": "Un mail de réinitialisation a été envoyé."}, status=status.HTTP_200_OK)
 
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class PermissionViewSet(viewsets.ModelViewSet):
-    queryset = Permission.objects.all()
-    serializer_class = PermissionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
-class RolePermissionViewSet(viewsets.ModelViewSet):
-    queryset = RolePermission.objects.all()
-    serializer_class = RolePermissionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class PasswordResetConfirmView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        serializer = PasswordResetConfirmSerializer(data=request.data)
+        if serializer.is_valid():
+            uid = serializer.validated_data['uid']
+            token = serializer.validated_data['token']
+            new_password = serializer.validated_data['new_password']
+
+            try:
+                user = User.objects.get(pk=uid)
+            except User.DoesNotExist:
+                return Response({"detail": "Lien invalide."}, status=status.HTTP_400_BAD_REQUEST)
+
+            token_generator = PasswordResetTokenGenerator()
+            if not token_generator.check_token(user, token):
+                return Response({"detail": "Token invalide ou expiré."}, status=status.HTTP_400_BAD_REQUEST)
+
+            user.set_password(new_password)
+            user.save()
+            return Response({"detail": "Mot de passe réinitialisé avec succès."}, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
