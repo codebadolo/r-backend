@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.db import models
 
 
-# Gestionnaire personnalisé utilisateur (à garder)
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -23,7 +22,6 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-# Modèle utilisateur personnalisé
 class User(AbstractBaseUser, PermissionsMixin):
     TYPE_CLIENT_CHOIX = [
         ('particulier', 'Particulier'),
@@ -31,9 +29,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     ]
 
     email = models.EmailField(unique=True)
-    first_name = models.CharField(max_length=150, blank=True)
-    last_name = models.CharField(max_length=150, blank=True)
     type_client = models.CharField(max_length=20, choices=TYPE_CLIENT_CHOIX, default='particulier')
+    # Remarque : mot de passe géré via AbstractBaseUser (hashed + salt), pas besoin de champ supplémentaire ici
+    # Les noms fusionnés dans profils (voir plus bas)
+
     accepte_facture_electronique = models.BooleanField(default=False)
     accepte_cgv = models.BooleanField(default=False)
     telephone = models.CharField(max_length=20, blank=True, null=True)
@@ -43,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = []
 
     objects = UserManager()
 
@@ -51,7 +50,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-# Modèle pour stocker les numéros TVA validés pour un utilisateur
 class UserTVANumber(models.Model):
     utilisateur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='numero_tva_valides')
     numero_tva = models.CharField(max_length=30)
@@ -64,55 +62,76 @@ class UserTVANumber(models.Model):
     def __str__(self):
         return f"{self.numero_tva} ({self.pays})"
 
+class FormeJuridique(models.Model):
+    nom = models.CharField(max_length=100)
 
-# Modèle Adresse avec numéro TVA sous forme de clé étrangère vers UserTVANumber
+    def __str__(self):
+        return self.nom
+
+class RegimeFiscal(models.Model):
+    nom = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nom
+
+class DivisionFiscale(models.Model):
+    nom = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nom
+
+class Pays(models.Model):
+    nom = models.CharField(max_length=100)
+    code_telephone = models.CharField(max_length=10)  # Exemple : '+226' pour Burkina Faso
+
+    def __str__(self):
+        return self.nom
+
 class Adresse(models.Model):
     UTILISATION_CHOIX = [
         ('facturation', 'Facturation'),
         ('livraison', 'Livraison'),
     ]
 
+    TYPE_CLIENT_CHOIX = [
+        ('particulier', 'Particulier'),
+        ('entreprise', 'Entreprise'),
+    ]
+
     utilisateur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='adresses')
     utilisation = models.CharField(max_length=20, choices=UTILISATION_CHOIX)
+    type_client = models.CharField(max_length=20, choices=TYPE_CLIENT_CHOIX, default='particulier')
+
     nom_complet = models.CharField(max_length=255)
     telephone = models.CharField(max_length=20)
-    raison_sociale = models.CharField(max_length=255, blank=True, null=True)
-    numero_siret = models.CharField(max_length=20, blank=True, null=True)
-    numero_tva = models.ForeignKey(UserTVANumber, on_delete=models.SET_NULL, blank=True, null=True, related_name='adresses')  # << ici le lien vers les numéros TVA validés par l'utilisateur
+    raison_sociale = models.CharField(max_length=255, blank=True, null=True)  # Remplit si entreprise
 
+    numero_tva = models.ForeignKey(UserTVANumber, on_delete=models.SET_NULL, blank=True, null=True, related_name='adresses')
+
+    pays = models.ForeignKey(Pays, on_delete=models.PROTECT)
+    forme_juridique = models.ForeignKey(FormeJuridique, null=True, blank=True, on_delete=models.SET_NULL)
+    regime_fiscal = models.ForeignKey(RegimeFiscal, null=True, blank=True, on_delete=models.SET_NULL)
+    division_fiscale = models.ForeignKey(DivisionFiscale, null=True, blank=True, on_delete=models.SET_NULL)
+
+    rccm = models.CharField(max_length=100, blank=True, null=True)
+    ifu = models.CharField(max_length=100, blank=True, null=True)
     rue = models.CharField(max_length=255)
-    numero = models.CharField(max_length=10)
-    complement = models.CharField(max_length=255, blank=True, null=True)
+    numero = models.CharField(max_length=10, blank=True, null=True)
+
     ville = models.CharField(max_length=100)
     code_postal = models.CharField(max_length=20)
-    pays = models.CharField(max_length=100)
+ 
+
+    livraison_identique_facturation = models.BooleanField(default=False)  # Par exemple, pour gérer ce flag en adresse
 
     def __str__(self):
-        return f"{self.nom_complet} - {self.rue} {self.numero}, {self.ville}"
+        return f"{self.nom_complet} - {self.rue} {self.numero or ''}, {self.ville}"
 
 
-# Profils et rôles (à garder selon besoins précédents)
-
-class ProfilEntreprise(models.Model):
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profil_entreprise')
-    raison_sociale = models.CharField(max_length=255)
-    numero_siret = models.CharField(max_length=20, blank=True, null=True)
-    numero_tva = models.CharField(max_length=30, blank=True, null=True)  # peut être redondant mais utile pour rapide accès
-    adresse_societe = models.CharField(max_length=255, blank=True, null=True)
-    telephone_suppl = models.CharField(max_length=20, blank=True, null=True)
-
-    def __str__(self):
-        return f"Profil entreprise {self.raison_sociale} - {self.utilisateur.email}"
 
 
-class ProfilParticulier(models.Model):
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profil_particulier')
-    date_naissance = models.DateField(blank=True, null=True)
 
-    def __str__(self):
-        return f"Profil particulier {self.utilisateur.email}"
-
-
+# Rôles, permissions, historiques (inchangé par rapport à votre base)
 class Role(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
@@ -150,6 +169,7 @@ class RolePermission(models.Model):
 
     def __str__(self):
         return f"{self.role.name} - {self.permission.code}"
+
 
 
 class HistoriqueConnexion(models.Model):

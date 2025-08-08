@@ -172,3 +172,62 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+from django.templatetags.static import static
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+UNFOLD_CONFIG = {
+    'SIDEBAR': [
+        {
+            'label': 'Gestion des utilisateurs',
+            'icon': 'person',  # icône Material Icons
+            'children': [
+                {
+                    'label': 'Utilisateurs',
+                    'url': '/admin/utilisateurs/user/',  # ajustez "yourapp" selon votre app Django
+                    'icon': 'people',
+                },
+                {
+                    'label': 'Rôles',
+                    'url': '/admin/yourapp/role/',
+                    'icon': 'vpn_key',
+                },
+                {
+                    'label': 'Permissions',
+                    'url': '/admin/yourapp/permission/',
+                    'icon': 'security',
+                },
+            ],
+        },
+        {
+            'label': 'Profils et Adresses',
+            'icon': 'account_box',
+            'children': [
+                {
+                    'label': 'Profils entreprise',
+                    'url': '/admin/yourapp/profilentreprise/',
+                    'icon': 'business',
+                },
+                {
+                    'label': 'Profils particulier',
+                    'url': '/admin/yourapp/profilparticulier/',
+                    'icon': 'badge',
+                },
+                {
+                    'label': 'Adresses',
+                    'url': '/admin/yourapp/adresse/',
+                    'icon': 'location_on',
+                },
+                {
+                    'label': 'Numéros TVA',
+                    'url': '/admin/yourapp/usertvanumber/',
+                    'icon': 'credit_card',
+                },
+            ],
+        },
+        {
+            'label': 'Historique et Connexions',
+            'icon': 'history',
+            'url': '/admin/yourapp/historiqueconnexion/',
+        },
+    ],
+}

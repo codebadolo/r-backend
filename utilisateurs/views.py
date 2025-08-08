@@ -1,12 +1,19 @@
 from rest_framework import viewsets, generics, status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.contrib.auth import authenticate
-from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate, get_user_model
+from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.conf import settings
+
 from .serializers import *
-from django.contrib.auth import get_user_model
+from .models import UserTVANumber, UserRole, Adresse
 
 User = get_user_model()
+
 
 # Inscription d’un utilisateur
 class UserRegistrationView(generics.CreateAPIView):
@@ -14,11 +21,19 @@ class UserRegistrationView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
 
 
+# CRUD complet sur les utilisateurs (accessible uniquement aux utilisateurs authentifiés)
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    # Si besoin, restreindre la visibilité selon droits ou utilisateur connecté
+
+class RoleViewSet(viewsets.ModelViewSet):
+    queryset = Role.objects.all()
+    serializer_class = RoleSerializer
+    permission_classes = [permissions.IsAuthenticated]  # ou AllowAny selon 
+# Authentification via email + mot de passe avec TokenAuth DRF
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
@@ -55,7 +70,7 @@ class LoginAPIView(APIView):
 
         return Response({'detail': 'Identifiants invalides.'}, status=status.HTTP_401_UNAUTHORIZED)
 
-# Détail et mise à jour du profil utilisateur connecté uniquement
+# Récupération et mise à jour du profil utilisateur connecté uniquement ("Mon profil")
 class UserDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -63,7 +78,8 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
     def get_object(self):
         return self.request.user
 
-# Gestion des rôles attribués aux utilisateurs (list, add, remove)
+
+# Gestion des rôles utilisateurs (CRUD complet) - réservé aux admins
 class UserRoleViewSet(viewsets.ModelViewSet):
     serializer_class = UserRoleSerializer
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
@@ -72,45 +88,50 @@ class UserRoleViewSet(viewsets.ModelViewSet):
         return UserRole.objects.all()
 
     def perform_create(self, serializer):
+        # Optionnel : vous pouvez modifier qui est assigné selon votre logique
         serializer.save(user=self.request.user)
 
-# Gestion des adresses
+
 class AdresseViewSet(viewsets.ModelViewSet):
+    queryset = Adresse.objects.all()
     serializer_class = AdresseSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Adresse.objects.filter(utilisateur=self.request.user)
+        # Par exemple, filtrer par utilisateur connecté
+        user = self.request.user
+        return Adresse.objects.filter(utilisateur=user)
 
     def perform_create(self, serializer):
+        # Assigne automatiquement l’utilisateur connecté
         serializer.save(utilisateur=self.request.user)
 
-# Gestion profils entreprise et particulier (création / mise à jour par utilisateur)
-class ProfilEntrepriseViewSet(viewsets.ModelViewSet):
-    serializer_class = ProfilEntrepriseSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        return ProfilEntreprise.objects.filter(utilisateur=self.request.user)
+class PaysViewSet(viewsets.ModelViewSet):
+    queryset = Pays.objects.all()
+    serializer_class = PaysSerializer
+    permission_classes = [permissions.AllowAny]  # Liste ouverte
 
-    def perform_create(self, serializer):
-        serializer.save(utilisateur=self.request.user)
 
-class ProfilParticulierViewSet(viewsets.ModelViewSet):
-    serializer_class = ProfilParticulierSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class FormeJuridiqueViewSet(viewsets.ModelViewSet):
+    queryset = FormeJuridique.objects.all()
+    serializer_class = FormeJuridiqueSerializer
+    permission_classes = [permissions.AllowAny]
 
-    def get_queryset(self):
-        return ProfilParticulier.objects.filter(utilisateur=self.request.user)
 
-    def perform_create(self, serializer):
-        serializer.save(utilisateur=self.request.user)
+class RegimeFiscalViewSet(viewsets.ModelViewSet):
+    queryset = RegimeFiscal.objects.all()
+    serializer_class = RegimeFiscalSerializer
+    permission_classes = [permissions.AllowAny]
 
-from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework import status
 
+class DivisionFiscaleViewSet(viewsets.ModelViewSet):
+    queryset = DivisionFiscale.objects.all()
+    serializer_class = DivisionFiscaleSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+# Changement de mot de passe utilisateur authentifié
 class ChangePasswordView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -118,63 +139,69 @@ class ChangePasswordView(APIView):
         serializer = ChangePasswordSerializer(data=request.data)
         if serializer.is_valid():
             user = request.user
-            if not user.check_password(serializer.validated_data['old_password']):
-                return Response({"old_password": ["Mot de passe actuel incorrect."]}, status=status.HTTP_400_BAD_REQUEST)
-
-            user.set_password(serializer.validated_data['new_password'])
+            if not user.check_password(serializer.validated_data["old_password"]):
+                return Response(
+                    {"old_password": ["Mot de passe actuel incorrect."]},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            user.set_password(serializer.validated_data["new_password"])
             user.save()
-            return Response({"detail": "Mot de passe modifié avec succès."}, status=status.HTTP_200_OK)
+            return Response(
+                {"detail": "Mot de passe modifié avec succès."}, status=status.HTTP_200_OK
+            )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.core.mail import send_mail
-from django.urls import reverse
-from django.conf import settings
 
+# Demande de réinitialisation du mot de passe (envoi d'email)
 class PasswordResetRequestView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         serializer = PasswordResetRequestSerializer(data=request.data)
         if serializer.is_valid():
-            email = serializer.validated_data['email']
+            email = serializer.validated_data["email"]
             try:
                 user = User.objects.get(email=email)
             except User.DoesNotExist:
-                # Ne pas révéler si l'email n'existe pas pour éviter fuite d'information
-                return Response({"detail": "Un mail de réinitialisation a été envoyé si cet email est enregistré."})
+                # Réponse identique pour éviter fuite d'info
+                return Response(
+                    {
+                        "detail": "Un mail de réinitialisation a été envoyé si cet email est enregistré."
+                    }
+                )
 
             token_generator = PasswordResetTokenGenerator()
             token = token_generator.make_token(user)
             uid = user.pk
 
-            # Construire l'URL de réinitialisation à envoyer par email
             reset_url = request.build_absolute_uri(
-                reverse('password-reset-confirm') + f"?uid={uid}&token={token}"
+                reverse("password-reset-confirm") + f"?uid={uid}&token={token}"
             )
 
-            # Envoi email (adapter sujet et corps selon votre front / template)
             send_mail(
                 subject="Réinitialisation de votre mot de passe",
-                message=f"Pour réinitialiser votre mot de passe, veuillez cliquer sur ce lien : {reset_url}",
+                message=f"Pour réinitialiser votre mot de passe, cliquez sur ce lien : {reset_url}",
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[email],
             )
-            return Response({"detail": "Un mail de réinitialisation a été envoyé."}, status=status.HTTP_200_OK)
+            return Response(
+                {"detail": "Un mail de réinitialisation a été envoyé."},
+                status=status.HTTP_200_OK,
+            )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
+# Confirmation de réinitialisation du mot de passe avec uid et token
 class PasswordResetConfirmView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         serializer = PasswordResetConfirmSerializer(data=request.data)
         if serializer.is_valid():
-            uid = serializer.validated_data['uid']
-            token = serializer.validated_data['token']
-            new_password = serializer.validated_data['new_password']
+            uid = serializer.validated_data["uid"]
+            token = serializer.validated_data["token"]
+            new_password = serializer.validated_data["new_password"]
 
             try:
                 user = User.objects.get(pk=uid)
@@ -183,10 +210,30 @@ class PasswordResetConfirmView(APIView):
 
             token_generator = PasswordResetTokenGenerator()
             if not token_generator.check_token(user, token):
-                return Response({"detail": "Token invalide ou expiré."}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {"detail": "Token invalide ou expiré."}, status=status.HTTP_400_BAD_REQUEST
+                )
 
             user.set_password(new_password)
             user.save()
-            return Response({"detail": "Mot de passe réinitialisé avec succès."}, status=status.HTTP_200_OK)
+            return Response(
+                {"detail": "Mot de passe réinitialisé avec succès."}, status=status.HTTP_200_OK
+            )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# CRUD sur UserTVANumber, filtrage optionnel par utilisateur et création user liée automatiquement
+class UserTVANumberViewSet(viewsets.ModelViewSet):
+    serializer_class = UserTVANumberSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        utilisateur_id = self.request.query_params.get("utilisateur")
+        if utilisateur_id:
+            return UserTVANumber.objects.filter(utilisateur__id=utilisateur_id)
+        # Par défaut, ne donner que les numéros TVA de l'utilisateur connecté
+        return UserTVANumber.objects.filter(utilisateur=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(utilisateur=self.request.user)
