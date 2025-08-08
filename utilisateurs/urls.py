@@ -17,7 +17,7 @@ urlpatterns = [  # IMPORTANT : attention
     path('register/', UserRegistrationView.as_view(), name='user-register'),
     path('login/', LoginAPIView.as_view(), name='user-login'),
     path('me/', UserDetailView.as_view(), name='user-detail'),
-
+    path("users/<int:user_id>/historiques_connexion/", HistoriqueConnexionList.as_view(), name="user-historiques-connexion"),
         path('password/change/', ChangePasswordView.as_view(), name='password-change'),
     path('password/reset/request/', PasswordResetRequestView.as_view(), name='password-reset-request'),
     path('password/reset/confirm/', PasswordResetConfirmView.as_view(), name='password-reset-confirm'),

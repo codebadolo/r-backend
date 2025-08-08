@@ -196,9 +196,7 @@ class RolePermissionSerializer(serializers.ModelSerializer):
 class HistoriqueConnexionSerializer(serializers.ModelSerializer):
     class Meta:
         model = HistoriqueConnexion
-        fields = ['id', 'utilisateur', 'adresse_ip', 'date_connexion', 'user_agent']
-        read_only_fields = ['utilisateur', 'date_connexion']
-
+        fields = ["id", "adresse_ip", "date_connexion", "user_agent"]
 
 class UserSerializer(serializers.ModelSerializer):
     adresses = AdresseSerializer(many=True, required=False)

@@ -19,3 +19,4 @@ admin.site.register(UserTVANumber)
 admin.site.register(Role)
   
 admin.site.register(Adresse)
+admin.site.register(HistoriqueConnexion)

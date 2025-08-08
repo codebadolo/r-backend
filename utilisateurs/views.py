@@ -98,14 +98,18 @@ class AdresseViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        # Par exemple, filtrer par utilisateur connecté
-        user = self.request.user
-        return Adresse.objects.filter(utilisateur=user)
+        # Par exemple, retourner TOUTES les adresses sans filtre utilisateur
+        return Adresse.objects.all()
+
 
     def perform_create(self, serializer):
         # Assigne automatiquement l’utilisateur connecté
         serializer.save(utilisateur=self.request.user)
 
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
 class PaysViewSet(viewsets.ModelViewSet):
     queryset = Pays.objects.all()
@@ -229,11 +233,18 @@ class UserTVANumberViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        utilisateur_id = self.request.query_params.get("utilisateur")
-        if utilisateur_id:
-            return UserTVANumber.objects.filter(utilisateur__id=utilisateur_id)
-        # Par défaut, ne donner que les numéros TVA de l'utilisateur connecté
+        # Protection contre erreur drf-yasg
+        if getattr(self, 'swagger_fake_view', False):
+            return UserTVANumber.objects.none()
         return UserTVANumber.objects.filter(utilisateur=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(utilisateur=self.request.user)
+
+class HistoriqueConnexionList(generics.ListAPIView):
+    serializer_class = HistoriqueConnexionSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user_id = self.kwargs.get("user_id")
+        return HistoriqueConnexion.objects.filter(utilisateur_id=user_id).order_by("-date_connexion")
