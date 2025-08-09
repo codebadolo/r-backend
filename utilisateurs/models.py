@@ -20,6 +20,13 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Le superuser doit avoir is_staff=True.')
         return self.create_user(email, password, **extra_fields)
+    
+class Role(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -36,7 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     accepte_facture_electronique = models.BooleanField(default=False)
     accepte_cgv = models.BooleanField(default=False)
     telephone = models.CharField(max_length=20, blank=True, null=True)
-
+    roles = models.ManyToManyField(Role, related_name='users', blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -131,25 +138,6 @@ class Adresse(models.Model):
 
 
 
-# Rôles, permissions, historiques (inchangé par rapport à votre base)
-class Role(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True)
-
-    def __str__(self):
-        return self.name
-
-
-class UserRole(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_roles')
-    role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='role_users')
-    assigned_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('user', 'role')
-
-    def __str__(self):
-        return f"{self.user.email} - {self.role.name}"
 
 
 class Permission(models.Model):

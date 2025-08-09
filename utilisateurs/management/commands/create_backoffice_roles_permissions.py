@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-from utilisateurs.models import Role, UserRole  # Adaptez selon votre app
+from utilisateurs.models import Role  # No more UserRole
 
 User = get_user_model()
 
@@ -48,17 +48,23 @@ class Command(BaseCommand):
             # Création de l'utilisateur (adaptez selon vos champs requis)
             user = User.objects.create_user(email=email, password=password, type_client='particulier')
 
-            # Assignation des rôles existants
+            # Récupérer les rôles dans une liste
+            roles = []
             for role_name in role_names:
                 try:
                     role = Role.objects.get(name=role_name)
+                    roles.append(role)
                 except Role.DoesNotExist:
                     self.stderr.write(f"Rôle '{role_name}' non trouvé en base, non assigné à {email}")
-                    continue
 
-                UserRole.objects.create(user=user, role=role)
-                self.stdout.write(f"Rôle '{role_name}' assigné à {email}")
+            # Assigner les rôles à l’utilisateur via ManyToMany
+            user.roles.set(roles)
 
-            self.stdout.write(self.style.SUCCESS(f"Utilisateur créé : {email} avec rôles {role_names}"))
+            self.stdout.write(self.style.SUCCESS(f"Utilisateur créé : {email} avec rôles {[r.name for r in roles]}"))
 
         self.stdout.write(self.style.SUCCESS("Création des utilisateurs back-office terminée."))
+'''   create_backoffice_roles_permissions
+    create_references
+    create_roles_permissions
+    create_sample_clients
+    create_sample_particuliers'''

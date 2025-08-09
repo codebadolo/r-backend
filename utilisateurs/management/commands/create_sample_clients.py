@@ -7,16 +7,15 @@ from utilisateurs.models import (
     Role,
     Permission,
     RolePermission,
-    UserRole,
     Pays,
     FormeJuridique,
     RegimeFiscal,
     DivisionFiscale,
+    UserTVANumber,
 )
 
 User = get_user_model()
 
-# Liste des pays avec codes téléphoniques (doivent exister en base!)
 PAYS = [
     {"nom": "Burkina Faso", "code_telephone": "+226"},
     {"nom": "Niger", "code_telephone": "+227"},
@@ -32,31 +31,20 @@ PAYS = [
     {"nom": "Sierra Leone", "code_telephone": "+232"},
 ]
 
-# Exemples de raisons sociales et noms d'entreprises (à personnaliser)
 RAISONS_SOCIALES = [
     "Société Générale", "ABC Industries", "Compagnie Tertiaire", "Groupe Ouaga", "MaliTech",
     "Sarl Benin Services", "Togo Logistics", "Senegal Export", "Ivory Trade",
     "Guinée Agro", "Cap-Vert Solutions", "Libéria Finance", "Sierra Leone Invest",
 ]
 
-# Listes typiques pour noms responsables, formes juridiques, régimes fiscaux, divisions fiscales
 RESPONSABLES = [
     "Kofi Mensah", "Awa Diop", "Moussa Traoré", "Fatoumata Coulibaly", "Issa Konaté",
     "Aminata Diallo", "Oumar Sanogo", "Salif Bah", "Mariam Sow", "Souleymane Cissé"
 ]
 
-# Ces tables doivent être préremplies en base
-FORMES_JURIDIQUES = []
-REGIMES_FISCAUX = []
-DIVISIONS_FISCALES = []
-
-# Rôle à assigner
 ROLE_ENTREPRISE_NAME = "ClientEntreprise"
-
-# Mot de passe par défaut
 DEFAULT_PASSWORD = "Entrepris3@123"
 
-# Permissions et rôles (pour création ou récupération)
 ROLES = [
     {"name": ROLE_ENTREPRISE_NAME, "description": "Utilisateur client entreprise"},
 ]
@@ -70,7 +58,6 @@ ROLE_PERMISSIONS = {
     ROLE_ENTREPRISE_NAME: ["view_products", "make_orders"],
 }
 
-# Villes typiques par pays (exemple partiel, adapter selon pays)
 VILLES_PAR_PAYS = {
     "Burkina Faso": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou"],
     "Niger": ["Niamey", "Zinder", "Maradi"],
@@ -87,10 +74,9 @@ VILLES_PAR_PAYS = {
 }
 
 class Command(BaseCommand):
-    help = "Créer 20 clients entreprises divers selon plusieurs pays avec adresses complètes et emails basés sur nom & raison sociale."
+    help = "Créer 20 clients entreprises avec adresses facturation/livraison distinctes et numéros TVA"
 
     def normalize_str(self, s):
-        """Transforme une chaîne en format email-friendly (lowercase, points pour espaces/tiret, suppression caractères spéciaux)."""
         s = s.lower()
         s = re.sub(r'[^\w\s-]', '', s)
         s = re.sub(r'[\s-]+', '.', s)
@@ -102,27 +88,21 @@ class Command(BaseCommand):
         for perm_data in PERMISSIONS:
             perm, created = Permission.objects.get_or_create(
                 code=perm_data["code"],
-                defaults={"description": perm_data["description"]}
+                defaults={"description": perm_data["description"]},
             )
             permissions_map[perm.code] = perm
-            if created:
-                self.stdout.write(self.style.SUCCESS(f"Permission créée : {perm.code}"))
-            else:
-                self.stdout.write(f"Permission existante : {perm.code}")
+            self.stdout.write(self.style.SUCCESS(f"Permission créée : {perm.code}") if created else f"Permission existante : {perm.code}")
 
         # 2. Créer ou récupérer rôles
         roles_map = {}
         for role_data in ROLES:
             role, created = Role.objects.get_or_create(
                 name=role_data["name"],
-                defaults={"description": role_data["description"]}
+                defaults={"description": role_data["description"]},
             )
             roles_map[role.name] = role
-            if created:
-                self.stdout.write(self.style.SUCCESS(f"Rôle créé : {role.name}"))
-            else:
-                self.stdout.write(f"Rôle existant : {role.name}")
-
+            self.stdout.write(self.style.SUCCESS(f"Rôle créé : {role.name}") if created else f"Rôle existant : {role.name}")
+        
         # 3. Associer rôles & permissions
         for role_name, perm_codes in ROLE_PERMISSIONS.items():
             role = roles_map.get(role_name)
@@ -139,38 +119,34 @@ class Command(BaseCommand):
                 RolePermission.objects.get_or_create(role=role, permission=perm)
             self.stdout.write(f"Permissions associées au rôle : {role_name}")
 
-        # 4. Charger les tables référentielles FormeJuridique, RegimeFiscal, DivisionFiscale en DB
-        global FORMES_JURIDIQUES, REGIMES_FISCAUX, DIVISIONS_FISCALES
-        FORMES_JURIDIQUES = list(FormeJuridique.objects.all())
-        REGIMES_FISCAUX = list(RegimeFiscal.objects.all())
-        DIVISIONS_FISCALES = list(DivisionFiscale.objects.all())
+        # 4. Charger tables référentielles
+        from utilisateurs.models import FormeJuridique, RegimeFiscal, DivisionFiscale
+        formes_juridiques = list(FormeJuridique.objects.all())
+        regimes_fiscaux = list(RegimeFiscal.objects.all())
+        divisions_fiscales = list(DivisionFiscale.objects.all())
 
-        if not FORMES_JURIDIQUES or not REGIMES_FISCAUX or not DIVISIONS_FISCALES:
-            self.stderr.write("Merci de remplir les tables FormeJuridique, RegimeFiscal et DivisionFiscale avant d'exécuter cette commande.")
+        if not formes_juridiques or not regimes_fiscaux or not divisions_fiscales:
+            self.stderr.write("Remplissez FormeJuridique, RegimeFiscal, DivisionFiscale avant d'exécuter.")
             return
 
-        # 5. Créer 20 utilisateurs entreprise
+        # 5. Créer 20 utilisateurs
         for i in range(20):
-            # Choisir pays aléatoire et objet Pays existant
             pays_data = random.choice(PAYS)
             try:
                 pays_obj = Pays.objects.get(nom__iexact=pays_data["nom"])
             except Pays.DoesNotExist:
-                self.stderr.write(f"Pays '{pays_data['nom']}' absent en base, utilisateur ignoré.")
+                self.stderr.write(f"Pays '{pays_data['nom']}' inconnu en base, utilisateur ignoré.")
                 continue
 
             raison_sociale = random.choice(RAISONS_SOCIALES) + f" #{i+1}"
             nom_responsable = random.choice(RESPONSABLES)
 
-            # Générer email basé sur nom_responsable + raison_sociale + index
             prenom_nom = self.normalize_str(nom_responsable.replace(" ", "."))
             raison_sociale_norm = self.normalize_str(raison_sociale)
             email = f"{prenom_nom}.{raison_sociale_norm}.{i}@example.com"
 
-            # Supprimer utilisateur existant s'il y en a
             User.objects.filter(email=email).delete()
 
-            # Création utilisateur type entreprise
             user = User.objects.create_user(
                 email=email,
                 password=DEFAULT_PASSWORD,
@@ -178,8 +154,7 @@ class Command(BaseCommand):
             )
             self.stdout.write(f"Création utilisateur entreprise: {raison_sociale} ({email})")
 
-            # Création adresse complète entreprise avec tous les champs
-            adresse = Adresse.objects.create(
+            adresse_facturation = Adresse.objects.create(
                 utilisateur=user,
                 utilisation="facturation",
                 type_client="entreprise",
@@ -194,18 +169,55 @@ class Command(BaseCommand):
                 raison_sociale=raison_sociale,
                 rccm=f"RCCM-{random.randint(1000000, 9999999)}",
                 ifu=f"IFU{random.randint(1000000000, 9999999999)}",
-                forme_juridique=random.choice(FORMES_JURIDIQUES),
-                regime_fiscal=random.choice(REGIMES_FISCAUX),
-                division_fiscale=random.choice(DIVISIONS_FISCALES),
-
+                forme_juridique=random.choice(formes_juridiques),
+                regime_fiscal=random.choice(regimes_fiscaux),
+                division_fiscale=random.choice(divisions_fiscales),
                 livraison_identique_facturation=True,
             )
-            self.stdout.write(f"  Adresse créée: {adresse.rue} {adresse.numero}, {adresse.ville}, {adresse.pays.nom}")
+            self.stdout.write(f"  Adresse facturation créée: {adresse_facturation.rue} {adresse_facturation.numero}, {adresse_facturation.ville}, {adresse_facturation.pays.nom}")
 
-            # Assignation du rôle entreprise
+            # 50% des cas, adresse livraison différente
+            if random.random() < 0.5:
+                adresse_livraison = Adresse.objects.create(
+                    utilisateur=user,
+                    utilisation="livraison",
+                    type_client="entreprise",
+                    nom_complet=nom_responsable,
+                    telephone=f"{pays_data['code_telephone']} {random.randint(60000000, 89999999)}",
+                    pays=pays_obj,
+                    rue="Rue de la Liberté",
+                    numero=str(random.randint(1, 200)),
+                    ville=random.choice(VILLES_PAR_PAYS.get(pays_obj.nom, ["Villeprincipale"])),
+                    code_postal=str(random.randint(1000, 9999)),
+
+                    raison_sociale=raison_sociale,
+                    rccm=adresse_facturation.rccm,
+                    ifu=adresse_facturation.ifu,
+                    forme_juridique=adresse_facturation.forme_juridique,
+                    regime_fiscal=adresse_facturation.regime_fiscal,
+                    division_fiscale=adresse_facturation.division_fiscale,
+                    livraison_identique_facturation=False,
+                )
+                self.stdout.write(f"  Adresse livraison différente créée: {adresse_livraison.rue} {adresse_livraison.numero}, {adresse_livraison.ville}, {adresse_livraison.pays.nom}")
+            else:
+                adresse_facturation.livraison_identique_facturation = True
+                adresse_facturation.save()
+                self.stdout.write("  Adresse livraison identique à l'adresse facturation.")
+
+            # Création de 1 à 3 numéros TVA
+            nb_tva = random.randint(1, 3)
+            for _ in range(nb_tva):
+                numero = f"TVA{random.randint(1000000000, 9999999999)}"
+                UserTVANumber.objects.create(
+                    utilisateur=user,
+                    numero_tva=numero,
+                    pays=pays_obj.nom,
+                )
+                self.stdout.write(f"  Numéro TVA ajouté: {numero} ({pays_obj.nom})")
+
             role_entreprise = roles_map.get(ROLE_ENTREPRISE_NAME)
             if role_entreprise:
-                UserRole.objects.create(user=user, role=role_entreprise)
+                user.roles.add(role_entreprise)
                 self.stdout.write(f"  Rôle '{role_entreprise.name}' assigné à l'utilisateur.")
             else:
                 self.stderr.write(f"Rôle '{ROLE_ENTREPRISE_NAME}' introuvable, non assigné.")

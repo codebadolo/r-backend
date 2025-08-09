@@ -1,11 +1,11 @@
 import random
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-from utilisateurs.models import Adresse, Role, Permission, RolePermission, UserRole, Pays
+from utilisateurs.models import Adresse, Role, Permission, RolePermission, Pays
 
 User = get_user_model()
 
-# Listes simplifiées de prénoms et noms typiques BF/sous-région
+# Listes simplifiées BF / sous-région (prénoms, noms, villes)
 PRENOMS = [
     "Issa", "Fatoumata", "Abdoulaye", "Awa", "Moussa", "Aminata", "Souleymane",
     "Halima", "Yacouba", "Salif", "Mariam", "Oumar", "Adama", "Zeinabou",
@@ -22,24 +22,22 @@ VILLES_BF = [
 
 PAYS_BF_NAME = "Burkina Faso"
 
-# Rôles et permissions à créer ou récupérer
+# Rôles et permissions
 ROLES = [
     {"name": "ClientParticulier", "description": "Utilisateur particulier client"},
-    # Ajoutez d'autres rôles si nécessaire
 ]
 
 PERMISSIONS = [
     {"code": "view_products", "description": "Peut voir les produits"},
     {"code": "make_orders", "description": "Peut passer des commandes"},
-    # Ajoutez d'autres permissions pertinentes
 ]
 
 ROLE_PERMISSIONS = {
     "ClientParticulier": ["view_products", "make_orders"],
 }
 
-# Mot de passe par défaut pour les comptes de test
 DEFAULT_PASSWORD = "Test@1234"
+
 
 class Command(BaseCommand):
     help = "Créer les rôles, permissions et 20 utilisateurs particuliers Burkina Faso avec adresses et rôles."
@@ -78,9 +76,7 @@ class Command(BaseCommand):
                 self.stderr.write(f"Rôle '{role_name}' introuvable, association ignorée.")
                 continue
 
-            # Supprimer anciennes associations
             RolePermission.objects.filter(role=role).delete()
-
             for code in perm_codes:
                 perm = permissions_map.get(code)
                 if not perm:
@@ -89,14 +85,14 @@ class Command(BaseCommand):
                 RolePermission.objects.get_or_create(role=role, permission=perm)
             self.stdout.write(f"Permissions associées au rôle : {role_name}")
 
-        # 4. Récupérer le pays Burkina Faso
+        # 4. Récupérer pays Burkina Faso
         try:
             pays_bf = Pays.objects.get(nom__iexact=PAYS_BF_NAME)
         except Pays.DoesNotExist:
             self.stderr.write(f"Pays '{PAYS_BF_NAME}' non trouvé. Veuillez le créer avant de lancer cette commande.")
             return
 
-        # 5. Créer les 20 utilisateurs particuliers
+        # 5. Créer 20 utilisateurs particuliers
         role_particulier = roles_map.get("ClientParticulier")
         if not role_particulier:
             self.stderr.write("Le rôle 'ClientParticulier' est introuvable. Abandon de la création d'utilisateurs.")
@@ -106,7 +102,6 @@ class Command(BaseCommand):
             prenom = random.choice(PRENOMS)
             nom = random.choice(NOMS)
             nom_complet = f"{prenom} {nom}"
-
             email = f"{prenom.lower()}.{nom.lower()}{i}@example.com"
 
             # Supprimer l'utilisateur existant
@@ -120,8 +115,8 @@ class Command(BaseCommand):
             )
             self.stdout.write(f"Création utilisateur: {nom_complet} ({email})")
 
-            # Création adresse liée
-            adresse = Adresse.objects.create(
+            # Création adresse facturation
+            adresse_facturation = Adresse.objects.create(
                 utilisateur=user,
                 utilisation="facturation",
                 type_client="particulier",
@@ -134,10 +129,27 @@ class Command(BaseCommand):
                 code_postal=str(random.randint(7000, 8000)),
                 livraison_identique_facturation=True,
             )
-            self.stdout.write(f"  Adresse créée: {adresse.rue} {adresse.numero}, {adresse.ville}, {adresse.pays.nom}")
+            self.stdout.write(f"  Adresse facturation créée: {adresse_facturation.rue} {adresse_facturation.numero}, {adresse_facturation.ville}")
 
-            # Association rôle utilisateur
-            UserRole.objects.create(user=user, role=role_particulier)
+            # 50% des cas : création d'une adresse livraison différente
+            if random.random() < 0.5:
+                adresse_livraison = Adresse.objects.create(
+                    utilisateur=user,
+                    utilisation="livraison",
+                    type_client="particulier",
+                    nom_complet=nom_complet,
+                    telephone=f"+226 {random.randint(60000000, 79999999)}",
+                    pays=pays_bf,
+                    rue="Rue des Volontaires",
+                    numero=str(random.randint(1, 100)),
+                    ville=random.choice(VILLES_BF),
+                    code_postal=str(random.randint(7000, 8000)),
+                    livraison_identique_facturation=False,
+                )
+                self.stdout.write(f"  Adresse livraison différente créée: {adresse_livraison.rue} {adresse_livraison.numero}, {adresse_livraison.ville}")
+
+            # Assignation du rôle via ManyToMany
+            user.roles.add(role_particulier)
             self.stdout.write(f"  Rôle '{role_particulier.name}' assigné à l'utilisateur.")
 
         self.stdout.write(self.style.SUCCESS("Création de 20 utilisateurs particuliers terminée."))

@@ -8,9 +8,16 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.core.mail import send_mail
 from django.urls import reverse
 from django.conf import settings
+# Authentification via email + mot de passe avec TokenAuth DRF
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, permissions
+from django.contrib.auth import authenticate
+from rest_framework.authtoken.models import Token
+from .serializers import UserSerializer
 
 from .serializers import *
-from .models import UserTVANumber, UserRole, Adresse
+from .models import UserTVANumber, Adresse
 
 User = get_user_model()
 
@@ -32,14 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class RoleViewSet(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
-    permission_classes = [permissions.IsAuthenticated]  # ou AllowAny selon 
-# Authentification via email + mot de passe avec TokenAuth DRF
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status, permissions
-from django.contrib.auth import authenticate
-from rest_framework.authtoken.models import Token
-from .serializers import UserSerializer
+    permission_classes = [permissions.AllowAny]  # ou AllowAny selon 
 
 class LoginAPIView(APIView):
     permission_classes = [permissions.AllowAny]
@@ -79,23 +79,12 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
         return self.request.user
 
 
-# Gestion des rôles utilisateurs (CRUD complet) - réservé aux admins
-class UserRoleViewSet(viewsets.ModelViewSet):
-    serializer_class = UserRoleSerializer
-    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-
-    def get_queryset(self):
-        return UserRole.objects.all()
-
-    def perform_create(self, serializer):
-        # Optionnel : vous pouvez modifier qui est assigné selon votre logique
-        serializer.save(user=self.request.user)
 
 
 class AdresseViewSet(viewsets.ModelViewSet):
     queryset = Adresse.objects.all()
     serializer_class = AdresseSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         # Par exemple, retourner TOUTES les adresses sans filtre utilisateur
