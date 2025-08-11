@@ -1,0 +1,27 @@
+{
+  "categories": [
+    {
+      "nom": "Matériel",
+      "description": "Spécifications matérielles"
+    },
+    {
+      "nom": "Logiciel",
+      "description": "Spécifications logicielles"
+    }
+  ],
+  "keys": [
+    {
+      "nom_attribut": "RAM",
+      "spec_category": "Matériel",
+      "data_type": "string",
+      "unit": "Go",
+      "is_filterable": true
+    },
+    {
+      "nom_attribut": "Processeur",
+      "spec_category": "Matériel",
+      "data_type": "string",
+      "is_filterable": true
+    }
+  ]
+}

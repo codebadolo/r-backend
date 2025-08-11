@@ -1,0 +1,392 @@
+[
+  {
+    "nom": "Télécommunications & navigation",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Équipements de conférence",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Équipements de communication radio",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Équipement téléphonique",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Équipement de gestion des appels",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Consommables intelligents",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Dispositifs de communication mobile",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Equipements de navigation",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Accessoires d'équipements de télécommunications",
+    "description": null,
+    "parent_category": "Télécommunications & navigation"
+  },
+  {
+    "nom": "Informatique & électronique",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Réseaux",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Composants",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Ordinateurs",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Logiciels",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Garanties et supports",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Imprimantes et scanners",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Câbles pour ordinateurs et périphériques",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Stockages de données",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Écrans et accessoires",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Piles et alimentations électriques",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Entrées de données et commandes",
+    "description": null,
+    "parent_category": "Informatique & électronique"
+  },
+  {
+    "nom": "Automatisation de la maison et sécurité",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Systèmes de surveillance",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Accès et contrôles",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Appareils intelligents pour la maison",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Capteurs et alarmes domestiques",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Dispositifs de sécurité",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Produits de sécurité des installations",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Protections contre le feu",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Protection contre les inondations",
+    "description": null,
+    "parent_category": "Automatisation de la maison et sécurité"
+  },
+  {
+    "nom": "Équipements électriques et fournitures",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Dispositifs et accessoires de câblage",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Protections pour circuit",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Matériau et fournitures électriques",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Conditionnement de puissance",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Conduits de chemin de cables",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Générateurs électriques",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Dispositifs de commande électrique",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Boites éléctriques et accessoires",
+    "description": null,
+    "parent_category": "Équipements électriques et fournitures"
+  },
+  {
+    "nom": "Photovoltaïque",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Kits photovoltaïques",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Panneaux photovoltaïques",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Onduleurs",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Systèmes de stockage d'énergie",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Optimisateurs de puissance",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Chargement de voitures",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Pompes à chaleur",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Climatiseurs",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Stations d'alimentation portables",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Panneaux solaires",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Turbines éoliennes",
+    "description": null,
+    "parent_category": "Photovoltaïque"
+  },
+  {
+    "nom": "Boîtiers de raccordement",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Câbles",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Éléments électriques",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Compteurs d'énergie",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Structures de montage",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Suivi d'installation",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Accessoires pour onduleurs",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Micro-onduleurs",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Technologie de chauffage",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Outils",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Équipements audiovisuels",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Fournitures de présentation",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Casques audio et portables",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Pièces et accessoires d'équipements audiovisuels",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Projecteurs",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Télévisions",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Distributions et traitements du signal",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Systèmes audios domestiques",
+    "description": null,
+    "parent_category": "Équipements audiovisuels"
+  },
+  {
+    "nom": "Équipement photo et vidéo",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Appareils photo et caméscopes",
+    "description": null,
+    "parent_category": "Équipement photo et vidéo"
+  },
+  {
+    "nom": "Accessoires pour caméras",
+    "description": null,
+    "parent_category": "Équipement photo et vidéo"
+  },
+  {
+    "nom": "Signalisations",
+    "description": null,
+    "parent_category": null
+  },
+  {
+    "nom": "Écran d'affichage dynamique",
+    "description": null,
+    "parent_category": "Signalisations"
+  },
+  {
+    "nom": "Accessoires d’écran de mur vidéo",
+    "description": null,
+    "parent_category": "Signalisations"
+  },
+  {
+    "nom": "Murs d'écrans vidéos",
+    "description": null,
+    "parent_category": "Signalisations"
+  },
+  {
+    "nom": "Montages des affichages de messages",
+    "description": null,
+    "parent_category": "Signalisations"
+  },
+  {
+    "nom": "Accessoires d'affichage de messages",
+    "description": null,
+    "parent_category": "Signalisations"
+  }
+]

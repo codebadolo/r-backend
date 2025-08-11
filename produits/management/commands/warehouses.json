@@ -1,0 +1,4 @@
+[
+  {"nom": "Entrepôt Paris", "adresse": "10 Rue Exemple, Paris", "code_postal": "75001", "ville": "Paris", "pays": "France", "type": "physique", "is_active": true, "commentaire": "Entrepôt central"},
+  {"nom": "Entrepôt Lyon", "adresse": "5 Rue Lyonnaise, Lyon", "code_postal": "69000", "ville": "Lyon", "pays": "France", "type": "physique", "is_active": true, "commentaire": ""}
+]

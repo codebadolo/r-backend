@@ -1,0 +1,218 @@
+[
+  {
+    "nom_attribut": "Type de processeur",
+    "spec_category": "Matériel",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 6,
+    "description": "Architecture et modèle du processeur"
+  },
+  {
+    "nom_attribut": "Cache processeur",
+    "spec_category": "Matériel",
+    "data_type": "int",
+    "unit": "Mo",
+    "is_filterable": true,
+    "position": 7,
+    "description": "Mémoire cache du processeur"
+  },
+  {
+    "nom_attribut": "Type de RAM",
+    "spec_category": "Matériel",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 8,
+    "description": "DDR3, DDR4, LPDDR4X, etc."
+  },
+  {
+    "nom_attribut": "Fréquence RAM",
+    "spec_category": "Matériel",
+    "data_type": "int",
+    "unit": "MHz",
+    "is_filterable": true,
+    "position": 9,
+    "description": "Vitesse de la mémoire vive"
+  },
+  {
+    "nom_attribut": "Nombre de slots RAM",
+    "spec_category": "Matériel",
+    "data_type": "int",
+    "unit": null,
+    "is_filterable": false,
+    "position": 10,
+    "description": "Nombre de logements RAM disponibles"
+  },
+  {
+    "nom_attribut": "Ports USB",
+    "spec_category": "Connectivité",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 4,
+    "description": "Types et nombre de ports USB"
+  },
+  {
+    "nom_attribut": "Ethernet Gigabit",
+    "spec_category": "Réseau",
+    "data_type": "bool",
+    "unit": null,
+    "is_filterable": true,
+    "position": 5,
+    "description": "Support de l’Ethernet Gigabit"
+  },
+  {
+    "nom_attribut": "Wi-Fi 6",
+    "spec_category": "Réseau",
+    "data_type": "bool",
+    "unit": null,
+    "is_filterable": true,
+    "position": 6,
+    "description": "Support de la norme Wi-Fi 6"
+  },
+  {
+    "nom_attribut": "Bluetooth Low Energy",
+    "spec_category": "Réseau",
+    "data_type": "bool",
+    "unit": null,
+    "is_filterable": true,
+    "position": 7,
+    "description": "Support de BLE"
+  },
+  {
+    "nom_attribut": "Type d'écran tactile",
+    "spec_category": "Affichage",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": false,
+    "position": 4,
+    "description": "Capacitif, résistif, etc."
+  },
+  {
+    "nom_attribut": "Résolution caméra frontale",
+    "spec_category": "Caméras & Video",
+    "data_type": "int",
+    "unit": "MP",
+    "is_filterable": false,
+    "position": 1,
+    "description": "Résolution en mégapixels"
+  },
+  {
+    "nom_attribut": "Résolution caméra arrière",
+    "spec_category": "Caméras & Video",
+    "data_type": "int",
+    "unit": "MP",
+    "is_filterable": false,
+    "position": 2,
+    "description": "Résolution en mégapixels"
+  },
+  {
+    "nom_attribut": "Nombre de microphones",
+    "spec_category": "Son & Audio",
+    "data_type": "int",
+    "unit": null,
+    "is_filterable": false,
+    "position": 3,
+    "description": "Nombre de micros intégrés"
+  },
+  {
+    "nom_attribut": "Microphone réduction bruit",
+    "spec_category": "Son & Audio",
+    "data_type": "bool",
+    "unit": null,
+    "is_filterable": true,
+    "position": 4,
+    "description": "Fonction de réduction des bruits"
+  },
+  {
+    "nom_attribut": "Température stockage min",
+    "spec_category": "Température & Environnement",
+    "data_type": "float",
+    "unit": "°C",
+    "is_filterable": false,
+    "position": 3,
+    "description": "Température minimale pour stockage"
+  },
+  {
+    "nom_attribut": "Température stockage max",
+    "spec_category": "Température & Environnement",
+    "data_type": "float",
+    "unit": "°C",
+    "is_filterable": false,
+    "position": 4,
+    "description": "Température maximale pour stockage"
+  },
+  {
+    "nom_attribut": "Technologie d'affichage",
+    "spec_category": "Affichage",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 5,
+    "description": "LED, OLED, LCD, IPS etc."
+  },
+  {
+    "nom_attribut": "Type de stockage interne",
+    "spec_category": "Stockage",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 6,
+    "description": "SSD, eMMC, NVMe, etc."
+  },
+  {
+    "nom_attribut": "GPU intégré",
+    "spec_category": "Matériel",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 11,
+    "description": "Carte graphique intégrée"
+  },
+  {
+    "nom_attribut": "GPU dédié",
+    "spec_category": "Matériel",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 12,
+    "description": "Carte graphique dédiée"
+  },
+  {
+    "nom_attribut": "Nombre de ports DisplayPort",
+    "spec_category": "Connectivité",
+    "data_type": "int",
+    "unit": null,
+    "is_filterable": true,
+    "position": 5,
+    "description": "Nombre de ports DP"
+  },
+  {
+    "nom_attribut": "Résolution maximale vidéo",
+    "spec_category": "Caméras & Video",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": false,
+    "position": 3,
+    "description": "Résolution d’enregistrement vidéo max"
+  },
+  {
+    "nom_attribut": "Norme Wi-Fi supportée",
+    "spec_category": "Réseau",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": true,
+    "position": 8,
+    "description": "802.11a/b/g/n/ac/ax etc."
+  },
+  {
+    "nom_attribut": "Type de chargeur",
+    "spec_category": "Alimentation & Énergie",
+    "data_type": "string",
+    "unit": null,
+    "is_filterable": false,
+    "position": 4,
+    "description": "USB-C, DC, MagSafe, etc."
+  }
+]

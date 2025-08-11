@@ -1,0 +1,69 @@
+[
+  {
+    "nom": "Dell XPS 13",
+    "description": "Ultrabook léger et puissant",
+    "prix": 1350.0,
+    "stock": 50,
+    "etat": "disponible",
+    "ean_code": "1234567890001",
+    "is_active": true,
+    "category": "Ordinateurs",
+    "brand": "Dell"
+  },
+  {
+    "nom": "Apple MacBook Air",
+    "description": "Ordinateur portable ultra-fin avec puce M1",
+    "prix": 1450.0,
+    "stock": 40,
+    "etat": "disponible",
+    "ean_code": "1234567890002",
+    "is_active": true,
+    "category": "Ordinateurs",
+    "brand": "Apple"
+  },
+  {
+    "nom": "Cisco Catalyst 9300",
+    "description": "Switch réseau d'entreprise robuste",
+    "prix": 3000.0,
+    "stock": 15,
+    "etat": "disponible",
+    "ean_code": "1234567890003",
+    "is_active": true,
+    "category": "Réseaux",
+    "brand": "Cisco"
+  },
+  {
+    "nom": "HP LaserJet Pro",
+    "description": "Imprimante laser multifonctions",
+    "prix": 250.0,
+    "stock": 60,
+    "etat": "disponible",
+    "ean_code": "1234567890004",
+    "is_active": true,
+    "category": "Imprimantes et scanners",
+    "brand": "HP (Hewlett-Packard)"
+  },
+  {
+    "nom": "Samsung SSD T7",
+    "description": "Disque SSD externe rapide et portable",
+    "prix": 150.0,
+    "stock": 100,
+    "etat": "disponible",
+    "ean_code": "1234567890005",
+    "is_active": true,
+    "category": "Stockages de données",
+    "brand": "Samsung"
+  },
+ 
+  {
+    "nom": "Microsoft Surface Pro 7",
+    "description": "Tablette PC hybride avec stylet",
+    "prix": 1100.0,
+    "stock": 30,
+    "etat": "disponible",
+    "ean_code": "1234567890012",
+    "is_active": true,
+    "category": "Ordinateurs",
+    "brand": "Microsoft"
+  }
+]

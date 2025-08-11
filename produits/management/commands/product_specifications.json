@@ -1,0 +1,33 @@
+[
+  {
+    "product_nom": "Dell XPS 13",
+    "nom_attribut": "Processeur",
+    "spec_category": "Matériel",
+    "valeur": "Intel Core i7"
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom_attribut": "RAM",
+    "spec_category": "Matériel",
+    "valeur": "16 Go"
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom_attribut": "Stockage interne",
+    "spec_category": "Stockage",
+    "valeur": "512 Go SSD"
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom_attribut": "Système d'exploitation",
+    "spec_category": "Logiciel",
+    "valeur": "Windows 10"
+  },
+  {
+    "product_nom": "Cisco Catalyst 9300",
+    "nom_attribut": "Nombre de ports Ethernet",
+    "spec_category": "Réseau",
+    "valeur": "48"
+  }
+
+]

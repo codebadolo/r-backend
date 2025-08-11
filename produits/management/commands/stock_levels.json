@@ -1,0 +1,27 @@
+[
+  {
+    "warehouse": "Entrepôt Paris",
+    "product_nom": "Dell XPS 13",
+    "variant_nom": "RAM 16 Go",
+    "stock_total": 15,
+    "stock_reserve": 2,
+    "seuil_alerte": 5
+  },
+  {
+    "warehouse": "Entrepôt Lyon",
+    "product_nom": "Dell XPS 13",
+    "variant_nom": "Couleur Argent",
+    "stock_total": 10,
+    "stock_reserve": 1,
+    "seuil_alerte": 5
+  },
+  {
+    "warehouse": "Entrepôt Paris",
+    "product_nom": "Apple MacBook Air",
+    "variant_nom": "Couleur Gris sidéral",
+    "stock_total": 40,
+    "stock_reserve": 0,
+    "seuil_alerte": 5
+  }
+
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "product_nom": "Dell XPS 13",
+    "nom": "RAM",
+    "valeur": "8 Go",
+    "prix_supplémentaire": 0,
+    "stock": 15,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom": "RAM",
+    "valeur": "16 Go",
+    "prix_supplémentaire": 150,
+    "stock": 20,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom": "Couleur",
+    "valeur": "Noir",
+    "prix_supplémentaire": 0,
+    "stock": 18,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Dell XPS 13",
+    "nom": "Couleur",
+    "valeur": "Argent",
+    "prix_supplémentaire": 0,
+    "stock": 32,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Samsung SSD T7",
+    "nom": "Capacité",
+    "valeur": "500 Go",
+    "prix_supplémentaire": 0,
+    "stock": 50,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Samsung SSD T7",
+    "nom": "Capacité",
+    "valeur": "1 To",
+    "prix_supplémentaire": 80,
+    "stock": 30,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Apple MacBook Air",
+    "nom": "Couleur",
+    "valeur": "Gris sidéral",
+    "prix_supplémentaire": 0,
+    "stock": 40,
+    "image_url": ""
+  },
+  {
+    "product_nom": "Apple MacBook Air",
+    "nom": "Couleur",
+    "valeur": "Or",
+    "prix_supplémentaire": 0,
+    "stock": 20,
+    "image_url": ""
+  }
+  
+]
