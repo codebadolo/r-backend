@@ -23,11 +23,21 @@ class BrandViewSet(viewsets.ModelViewSet):
     serializer_class = BrandSerializer
 
 
+from rest_framework import viewsets
+from .models import Product
+from .serializers import ProductSerializer
+
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().prefetch_related(
+        'specifications__spec_key__spec_category', 
+        'variants',
+        'stocklevel_set__warehouse',
+        'related_from__related_product', 
+         'images', 
+        'documents',
+    )
     serializer_class = ProductSerializer
     permission_classes = [permissions.AllowAny]
-
 
 class ProductVariantViewSet(viewsets.ModelViewSet):
     queryset = ProductVariant.objects.all()
@@ -37,22 +47,23 @@ class ProductVariantViewSet(viewsets.ModelViewSet):
 class SpecCategoryViewSet(viewsets.ModelViewSet):
     queryset = SpecCategory.objects.all()
     serializer_class = SpecCategorySerializer
-
+    permission_classes = [permissions.AllowAny]
 
 class SpecKeyViewSet(viewsets.ModelViewSet):
     queryset = SpecKey.objects.all()
     serializer_class = SpecKeySerializer
-
+    permission_classes = [permissions.AllowAny]
 
 class ProductSpecificationViewSet(viewsets.ModelViewSet):
     queryset = ProductSpecification.objects.all()
     serializer_class = ProductSpecificationSerializer
-
+    #permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
 
 class ProductImageViewSet(viewsets.ModelViewSet):
     queryset = ProductImage.objects.all()
     serializer_class = ProductImageSerializer
-
+    permission_classes = [permissions.AllowAny]
 
 class ProductDocumentViewSet(viewsets.ModelViewSet):
     queryset = ProductDocument.objects.all()

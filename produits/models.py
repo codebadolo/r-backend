@@ -13,7 +13,13 @@ class Category(models.Model):
 
 class Brand(models.Model):
     nom = models.CharField(max_length=255)
-    logo_url = models.URLField(blank=True, null=True)
+    logo =  models.ImageField(
+        upload_to='brands_images/',
+        blank=True,
+        null=True,
+        default=None,
+        help_text='Brand logo '
+    )
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -28,7 +34,13 @@ class Product(models.Model):
     prix = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField(default=0)
     etat = models.CharField(max_length=50, default='disponible')
-    image_url = models.URLField(blank=True, null=True)
+    image = models.ImageField(
+        upload_to='product_images/',
+        blank=True,
+        null=True,
+        default=None,
+        help_text='Image principale du produit'
+    )
     ean_code = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     date_creation = models.DateTimeField(auto_now_add=True)
@@ -44,7 +56,13 @@ class ProductVariant(models.Model):
     valeur = models.CharField(max_length=255)  # ex: "Oui", "Noir", "512 Go"
     prix_supplémentaire = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     stock = models.IntegerField(default=0)
-    image_url = models.URLField(blank=True, null=True)
+    image = models.ImageField(
+        upload_to='product_images/',
+        default=None,
+        blank=True,
+        null=True,
+        help_text='Image de la variante'
+    )
 
     def __str__(self):
         return f"{self.product.nom} - {self.nom}: {self.valeur}"
@@ -93,12 +111,11 @@ class ProductSpecification(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image_url = models.URLField()
+    image = models.ImageField(upload_to='product_images/' ,default=None, blank=True, null=True)  # chemin dossier où enregistrer
     alt_text = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f"Image de {self.product.nom}"
-
 
 class ProductDocument(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='documents')

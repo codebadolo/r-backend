@@ -1,69 +1,4058 @@
 [
   {
-    "nom": "Dell XPS 13",
-    "description": "Ultrabook léger et puissant",
-    "prix": 1350.0,
-    "stock": 50,
-    "etat": "disponible",
-    "ean_code": "1234567890001",
-    "is_active": true,
-    "category": "Ordinateurs",
-    "brand": "Dell"
+    "category": {
+      "nom": "Smartphones",
+      "parent_category": "Mobile Devices",
+      "description": "Téléphones intelligents haute technologie"
+    },
+    "brand": {
+      "nom": "Apple",
+      "description": "Marque leader en électronique grand public"
+    },
+    "product": {
+      "nom": "iPhone 14 Pro",
+      "description": "iPhone 14 Pro avec puce A16, écran OLED, triple caméra.",
+      "prix": 1199.99,
+      "stock": 100,
+      "etat": "disponible",
+      "ean_code": "12345678001456",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Graphite", "prix_supplémentaire": 0, "stock": 40, "image": "iphone14_graphite.jpg"},
+          {"valeur": "Silver", "prix_supplémentaire": 0, "stock": 35, "image": "iphone14_silver.jpg"},
+          {"valeur": "Gold", "prix_supplémentaire": 50, "stock": 25, "image": "iphone14_gold.jpg"}
+        ]
+      },
+      {
+        "nom": "Storage Capacity",
+        "valeurs": [
+          {"valeur": "128GB", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "256GB", "prix_supplémentaire": 150, "stock": 50}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "OLED", "data_type": "string", "unit": null},
+          {"nom_attribut": "Size", "valeur": "6.1", "data_type": "float", "unit": "inch"},
+          {"nom_attribut": "Refresh Rate", "valeur": "120", "data_type": "int", "unit": "Hz"}
+        ]
+      },
+      {
+        "spec_category": "Battery",
+        "attributes": [
+          {"nom_attribut": "Capacity", "valeur": "3095", "data_type": "int", "unit": "mAh"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "iphone14_front.jpg", "alt_text": "Vue avant iPhone 14 Pro"},
+      {"image": "iphone14_back.jpg", "alt_text": "Vue arrière iPhone 14 Pro"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/iphone14pro_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Apple Lightning Cable", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 60, "stock_reserve": 5, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": [
+      {
+        "variant_nom": "Color",
+        "variant_valeur": "Graphite",
+        "warehouses": [
+          {"nom": "Ouagadougou Central Warehouse", "stock_total": 20, "stock_reserve": 2, "seuil_alerte": 5}
+        ]
+      }
+    ]
   },
   {
-    "nom": "Apple MacBook Air",
-    "description": "Ordinateur portable ultra-fin avec puce M1",
-    "prix": 1450.0,
-    "stock": 40,
-    "etat": "disponible",
-    "ean_code": "1234567890002",
-    "is_active": true,
-    "category": "Ordinateurs",
-    "brand": "Apple"
+    "category": {
+      "nom": "Laptop",
+      "parent_category": "Computers",
+      "description": "Ordinateurs portables"
+    },
+    "brand": {
+      "nom": "Lenovo",
+      "description": "Fabricant d'ordinateurs et équipement électronique"
+    },
+    "product": {
+      "nom": "ThinkPad X1 Carbon Gen10",
+      "description": "Ultrabook léger avec processeur Intel Core i7 et écran 14 pouces.",
+      "prix": 1799.99,
+      "stock": 75,
+      "etat": "disponible",
+      "ean_code": "98765432101234",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "RAM",
+        "valeurs": [
+          {"valeur": "16GB", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "32GB", "prix_supplémentaire": 150, "stock": 25}
+        ]
+      },
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Black", "prix_supplémentaire": 0, "stock": 75}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Processor",
+        "attributes": [
+          {"nom_attribut": "Model", "valeur": "Intel Core i7-1260P", "data_type": "string", "unit": null}
+        ]
+      },
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Size", "valeur": "14", "data_type": "float", "unit": "inch"},
+          {"nom_attribut": "Resolution", "valeur": "1920x1200", "data_type": "string", "unit": "pixels"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "thinkpad_x1_front.jpg", "alt_text": "ThinkPad X1 Carbon Gen10"},
+      {"image": "thinkpad_x1_side.jpg", "alt_text": "Vue de côté ThinkPad X1 Carbon"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/thinkpadx1_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "ThinkPad Docking Station", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 60, "stock_reserve": 5, "seuil_alerte": 8}
+    ],
+    "variant_warehouses_stock": [
+      {
+        "variant_nom": "RAM",
+        "variant_valeur": "16GB",
+        "warehouses": [
+          {"nom": "Bobo-Dioulasso Storage", "stock_total": 30, "stock_reserve": 3, "seuil_alerte": 5}
+        ]
+      }
+    ]
   },
   {
-    "nom": "Cisco Catalyst 9300",
-    "description": "Switch réseau d'entreprise robuste",
-    "prix": 3000.0,
-    "stock": 15,
-    "etat": "disponible",
-    "ean_code": "1234567890003",
-    "is_active": true,
-    "category": "Réseaux",
-    "brand": "Cisco"
+    "category": {
+      "nom": "Router",
+      "parent_category": "Networking Devices",
+      "description": "Routeurs réseau"
+    },
+    "brand": {
+      "nom": "Netgear",
+      "description": "Fournisseur d'équipements réseau"
+    },
+    "product": {
+      "nom": "Netgear Nighthawk AX12",
+      "description": "Routeur Wi-Fi 6 haut débit avec 12 flux de données.",
+      "prix": 499.99,
+      "stock": 120,
+      "etat": "disponible",
+      "ean_code": "22233344455566",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Speed",
+        "valeurs": [
+          {"valeur": "6Gbps", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "10Gbps", "prix_supplémentaire": 150, "stock": 50}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Network",
+        "attributes": [
+          {"nom_attribut": "Wireless Standard", "valeur": "802.11ax", "data_type": "string", "unit": null},
+          {"nom_attribut": "Ports", "valeur": "5", "data_type": "int", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "nighthawk_ax12.jpg", "alt_text": "Netgear Nighthawk AX12"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/nighthawk_ax12_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Netgear Powerline Adapter", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 80, "stock_reserve": 10, "seuil_alerte": 12}
+    ],
+    "variant_warehouses_stock": []
   },
   {
-    "nom": "HP LaserJet Pro",
-    "description": "Imprimante laser multifonctions",
-    "prix": 250.0,
-    "stock": 60,
-    "etat": "disponible",
-    "ean_code": "1234567890004",
-    "is_active": true,
-    "category": "Imprimantes et scanners",
-    "brand": "HP (Hewlett-Packard)"
+    "category": {
+      "nom": "Software Suite",
+      "parent_category": "Software",
+      "description": "Suite logicielle professionnelle"
+    },
+    "brand": {
+      "nom": "Microsoft",
+      "description": "Éditeur de logiciels leader"
+    },
+    "product": {
+      "nom": "Microsoft Office 2021",
+      "description": "Suite bureautique Office 2021 avec licences perpétuelles.",
+      "prix": 249.99,
+      "stock": 500,
+      "etat": "disponible",
+      "ean_code": "33322211100099",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "License Type",
+        "valeurs": [
+          {"valeur": "Perpetual", "prix_supplémentaire": 0, "stock": 300},
+          {"valeur": "Subscription", "prix_supplémentaire": 50, "stock": 200}
+        ]
+      },
+      {
+        "nom": "Platform",
+        "valeurs": [
+          {"valeur": "Windows", "prix_supplémentaire": 0, "stock": 400},
+          {"valeur": "Mac", "prix_supplémentaire": 0, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "System Requirements",
+        "attributes": [
+          {"nom_attribut": "OS", "valeur": "Windows 10 or later", "data_type": "string", "unit": null},
+          {"nom_attribut": "RAM", "valeur": "4GB", "data_type": "string", "unit": "Go"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "office2021.jpg", "alt_text": "Microsoft Office 2021"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/office2021_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Microsoft Teams", "relation_type": "logiciel associé"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 500, "stock_reserve": 0, "seuil_alerte": 50}
+    ],
+    "variant_warehouses_stock": []
   },
   {
-    "nom": "Samsung SSD T7",
-    "description": "Disque SSD externe rapide et portable",
-    "prix": 150.0,
-    "stock": 100,
-    "etat": "disponible",
-    "ean_code": "1234567890005",
-    "is_active": true,
-    "category": "Stockages de données",
-    "brand": "Samsung"
+    "category": {
+      "nom": "Monitor",
+      "parent_category": "Computer Accessories",
+      "description": "Écrans d'ordinateur"
+    },
+    "brand": {
+      "nom": "Samsung",
+      "description": "Innovateur en affichage"
+    },
+    "product": {
+      "nom": "Samsung UltraWide 34\"",
+      "description": "Écran ultra-large 34 pouces incurvé pour une meilleure productivité.",
+      "prix": 549.99,
+      "stock": 60,
+      "etat": "disponible",
+      "ean_code": "55544433322211",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Resolution",
+        "valeurs": [
+          {"valeur": "3440x1440", "prix_supplémentaire": 0, "stock": 40},
+          {"valeur": "2560x1080", "prix_supplémentaire": -100, "stock": 20}
+        ]
+      },
+      {
+        "nom": "Connector Type",
+        "valeurs": [
+          {"valeur": "HDMI", "prix_supplémentaire": 0, "stock": 60},
+          {"valeur": "DisplayPort", "prix_supplémentaire": 0, "stock": 60}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Size", "valeur": "34", "data_type": "float", "unit": "inch"},
+          {"nom_attribut": "Refresh Rate", "valeur": "100", "data_type": "int", "unit": "Hz"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "samsung_ultrawide.jpg", "alt_text": "Samsung UltraWide 34 inches"},
+      {"image": "samsung_ultrawide_back.jpg", "alt_text": "Dos de l'écran Samsung UltraWide"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/samsung_ultrawide_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Samsung Monitor Stand", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 60, "stock_reserve": 10, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
   },
- 
   {
-    "nom": "Microsoft Surface Pro 7",
-    "description": "Tablette PC hybride avec stylet",
-    "prix": 1100.0,
-    "stock": 30,
-    "etat": "disponible",
-    "ean_code": "1234567890012",
-    "is_active": true,
-    "category": "Ordinateurs",
-    "brand": "Microsoft"
+    "category": {
+      "nom": "SSD",
+      "parent_category": "Storage",
+      "description": "Disques SSD haute performance"
+    },
+    "brand": {
+      "nom": "Corsair",
+      "description": "Fabricant de composants informatiques"
+    },
+    "product": {
+      "nom": "Corsair MP600 Pro XT",
+      "description": "SSD NVMe ultra-rapide 2TB pour gaming et stockage intensif.",
+      "prix": 379.99,
+      "stock": 200,
+      "etat": "disponible",
+      "ean_code": "66677788899900",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Storage Capacity",
+        "valeurs": [
+          {"valeur": "1TB", "prix_supplémentaire": 0, "stock": 120},
+          {"valeur": "2TB", "prix_supplémentaire": 150, "stock": 80}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performance",
+        "attributes": [
+          {"nom_attribut": "Read Speed", "valeur": "7000", "data_type": "int", "unit": "MB/s"},
+          {"nom_attribut": "Write Speed", "valeur": "6850", "data_type": "int", "unit": "MB/s"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "corsair_mp600.jpg", "alt_text": "Corsair MP600 Pro XT SSD"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/corsair_mp600_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Corsair SSD Heatsink", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 200, "stock_reserve": 20, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Mouse",
+      "parent_category": "Computer Accessories",
+      "description": "Souris pour ordinateurs"
+    },
+    "brand": {
+      "nom": "Logitech",
+      "description": "Pionnier en périphériques informatiques"
+    },
+    "product": {
+      "nom": "Logitech MX Master 3",
+      "description": "Souris sans fil avancée pour productivité et ergonomie.",
+      "prix": 99.99,
+      "stock": 150,
+      "etat": "disponible",
+      "ean_code": "77788899900011",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Connector Type",
+        "valeurs": [
+          {"valeur": "Wireless", "prix_supplémentaire": 0, "stock": 80},
+          {"valeur": "Bluetooth", "prix_supplémentaire": 10, "stock": 70}
+        ]
+      },
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Graphite", "prix_supplémentaire": 0, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "General",
+        "attributes": [
+          {"nom_attribut": "Battery Life", "valeur": "70", "data_type": "int", "unit": "hours"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "logitech_mx_master3.jpg", "alt_text": "Logitech MX Master 3"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/logitech_mx_master3_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Logitech MX Keys", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 100, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Graphics Card",
+      "parent_category": "Computer Components",
+      "description": "Cartes graphiques pour gaming et professionnels"
+    },
+    "brand": {
+      "nom": "NVIDIA",
+      "description": "Leader mondial des processeurs graphiques"
+    },
+    "product": {
+      "nom": "NVIDIA RTX 4090",
+      "description": "Carte graphique haut de gamme pour gaming extrême.",
+      "prix": 1999.99,
+      "stock": 50,
+      "etat": "disponible",
+      "ean_code": "88899900011122",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Memory Size",
+        "valeurs": [
+          {"valeur": "24GB", "prix_supplémentaire": 0, "stock": 50}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "GPU",
+        "attributes": [
+          {"nom_attribut": "CUDA Cores", "valeur": "16384", "data_type": "int", "unit": null},
+          {"nom_attribut": "Boost Clock", "valeur": "2.52", "data_type": "float", "unit": "GHz"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "nvidia_rtx4090.jpg", "alt_text": "NVIDIA RTX 4090"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/nvidia_rtx4090_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "NVIDIA GeForce Experience", "relation_type": "logiciel"}
+    ],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 40, "stock_reserve": 5, "seuil_alerte": 4}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Antivirus Software",
+      "parent_category": "Software",
+      "description": "Logiciels antivirus"
+    },
+    "brand": {
+      "nom": "Kaspersky",
+      "description": "Solutions de cybersécurité renommées"
+    },
+    "product": {
+      "nom": "Kaspersky Internet Security",
+      "description": "Protection antivirus complète pour PC et Mac.",
+      "prix": 49.99,
+      "stock": 300,
+      "etat": "disponible",
+      "ean_code": "99988877766655",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "License Type",
+        "valeurs": [
+          {"valeur": "1 year subscription", "prix_supplémentaire": 0, "stock": 200},
+          {"valeur": "2 year subscription", "prix_supplémentaire": 30, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Compatibility",
+        "attributes": [
+          {"nom_attribut": "Supported OS", "valeur": "Windows, Mac", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "kaspersky_internet_security.jpg", "alt_text": "Kaspersky Internet Security"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/kaspersky_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Kaspersky Password Manager", "relation_type": "logiciel"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 300, "stock_reserve": 10, "seuil_alerte": 30}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Tablet",
+      "parent_category": "Mobile Devices",
+      "description": "Tablettes tactiles"
+    },
+    "brand": {
+      "nom": "Samsung",
+      "description": "Innovateur en électronique grand public"
+    },
+    "product": {
+      "nom": "Samsung Galaxy Tab S8",
+      "description": "Tablette Android haut de gamme avec stylet inclus.",
+      "prix": 699.99,
+      "stock": 80,
+      "etat": "disponible",
+      "ean_code": "55566677788899",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Graphite", "prix_supplémentaire": 0, "stock": 30},
+          {"valeur": "Silver", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "Pink Gold", "prix_supplémentaire": 10, "stock": 25}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Size", "valeur": "11", "data_type": "float", "unit": "inch"},
+          {"nom_attribut": "Resolution", "valeur": "2560x1600", "data_type": "string", "unit": "pixels"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "galaxy_tab_s8_front.jpg", "alt_text": "Samsung Galaxy Tab S8"},
+      {"image": "galaxy_tab_s8_back.jpg", "alt_text": "Dos Galaxy Tab S8"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/galaxy_tab_s8_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Samsung Keyboard Cover", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 80, "stock_reserve": 5, "seuil_alerte": 8}
+    ],
+    "variant_warehouses_stock": []
+  }
+  ,
+  {
+    "category": {
+      "nom": "Ordinateurs",
+      "parent_category": "Informatique & électronique",
+      "description": "Ordinateurs portables et fixes"
+    },
+    "brand": {
+      "nom": "Dell",
+      "description": "Fabricant d'ordinateurs et serveurs"
+    },
+    "product": {
+      "nom": "Dell XPS 15",
+      "description": "Ordinateur portable 15 pouces UHD, processeur Intel Core i7.",
+      "prix": 1599.99,
+      "stock": 80,
+      "etat": "disponible",
+      "ean_code": "1000012345678",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "RAM",
+        "valeurs": [
+          {"valeur": "8GB", "prix_supplémentaire": 0, "stock": 40},
+          {"valeur": "16GB", "prix_supplémentaire": 150, "stock": 40}
+        ]
+      },
+      {
+        "nom": "Stockage",
+        "valeurs": [
+          {"valeur": "256GB SSD", "prix_supplémentaire": 0, "stock": 60},
+          {"valeur": "512GB SSD", "prix_supplémentaire": 200, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performance",
+        "attributes": [
+          {"nom_attribut": "Processeur", "valeur": "Intel Core i7-11800H", "data_type": "string", "unit": null},
+          {"nom_attribut": "Carte graphique", "valeur": "NVIDIA RTX 3050 Ti", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "dell_xps15_front.jpg", "alt_text": "Dell XPS 15 vue de face"},
+      {"image": "dell_xps15_side.jpg", "alt_text": "Dell XPS 15 vue de côté"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/dell_xps15_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Dell XPS 15 Sleeve", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 50, "stock_reserve": 5, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": [
+      {
+        "variant_nom": "RAM",
+        "variant_valeur": "8GB",
+        "warehouses": [
+          {"nom": "Ouagadougou Central Warehouse", "stock_total": 25, "stock_reserve": 2, "seuil_alerte": 5}
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "nom": "Casques audio et portables",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Casques et écouteurs sans fil ou filaires"
+    },
+    "brand": {
+      "nom": "Sony",
+      "description": "Leader en audio et technologies grand public"
+    },
+    "product": {
+      "nom": "Sony WH-1000XM5",
+      "description": "Casque sans fil avec réduction active de bruit de haute qualité.",
+      "prix": 399.99,
+      "stock": 150,
+      "etat": "disponible",
+      "ean_code": "1234509876543",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 90, "image": "sony_wh1000xm5_noir.jpg"},
+          {"valeur": "Argent", "prix_supplémentaire": 0, "stock": 60, "image": "sony_wh1000xm5_argent.jpg"}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Type de casque", "valeur": "Circum-aural", "data_type": "string", "unit": null},
+          {"nom_attribut": "Autonomie", "valeur": "30", "data_type": "int", "unit": "heures"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "sony_wh1000xm5_front.jpg", "alt_text": "Sony WH-1000XM5 vue avant"},
+      {"image": "sony_wh1000xm5_side.jpg", "alt_text": "Sony WH-1000XM5 vue latérale"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/sony_wh1000xm5_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Sony WH-1000XM4", "relation_type": "produit similaire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 100, "stock_reserve": 10, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Réseaux",
+      "parent_category": "Informatique & électronique",
+      "description": "Equipements et périphériques réseaux"
+    },
+    "brand": {
+      "nom": "TP-Link",
+      "description": "Fabricant d'équipements réseau"
+    },
+    "product": {
+      "nom": "TP-Link Archer AX6000",
+      "description": "Routeur Wi-Fi 6 haute performance avec double bande.",
+      "prix": 299.99,
+      "stock": 110,
+      "etat": "disponible",
+      "ean_code": "2233445566778",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Ports",
+        "valeurs": [
+          {"valeur": "8", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "16", "prix_supplémentaire": 50, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Network",
+        "attributes": [
+          {"nom_attribut": "Wireless Standard", "valeur": "802.11ax", "data_type": "string", "unit": null},
+          {"nom_attribut": "Speed", "valeur": "6Gbps", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "tplink_archer_ax6000.jpg", "alt_text": "TP-Link Archer AX6000"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/tplink_archer_ax6000_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "TP-Link Powerline Adapter", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 110, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Logiciels",
+      "parent_category": "Informatique & électronique",
+      "description": "Logiciels professionnels et utilitaires"
+    },
+    "brand": {
+      "nom": "Adobe",
+      "description": "Leader mondial des logiciels créatifs"
+    },
+    "product": {
+      "nom": "Adobe Photoshop 2025",
+      "description": "Logiciel de retouche photo professionnel avec mises à jour incluses.",
+      "prix": 599.99,
+      "stock": 400,
+      "etat": "disponible",
+      "ean_code": "3344556677889",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "License Type",
+        "valeurs": [
+          {"valeur": "Subscription", "prix_supplémentaire": 0, "stock": 350},
+          {"valeur": "Perpetual", "prix_supplémentaire": 200, "stock": 50}
+        ]
+      },
+      {
+        "nom": "Platform",
+        "valeurs": [
+          {"valeur": "Windows", "prix_supplémentaire": 0, "stock": 300},
+          {"valeur": "Mac", "prix_supplémentaire": 0, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "System Requirements",
+        "attributes": [
+          {"nom_attribut": "OS", "valeur": "Windows 10 or later", "data_type": "string", "unit": null},
+          {"nom_attribut": "RAM", "valeur": "8GB", "data_type": "string", "unit": "Go"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "adobe_photoshop2025.jpg", "alt_text": "Adobe Photoshop 2025"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/adobe_photoshop_manual.pdf", "type_document": "Guide utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Adobe Lightroom", "relation_type": "logiciel associé"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 400, "stock_reserve": 20, "seuil_alerte": 30}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Imprimantes et scanners",
+      "parent_category": "Informatique & électronique",
+      "description": "Périphériques d'impression et de numérisation"
+    },
+    "brand": {
+      "nom": "HP",
+      "description": "Leader en solutions d'impression"
+    },
+    "product": {
+      "nom": "HP LaserJet Pro M404dn",
+      "description": "Imprimante laser monochrome rapide pour bureaux.",
+      "prix": 249.99,
+      "stock": 90,
+      "etat": "disponible",
+      "ean_code": "4455667788990",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Connectivité",
+        "valeurs": [
+          {"valeur": "Ethernet", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "Wi-Fi", "prix_supplémentaire": 60, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Printer",
+        "attributes": [
+          {"nom_attribut": "Vitesse", "valeur": "40", "data_type": "int", "unit": "ppm"},
+          {"nom_attribut": "Résolution", "valeur": "1200x1200", "data_type": "string", "unit": "dpi"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "hp_laserjet_m404dn.jpg", "alt_text": "HP LaserJet Pro M404dn"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/hp_laserjet_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "HP Toner Cartridge", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 90, "stock_reserve": 8, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Piles et alimentations électriques",
+      "parent_category": null,
+      "description": "Alimentations pour divers équipements électroniques"
+    },
+    "brand": {
+      "nom": "Energizer",
+      "description": "Fabricant de piles et batteries"
+    },
+    "product": {
+      "nom": "Energizer Ultimate Lithium AA",
+      "description": "Pile lithium AA haute performance.",
+      "prix": 19.99,
+      "stock": 500,
+      "etat": "disponible",
+      "ean_code": "5566778899001",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Pack Size",
+        "valeurs": [
+          {"valeur": "4 Pack", "prix_supplémentaire": 0, "stock": 300},
+          {"valeur": "8 Pack", "prix_supplémentaire": 15, "stock": 200}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Battery",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "Lithium", "data_type": "string", "unit": null},
+          {"nom_attribut": "Tension", "valeur": "1.5", "data_type": "float", "unit": "V"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "energizer_ultimate_lithium.jpg", "alt_text": "Energizer Ultimate Lithium AA"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 500, "stock_reserve": 50, "seuil_alerte": 50}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Outils",
+      "parent_category": null,
+      "description": "Outils et équipements manuels"
+    },
+    "brand": {
+      "nom": "Bosch",
+      "description": "Fabricant d’outils électriques et accessoires"
+    },
+    "product": {
+      "nom": "Bosch Perceuse sans fil GSR 18V-EC",
+      "description": "Perceuse visseuse sans fil avec batterie Li-Ion de 18V.",
+      "prix": 149.99,
+      "stock": 70,
+      "etat": "disponible",
+      "ean_code": "6677889900112",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Batterie",
+        "valeurs": [
+          {"valeur": "2.0 Ah", "prix_supplémentaire": 0, "stock": 40},
+          {"valeur": "4.0 Ah", "prix_supplémentaire": 50, "stock": 30}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Tool",
+        "attributes": [
+          {"nom_attribut": "Vitesse", "valeur": "0-1900", "data_type": "int", "unit": "rpm"},
+          {"nom_attribut": "Couple max", "valeur": "60", "data_type": "int", "unit": "Nm"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "bosch_perceuse_gsr.jpg", "alt_text": "Perceuse Bosch GSR 18V-EC"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/bosch_perceuse_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Bosch Battery Charger", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 70, "stock_reserve": 5, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Composants",
+      "parent_category": "Informatique & électronique",
+      "description": "Pièces détachées et composants électroniques"
+    },
+    "brand": {
+      "nom": "Intel",
+      "description": "Fabricant de processeurs et composants"
+    },
+    "product": {
+      "nom": "Intel Core i9-12900K",
+      "description": "Processeur dernière génération hautes performances.",
+      "prix": 699.99,
+      "stock": 120,
+      "etat": "disponible",
+      "ean_code": "7788990011223",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Fréquence",
+        "valeurs": [
+          {"valeur": "3.2 GHz", "prix_supplémentaire": 0, "stock": 120}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Processor",
+        "attributes": [
+          {"nom_attribut": "Nombre de cœurs", "valeur": "16", "data_type": "int", "unit": null},
+          {"nom_attribut": "Threads", "valeur": "24", "data_type": "int", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "intel_i9_12900k.jpg", "alt_text": "Intel Core i9-12900K"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/intel_i9_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Intel Thermal Paste", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagma Central Warehouse", "adresse": "Centre logistique Ouagadougou", "stock_total": 120, "stock_reserve": 15, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Accessoires d'équipements de télécommunications",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Accessoires pour équipements télécom"
+    },
+    "brand": {
+      "nom": "Logitech",
+      "description": "Fabricant de périphériques et accessoires"
+    },
+    "product": {
+      "nom": "Logitech Wireless Presenter R800",
+      "description": "Télécommande sans fil pour présentations professionnelles.",
+      "prix": 89.99,
+      "stock": 200,
+      "etat": "disponible",
+      "ean_code": "8899001122334",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Couleur",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 200}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Presentation",
+        "attributes": [
+          {"nom_attribut": "Portée", "valeur": "30", "data_type": "int", "unit": "mètres"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "logitech_r800.jpg", "alt_text": "Logitech Wireless Presenter R800"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/logitech_r800_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 200, "stock_reserve": 20, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Casques audio et portables",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Casques audio et écouteurs"
+    },
+    "brand": {
+      "nom": "Bose",
+      "description": "Expert en audio haute fidélité"
+    },
+    "product": {
+      "nom": "Bose QuietComfort 45",
+      "description": "Casque Bluetooth avec réduction de bruit active.",
+      "prix": 329.99,
+      "stock": 130,
+      "etat": "disponible",
+      "ean_code": "9988776655443",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 80},
+          {"valeur": "Blanc", "prix_supplémentaire": 0, "stock": 50}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Autonomie", "valeur": "24", "data_type": "int", "unit": "heures"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "bose_qc45_noir.jpg", "alt_text": "Bose QuietComfort 45 Noir"},
+      {"image": "bose_qc45_blanc.jpg", "alt_text": "Bose QuietComfort 45 Blanc"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/bose_qc45_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Bose SoundLink Revolve", "relation_type": "produit associé"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 130, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+  ,
+  
+
+  {
+    "category": {
+      "nom": "Equipements de communication radio",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Equipements pour communication radio"
+    },
+    "brand": {
+      "nom": "Motorola",
+      "description": "Fabricant d’équipements radio et communication"
+    },
+    "product": {
+      "nom": "Motorola DP4800e",
+      "description": "Radio bidirectionnelle numérique robuste avec écran couleur.",
+      "prix": 799.99,
+      "stock": 65,
+      "etat": "disponible",
+      "ean_code": "1010101010101",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Fréquence",
+        "valeurs": [
+          {"valeur": "VHF", "prix_supplémentaire": 0, "stock": 40},
+          {"valeur": "UHF", "prix_supplémentaire": 0, "stock": 25}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Communication",
+        "attributes": [
+          {"nom_attribut": "Puissance de sortie", "valeur": "5W", "data_type": "int", "unit": "W"},
+          {"nom_attribut": "Portée", "valeur": "5", "data_type": "int", "unit": "km"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "motorola_dp4800e.jpg", "alt_text": "Motorola DP4800e Radio"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/motorola_dp4800e_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Motorola Battery Pack", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 65, "stock_reserve": 5, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Informatique & électronique",
+      "parent_category": null,
+      "description": "Catégorie principale informatique et électronique"
+    },
+    "brand": {
+      "nom": "Asus",
+      "description": "Fabricant d’équipements informatique variés"
+    },
+    "product": {
+      "nom": "Asus TUF Gaming A15",
+      "description": "PC portable gaming avec Ryzen 7 et RTX 3060.",
+      "prix": 1399.99,
+      "stock": 90,
+      "etat": "disponible",
+      "ean_code": "2020202020202",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "RAM",
+        "valeurs": [
+          {"valeur": "16GB", "prix_supplémentaire": 0, "stock": 60},
+          {"valeur": "32GB", "prix_supplémentaire": 200, "stock": 30}
+        ]
+      },
+      {
+        "nom": "Stockage",
+        "valeurs": [
+          {"valeur": "512GB SSD", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "1TB SSD", "prix_supplémentaire": 150, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performance",
+        "attributes": [
+          {"nom_attribut": "Processeur", "valeur": "AMD Ryzen 7 5800H", "data_type": "string", "unit": null},
+          {"nom_attribut": "Carte graphique", "valeur": "NVIDIA RTX 3060", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "asus_tuf_a15_front.jpg", "alt_text": "Asus TUF Gaming A15"},
+      {"image": "asus_tuf_a15_side.jpg", "alt_text": "Asus TUF côté"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/asus_tuf_a15_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Asus Gaming Mouse", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 90, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Télévisions",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Téléviseurs"
+    },
+    "brand": {
+      "nom": "LG",
+      "description": "Leader en écrans et téléviseurs"
+    },
+    "product": {
+      "nom": "LG OLED CX",
+      "description": "Téléviseur OLED 55 pouces 4K UHD avec HDR.",
+      "prix": 1299.99,
+      "stock": 40,
+      "etat": "disponible",
+      "ean_code": "3030303030303",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Taille",
+        "valeurs": [
+          {"valeur": "55 inch", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "65 inch", "prix_supplémentaire": 300, "stock": 15}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "4K UHD", "data_type": "string", "unit": null},
+          {"nom_attribut": "HDR", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "lg_oled_cx.jpg", "alt_text": "LG OLED CX TV"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/lg_oled_cx_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "LG Soundbar SN7Y", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 40, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Dispositifs et accessoires de câblage",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Câbles et accessoires électriques"
+    },
+    "brand": {
+      "nom": "Belkin",
+      "description": "Fabricant d'accessoires câble et connectivité"
+    },
+    "product": {
+      "nom": "Belkin USB-C to USB-A Cable",
+      "description": "Câble USB-C vers USB-A 1m compatible charge et données.",
+      "prix": 19.99,
+      "stock": 300,
+      "etat": "disponible",
+      "ean_code": "4040404040404",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "1m", "prix_supplémentaire": 0, "stock": 150},
+          {"valeur": "2m", "prix_supplémentaire": 5, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Câble",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "USB-C to USB-A", "data_type": "string", "unit": null},
+          {"nom_attribut": "Longueur", "valeur": "1 ou 2 m", "data_type": "string", "unit": "mètres"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "belkin_usbc_to_usba.jpg", "alt_text": "Belkin USB-C to USB-A Cable"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 300, "stock_reserve": 20, "seuil_alerte": 25}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Structures de montage",
+      "parent_category": null,
+      "description": "Supports et montages pour équipements"
+    },
+    "brand": {
+      "nom": "Vogel's",
+      "description": "Fabricant de supports et fixations"
+    },
+    "product": {
+      "nom": "Vogel's Wall Mount WM3245",
+      "description": "Support mural pour TV 32 à 55 pouces, orientable.",
+      "prix": 89.99,
+      "stock": 85,
+      "etat": "disponible",
+      "ean_code": "5050505050505",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Taille support",
+        "valeurs": [
+          {"valeur": "32-42 inch", "prix_supplémentaire": 0, "stock": 45},
+          {"valeur": "43-55 inch", "prix_supplémentaire": 20, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Montage",
+        "attributes": [
+          {"nom_attribut": "Compatibilité", "valeur": "VESA 200x200 to 400x400", "data_type": "string", "unit": null},
+          {"nom_attribut": "Orientation", "valeur": "Pivotante", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "vogels_wm3245.jpg", "alt_text": "Support Vogel's WM3245"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/vogels_wm3245_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Vogel's Cable Management Clips", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 85, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Garanties et supports",
+      "parent_category": "Informatique & électronique",
+      "description": "Services de garantie et assistance technique"
+    },
+    "brand": {
+      "nom": "HP",
+      "description": "Leader en garantie et soutien"
+    },
+    "product": {
+      "nom": "HP Extended Warranty 3 years",
+      "description": "Garantie prolongée de 3 ans pour matériel HP.",
+      "prix": 199.99,
+      "stock": 1000,
+      "etat": "disponible",
+      "ean_code": "6060606060606",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Warranty",
+        "attributes": [
+          {"nom_attribut": "Durée", "valeur": "3 ans", "data_type": "int", "unit": "ans"},
+          {"nom_attribut": "Type", "valeur": "Prolongée", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [],
+    "documents": [
+      {"url_document": "https://example.com/manuals/hp_warranty_manual.pdf", "type_document": "Conditions"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 1000, "stock_reserve": 0, "seuil_alerte": 100}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Garanties et supports",
+      "parent_category": "Informatique & électronique",
+      "description": "Services de garantie et assistance technique"
+    },
+    "brand": {
+      "nom": "Dell",
+      "description": "Services garantie Dell"
+    },
+    "product": {
+      "nom": "Dell Premium Support Plus",
+      "description": "Support premium et garantie étendue Dell sur site.",
+      "prix": 299.99,
+      "stock": 800,
+      "etat": "disponible",
+      "ean_code": "7070707070707",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Warranty",
+        "attributes": [
+          {"nom_attribut": "Durée", "valeur": "4 ans", "data_type": "int", "unit": "ans"},
+          {"nom_attribut": "Type", "valeur": "Premium", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [],
+    "documents": [
+      {"url_document": "https://example.com/manuals/dell_support_manual.pdf", "type_document": "Conditions"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 800, "stock_reserve": 0, "seuil_alerte": 80}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Distributions et traitements du signal",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Matériel de distribution de signaux audio/vidéo"
+    },
+    "brand": {
+      "nom": "Extron",
+      "description": "Spécialiste des solutions AV"
+    },
+    "product": {
+      "nom": "Extron DTP HDMI 4K 230 Rx",
+      "description": "Récepteur DTP HDMI 4K avec intégration réseau.",
+      "prix": 499.99,
+      "stock": 55,
+      "etat": "disponible",
+      "ean_code": "8080808080808",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "AV",
+        "attributes": [
+          {"nom_attribut": "Résolution max", "valeur": "4K60", "data_type": "string", "unit": null},
+          {"nom_attribut": "Distance max", "valeur": "70", "data_type": "int", "unit": "m"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "extron_dtp_rx.jpg", "alt_text": "Extron DTP HDMI 4K 230 Rx"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/extron_dtp_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 55, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Câbles pour ordinateurs et périphériques",
+      "parent_category": "Informatique & électronique",
+      "description": "Câbles pour PC et appareils périphériques"
+    },
+    "brand": {
+      "nom": "Anker",
+      "description": "Accessoires et câbles de qualité"
+    },
+    "product": {
+      "nom": "Anker PowerLine III USB-C to USB-C",
+      "description": "Câble USB-C vers USB-C, 1.8m, support 100W.",
+      "prix": 29.99,
+      "stock": 180,
+      "etat": "disponible",
+      "ean_code": "9090909090909",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "1.8m", "prix_supplémentaire": 0, "stock": 180}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Câble",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "USB-C", "data_type": "string", "unit": null},
+          {"nom_attribut": "Puissance max", "valeur": "100", "data_type": "int", "unit": "W"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "anker_powerline3.jpg", "alt_text": "Anker PowerLine III USB-C Cable"}
+    ],
+    "documents": [],
+    "related_products": [
+      {"related_product_nom": "Anker PowerPort III Charger", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 180, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Piles et alimentations électriques",
+      "parent_category": null,
+      "description": "Alimentations pour divers équipements électroniques"
+    },
+    "brand": {
+      "nom": "Energizer",
+      "description": "Fabricant de piles et batteries"
+    },
+    "product": {
+      "nom": "Energizer Recharge Lithium AA",
+      "description": "Pile rechargeable lithium-ion AA haute capacité.",
+      "prix": 24.99,
+      "stock": 400,
+      "etat": "disponible",
+      "ean_code": "5566778899002",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Pack Size",
+        "valeurs": [
+          {"valeur": "4 Pack", "prix_supplémentaire": 0, "stock": 250},
+          {"valeur": "8 Pack", "prix_supplémentaire": 18, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Battery",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "Lithium-ion rechargeables", "data_type": "string", "unit": null},
+          {"nom_attribut": "Voltage", "valeur": "1.2", "data_type": "float", "unit": "V"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "energizer_recharge_lithium_aa.jpg", "alt_text": "Energizer Recharge Lithium AA"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 400, "stock_reserve": 30, "seuil_alerte": 50}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Écrans et accessoires",
+      "parent_category": "Informatique & électronique",
+      "description": "Moniteurs et accessoires associés"
+    },
+    "brand": {
+      "nom": "Dell",
+      "description": "Fabricant d'ordinateurs et accessoires"
+    },
+    "product": {
+      "nom": "Dell UltraSharp U2723QE",
+      "description": "Écran 27 pouces 4K HDR avec technologie IPS.",
+      "prix": 599.99,
+      "stock": 85,
+      "etat": "disponible",
+      "ean_code": "6677889900223",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Resolution",
+        "valeurs": [
+          {"valeur": "4K UHD", "prix_supplémentaire": 0, "stock": 85}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Taille", "valeur": "27", "data_type": "float", "unit": "inch"},
+          {"nom_attribut": "Technologie", "valeur": "IPS", "data_type": "string", "unit": null},
+          {"nom_attribut": "HDR", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "dell_ultrasharp_u2723qe.jpg", "alt_text": "Dell UltraSharp U2723QE"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/dell_u2723qe_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Dell Monitor Stand", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 85, "stock_reserve": 7, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Câbles",
+      "parent_category": null,
+      "description": "Câbles pour divers usages"
+    },
+    "brand": {
+      "nom": "Anker",
+      "description": "Fabricant de câbles et accessoires mobiles"
+    },
+    "product": {
+      "nom": "Anker PowerLine+ USB-C to Lightning",
+      "description": "Câble durable USB-C vers Lightning 1.8m.",
+      "prix": 29.99,
+      "stock": 300,
+      "etat": "disponible",
+      "ean_code": "7788990011334",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "1.8m", "prix_supplémentaire": 0, "stock": 300}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Cable",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "USB-C vers Lightning", "data_type": "string", "unit": null},
+          {"nom_attribut": "Charge max", "valeur": "18", "data_type": "int", "unit": "W"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "anker_powerline_usbc_lightning.jpg", "alt_text": "Anker PowerLine+ USB-C vers Lightning"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 300, "stock_reserve": 25, "seuil_alerte": 30}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Logiciels",
+      "parent_category": "Informatique & électronique",
+      "description": "Logiciels divers"
+    },
+    "brand": {
+      "nom": "ESET",
+      "description": "Solutions antivirus et de sécurité"
+    },
+    "product": {
+      "nom": "ESET NOD32 Antivirus 2025",
+      "description": "Protection antivirus puissante pour PC et Mac.",
+      "prix": 39.99,
+      "stock": 400,
+      "etat": "disponible",
+      "ean_code": "8899001122445",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "License Type",
+        "valeurs": [
+          {"valeur": "1 Year", "prix_supplémentaire": 0, "stock": 250},
+          {"valeur": "2 Years", "prix_supplémentaire": 20, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Security",
+        "attributes": [
+          {"nom_attribut": "Supported OS", "valeur": "Windows, Mac", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "eset_nod32.jpg", "alt_text": "ESET NOD32 Antivirus 2025"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/eset_nod32_manual.pdf", "type_document": "Guide utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "ESET Password Manager", "relation_type": "logiciel associé"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 400, "stock_reserve": 30, "seuil_alerte": 40}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Systèmes de surveillance",
+      "parent_category": "Automatisation de la maison et sécurité",
+      "description": "Systèmes de sécurité et de surveillance"
+    },
+    "brand": {
+      "nom": "Arlo",
+      "description": "Fabricant de systèmes de vidéosurveillance"
+    },
+    "product": {
+      "nom": "Arlo Pro 4",
+      "description": "Caméra de sécurité sans fil 2K HDR avec sirène intégrée.",
+      "prix": 249.99,
+      "stock": 90,
+      "etat": "disponible",
+      "ean_code": "9900112233445",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Pack Size",
+        "valeurs": [
+          {"valeur": "Single Camera", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "2 Camera Kit", "prix_supplémentaire": 150, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Surveillance",
+        "attributes": [
+          {"nom_attribut": "Résolution Vidéo", "valeur": "2K HDR", "data_type": "string", "unit": null},
+          {"nom_attribut": "Vision nocturne", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "arlo_pro4.jpg", "alt_text": "Arlo Pro 4 Camera"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/arlo_pro4_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Arlo Base Station", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 90, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Conduits de chemin de cables",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Chemins de câbles et conduits"
+    },
+    "brand": {
+      "nom": "Legrand",
+      "description": "Fabricant de matériel électrique"
+    },
+    "product": {
+      "nom": "Legrand Cable Duct 50mm",
+      "description": "Chemin de câble en PVC pour installations électriques.",
+      "prix": 15.99,
+      "stock": 250,
+      "etat": "disponible",
+      "ean_code": "1011121314151",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "2m", "prix_supplémentaire": 0, "stock": 150},
+          {"valeur": "5m", "prix_supplémentaire": 10, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Installation",
+        "attributes": [
+          {"nom_attribut": "Matériau", "valeur": "PVC", "data_type": "string", "unit": null},
+          {"nom_attribut": "Largeur", "valeur": "50", "data_type": "int", "unit": "mm"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "legrand_cable_duct_50.jpg", "alt_text": "Legrand Cable Duct 50mm"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 250, "stock_reserve": 20, "seuil_alerte": 30}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Logiciels",
+      "parent_category": "Informatique & électronique",
+      "description": "Logiciels de sécurité et utilitaires"
+    },
+    "brand": {
+      "nom": "Kaspersky",
+      "description": "Leader en cybersécurité"
+    },
+    "product": {
+      "nom": "Kaspersky Total Security 2025",
+      "description": "Suite de sécurité complète avec antivirus et protection internet.",
+      "prix": 59.99,
+      "stock": 500,
+      "etat": "disponible",
+      "ean_code": "1213141516171",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "License Duration",
+        "valeurs": [
+          {"valeur": "1 Year", "prix_supplémentaire": 0, "stock": 300},
+          {"valeur": "3 Years", "prix_supplémentaire": 80, "stock": 200}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "System",
+        "attributes": [
+          {"nom_attribut": "Supported OS", "valeur": "Windows, Mac, Android", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "kaspersky_total_security.jpg", "alt_text": "Kaspersky Total Security 2025"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/kaspersky_total_security_manual.pdf", "type_document": "Guide utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 500, "stock_reserve": 40, "seuil_alerte": 50}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Appareils photo et caméscopes",
+      "parent_category": "Équipement photo et vidéo",
+      "description": "Appareils pour la photo et la vidéo"
+    },
+    "brand": {
+      "nom": "Canon",
+      "description": "Fabricant d'appareils photo et caméras"
+    },
+    "product": {
+      "nom": "Canon EOS R6",
+      "description": "Appareil photo plein format sans miroir avec autofocus rapide.",
+      "prix": 2499.99,
+      "stock": 45,
+      "etat": "disponible",
+      "ean_code": "1314151617181",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Kit Lens",
+        "valeurs": [
+          {"valeur": "Body Only", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "With 24-105mm Lens", "prix_supplémentaire": 500, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Camera",
+        "attributes": [
+          {"nom_attribut": "Sensor", "valeur": "Full Frame CMOS", "data_type": "string", "unit": null},
+          {"nom_attribut": "Resolution", "valeur": "20.1", "data_type": "float", "unit": "MP"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "canon_eos_r6.jpg", "alt_text": "Canon EOS R6"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/canon_eos_r6_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Canon RF 24-105mm Lens", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 45, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Télécommunications & navigation",
+      "parent_category": null,
+      "description": "Equipements télécommunications"
+    },
+    "brand": {
+      "nom": "Cisco",
+      "description": "Leader mondial en solutions réseau"
+    },
+    "product": {
+      "nom": "Cisco Catalyst 9300",
+      "description": "Switch réseau empilable haute performance.",
+      "prix": 3499.99,
+      "stock": 30,
+      "etat": "disponible",
+      "ean_code": "1415161718191",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Ports",
+        "valeurs": [
+          {"valeur": "24", "prix_supplémentaire": 0, "stock": 20},
+          {"valeur": "48", "prix_supplémentaire": 600, "stock": 10}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Network",
+        "attributes": [
+          {"nom_attribut": "Max Throughput", "valeur": "480 Gbps", "data_type": "string", "unit": null},
+          {"nom_attribut": "PoE", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "cisco_catalyst_9300.jpg", "alt_text": "Cisco Catalyst 9300 Switch"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/cisco_catalyst_9300_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Cisco Power Supply Module", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 30, "stock_reserve": 3, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Équipements de conférence",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Matériel et équipements pour conférences"
+    },
+    "brand": {
+      "nom": "Poly",
+      "description": "Leader en solutions audio et vidéo professionnelles"
+    },
+    "product": {
+      "nom": "Poly Studio X50",
+      "description": "Système de vidéoconférence tout-en-un avec caméra 4K.",
+      "prix": 2499.00,
+      "stock": 40,
+      "etat": "disponible",
+      "ean_code": "5555555555555",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Configuration",
+        "valeurs": [
+          {"valeur": "Standard", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "Avec accessoires", "prix_supplémentaire": 300, "stock": 15}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Vidéo",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "4K", "data_type": "string", "unit": null},
+          {"nom_attribut": "Champ de vision", "valeur": "120", "data_type": "int", "unit": "degrés"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "poly_studio_x50.jpg", "alt_text": "Poly Studio X50"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/poly_studio_x50_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Poly Power Adapter", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 40, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Dispositifs de sécurité",
+      "parent_category": "Automatisation de la maison et sécurité",
+      "description": "Equipements pour sécuriser la maison"
+    },
+    "brand": {
+      "nom": "Honeywell",
+      "description": "Produits et solutions de sécurité"
+    },
+    "product": {
+      "nom": "Honeywell Home Security Kit",
+      "description": "Kit complet de sécurité avec capteurs et sirène.",
+      "prix": 599.99,
+      "stock": 55,
+      "etat": "disponible",
+      "ean_code": "6666666666666",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Pack",
+        "valeurs": [
+          {"valeur": "Basique", "prix_supplémentaire": 0, "stock": 35},
+          {"valeur": "Avancé", "prix_supplémentaire": 150, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Sécurité",
+        "attributes": [
+          {"nom_attribut": "Capteurs inclus", "valeur": "5", "data_type": "int", "unit": "pièces"},
+          {"nom_attribut": "Autonomie batterie", "valeur": "12", "data_type": "int", "unit": "mois"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "honeywell_security_kit.jpg", "alt_text": "Honeywell Home Security Kit"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/honeywell_security_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Honeywell Expansion Kit", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 55, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Équipement téléphonique",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Téléphones professionnels et accessoires"
+    },
+    "brand": {
+      "nom": "Yealink",
+      "description": "Solutions téléphoniques IP"
+    },
+    "product": {
+      "nom": "Yealink SIP-T58A",
+      "description": "Téléphone IP couleur tactile avec caméra intégrée.",
+      "prix": 299.00,
+      "stock": 90,
+      "etat": "disponible",
+      "ean_code": "7777777777777",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Pack accessoires",
+        "valeurs": [
+          {"valeur": "Standard", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "Avec casque", "prix_supplémentaire": 50, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Téléphone",
+        "attributes": [
+          {"nom_attribut": "Nombre de lignes", "valeur": "16", "data_type": "int", "unit": null},
+          {"nom_attribut": "Résolution écran", "valeur": "1920x1080", "data_type": "string", "unit": "pixels"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "yealink_sip_t58a.jpg", "alt_text": "Yealink SIP-T58A"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/yealink_sip_t58a_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Yealink Headset UH36", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 90, "stock_reserve": 8, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Composants",
+      "parent_category": "Informatique & électronique",
+      "description": "Composants électroniques pour PC"
+    },
+    "brand": {
+      "nom": "Corsair",
+      "description": "Composants haute performance"
+    },
+    "product": {
+      "nom": "Corsair Vengeance RGB Pro 16GB",
+      "description": "Kit mémoire DDR4 RGB 3200MHz pour ordinateurs.",
+      "prix": 149.99,
+      "stock": 100,
+      "etat": "disponible",
+      "ean_code": "8888888888888",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Fréquence",
+        "valeurs": [
+          {"valeur": "3200MHz", "prix_supplémentaire": 0, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Mémoire",
+        "attributes": [
+          {"nom_attribut": "Capacité", "valeur": "16GB", "data_type": "string", "unit": null},
+          {"nom_attribut": "Type DDR", "valeur": "DDR4", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "corsair_vengeance_rgb_pro.jpg", "alt_text": "Corsair Vengeance RGB Pro 16GB"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/corsair_vengeance_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Corsair Airflow Fan", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 100, "stock_reserve": 12, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Pompes à chaleur",
+      "parent_category": "Photovoltaïque",
+      "description": "Systèmes de chauffage énergétiquement efficaces"
+    },
+    "brand": {
+      "nom": "Daikin",
+      "description": "Expert en climatisation et chauffage"
+    },
+    "product": {
+      "nom": "Daikin Altherma 3",
+      "description": "Pompe à chaleur air/eau haute performance."
+      ,
+      "prix": 3999.00,
+      "stock": 15,
+      "etat": "disponible",
+      "ean_code": "9999999999999",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Chauffage",
+        "attributes": [
+          {"nom_attribut": "Puissance nominale", "valeur": "8 kW", "data_type": "string", "unit": null},
+          {"nom_attribut": "COP", "valeur": "4.5", "data_type": "float", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "daikin_altherma_3.jpg", "alt_text": "Daikin Altherma 3"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/daikin_altherma_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 15, "stock_reserve": 2, "seuil_alerte": 3}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Kits photovoltaïques",
+      "parent_category": "Photovoltaïque",
+      "description": "Kits pour installation solaire"
+    },
+    "brand": {
+      "nom": "SunPower",
+      "description": "Fournisseur de solutions photovoltaïques"
+    },
+    "product": {
+      "nom": "SunPower Maxeon Kit 5kW",
+      "description": "Kit photovoltaïque complet pour maison individuelle."
+      ,
+      "prix": 12000.00,
+      "stock": 8,
+      "etat": "disponible",
+      "ean_code": "1212121212121",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Photovoltaïque",
+        "attributes": [
+          {"nom_attribut": "Puissance crête", "valeur": "5 kW", "data_type": "string", "unit": null},
+          {"nom_attribut": "Type de panneau", "valeur": "Maxeon", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "sunpower_maxeon_kit.jpg", "alt_text": "SunPower Maxeon Kit 5kW"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/sunpower_maxeon_kit_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 8, "stock_reserve": 1, "seuil_alerte": 1}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Écrans et accessoires",
+      "parent_category": "Informatique & électronique",
+      "description": "Moniteurs et accessoires"
+    },
+    "brand": {
+      "nom": "LG",
+      "description": "Fabricant d’écrans et téléviseurs"
+    },
+    "product": {
+      "nom": "LG UltraFine 5K",
+      "description": "Écran 27 pouces 5K pour professionnels de la création.",
+      "prix": 1299.99,
+      "stock": 30,
+      "etat": "disponible",
+      "ean_code": "1313131313131",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Connectivité",
+        "valeurs": [
+          {"valeur": "Thunderbolt 3", "prix_supplémentaire": 0, "stock": 20},
+          {"valeur": "USB-C", "prix_supplémentaire": 0, "stock": 10}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Affichage",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "5120x2880", "data_type": "string", "unit": null},
+          {"nom_attribut": "Luminosité", "valeur": "500", "data_type": "int", "unit": "cd/m2"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "lg_ultrafine_5k.jpg", "alt_text": "LG UltraFine 5K"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/lg_ultrafine_5k_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "LG Monitor Stand", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 30, "stock_reserve": 3, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Accessoires d'équipements de télécommunications",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Accessoires divers"
+    },
+    "brand": {
+      "nom": "Plantronics",
+      "description": "Accessoires audio professionnels"
+    },
+    "product": {
+      "nom": "Plantronics Voyager 6200 UC",
+      "description": "Casque sans fil Bluetooth avec suppression du bruit.",
+      "prix": 249.99,
+      "stock": 70,
+      "etat": "disponible",
+      "ean_code": "1414141414141",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Couleur",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 70}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Autonomie", "valeur": "16", "data_type": "int", "unit": "heures"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "plantronics_voyager_6200.jpg", "alt_text": "Plantronics Voyager 6200 UC"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/plantronics_voyager_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 70, "stock_reserve": 7, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Pompes à chaleur",
+      "parent_category": "Photovoltaïque",
+      "description": "Solution de chauffage écologique"
+    },
+    "brand": {
+      "nom": "Mitsubishi Electric",
+      "description": "Solutions de climatisation et chauffage"
+    },
+    "product": {
+      "nom": "Mitsubishi Electric PUHZ-W85VKA",
+      "description": "Pompe à chaleur air/eau compacte et performante.",
+      "prix": 4500.00,
+      "stock": 12,
+      "etat": "disponible",
+      "ean_code": "1515151515151",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Chauffage",
+        "attributes": [
+          {"nom_attribut": "Puissance", "valeur": "8.5 kW", "data_type": "string", "unit": null},
+          {"nom_attribut": "EER", "valeur": "3.7", "data_type": "float", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "mitsubishi_puhz_w85vka.jpg", "alt_text": "Mitsubishi Electric PUHZ-W85VKA"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/mitsubishi_puhz_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 12, "stock_reserve": 1, "seuil_alerte": 2}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Équipements de communication radio",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Equipements pour communication radio"
+    },
+    "brand": {
+      "nom": "Motorola",
+      "description": "Fabricant d’équipements radio et communication"
+    },
+    "product": {
+      "nom": "Motorola DP4800e",
+      "description": "Radio bidirectionnelle numérique robuste avec écran couleur.",
+      "prix": 799.99,
+      "stock": 65,
+      "etat": "disponible",
+      "ean_code": "1010101010101",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Fréquence",
+        "valeurs": [
+          {"valeur": "VHF", "prix_supplémentaire": 0, "stock": 40},
+          {"valeur": "UHF", "prix_supplémentaire": 0, "stock": 25}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Communication",
+        "attributes": [
+          {"nom_attribut": "Puissance de sortie", "valeur": "5W", "data_type": "int", "unit": "W"},
+          {"nom_attribut": "Portée", "valeur": "5", "data_type": "int", "unit": "km"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "motorola_dp4800e.jpg", "alt_text": "Motorola DP4800e Radio"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/motorola_dp4800e_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Motorola Battery Pack", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 65, "stock_reserve": 5, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Informatique & électronique",
+      "parent_category": null,
+      "description": "Catégorie principale informatique et électronique"
+    },
+    "brand": {
+      "nom": "Asus",
+      "description": "Fabricant d’équipements informatique variés"
+    },
+    "product": {
+      "nom": "Asus TUF Gaming A15",
+      "description": "PC portable gaming avec Ryzen 7 et RTX 3060.",
+      "prix": 1399.99,
+      "stock": 90,
+      "etat": "disponible",
+      "ean_code": "2020202020202",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "RAM",
+        "valeurs": [
+          {"valeur": "16GB", "prix_supplémentaire": 0, "stock": 60},
+          {"valeur": "32GB", "prix_supplémentaire": 200, "stock": 30}
+        ]
+      },
+      {
+        "nom": "Stockage",
+        "valeurs": [
+          {"valeur": "512GB SSD", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "1TB SSD", "prix_supplémentaire": 150, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performance",
+        "attributes": [
+          {"nom_attribut": "Processeur", "valeur": "AMD Ryzen 7 5800H", "data_type": "string", "unit": null},
+          {"nom_attribut": "Carte graphique", "valeur": "NVIDIA RTX 3060", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "asus_tuf_a15_front.jpg", "alt_text": "Asus TUF Gaming A15"},
+      {"image": "asus_tuf_a15_side.jpg", "alt_text": "Asus TUF côté"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/asus_tuf_a15_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Asus Gaming Mouse", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 90, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Télévisions",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Téléviseurs"
+    },
+    "brand": {
+      "nom": "LG",
+      "description": "Leader en écrans et téléviseurs"
+    },
+    "product": {
+      "nom": "LG OLED CX",
+      "description": "Téléviseur OLED 55 pouces 4K UHD avec HDR.",
+      "prix": 1299.99,
+      "stock": 40,
+      "etat": "disponible",
+      "ean_code": "3030303030303",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Taille",
+        "valeurs": [
+          {"valeur": "55 inch", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "65 inch", "prix_supplémentaire": 300, "stock": 15}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Display",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "4K UHD", "data_type": "string", "unit": null},
+          {"nom_attribut": "HDR", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "lg_oled_cx.jpg", "alt_text": "LG OLED CX TV"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/lg_oled_cx_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "LG Soundbar SN7Y", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 40, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Dispositifs et accessoires de câblage",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Câbles et accessoires électriques"
+    },
+    "brand": {
+      "nom": "Belkin",
+      "description": "Fabricant d'accessoires câble et connectivité"
+    },
+    "product": {
+      "nom": "Belkin USB-C to USB-A Cable",
+      "description": "Câble USB-C vers USB-A 1m compatible charge et données.",
+      "prix": 19.99,
+      "stock": 300,
+      "etat": "disponible",
+      "ean_code": "4040404040404",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "1m", "prix_supplémentaire": 0, "stock": 150},
+          {"valeur": "2m", "prix_supplémentaire": 5, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Installation",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "USB-C to USB-A", "data_type": "string", "unit": null},
+          {"nom_attribut": "Longueur", "valeur": "1 ou 2 m", "data_type": "string", "unit": "mètres"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "belkin_usbc_to_usba.jpg", "alt_text": "Belkin USB-C to USB-A Cable"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 300, "stock_reserve": 20, "seuil_alerte": 25}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Structures de montage",
+      "parent_category": null,
+      "description": "Supports et montages pour équipements"
+    },
+    "brand": {
+      "nom": "Vogel's",
+      "description": "Fabricant de supports et fixations"
+    },
+    "product": {
+      "nom": "Vogel's Wall Mount WM3245",
+      "description": "Support mural pour TV 32 à 55 pouces, orientable.",
+      "prix": 89.99,
+      "stock": 85,
+      "etat": "disponible",
+      "ean_code": "5050505050505",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Taille support",
+        "valeurs": [
+          {"valeur": "32-42 inch", "prix_supplémentaire": 0, "stock": 45},
+          {"valeur": "43-55 inch", "prix_supplémentaire": 20, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Montage",
+        "attributes": [
+          {"nom_attribut": "Compatibilité", "valeur": "VESA 200x200 to 400x400", "data_type": "string", "unit": null},
+          {"nom_attribut": "Orientation", "valeur": "Pivotante", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "vogels_wm3245.jpg", "alt_text": "Support Vogel's WM3245"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/vogels_wm3245_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Vogel's Cable Management Clips", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 85, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Garanties et supports",
+      "parent_category": "Informatique & électronique",
+      "description": "Services de garantie et assistance technique"
+    },
+    "brand": {
+      "nom": "HP",
+      "description": "Leader en garantie et soutien"
+    },
+    "product": {
+      "nom": "HP Extended Warranty 3 years",
+      "description": "Garantie prolongée de 3 ans pour matériel HP.",
+      "prix": 199.99,
+      "stock": 1000,
+      "etat": "disponible",
+      "ean_code": "6060606060606",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Warranty",
+        "attributes": [
+          {"nom_attribut": "Durée", "valeur": "3", "data_type": "int", "unit": "ans"},
+          {"nom_attribut": "Type", "valeur": "Prolongée", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [],
+    "documents": [
+      {"url_document": "https://example.com/manuals/hp_warranty_manual.pdf", "type_document": "Conditions"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 1000, "stock_reserve": 0, "seuil_alerte": 100}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Garanties et supports",
+      "parent_category": "Informatique & électronique",
+      "description": "Services de garantie et assistance technique"
+    },
+    "brand": {
+      "nom": "Dell",
+      "description": "Services garantie Dell"
+    },
+    "product": {
+      "nom": "Dell Premium Support Plus",
+      "description": "Support premium et garantie étendue Dell sur site.",
+      "prix": 299.99,
+      "stock": 800,
+      "etat": "disponible",
+      "ean_code": "7070707070707",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Warranty",
+        "attributes": [
+          {"nom_attribut": "Durée", "valeur": "4", "data_type": "int", "unit": "ans"},
+          {"nom_attribut": "Type", "valeur": "Premium", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [],
+    "documents": [
+      {"url_document": "https://example.com/manuals/dell_support_manual.pdf", "type_document": "Conditions"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 800, "stock_reserve": 0, "seuil_alerte": 80}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Distributions et traitements du signal",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Matériel de distribution de signaux audio/vidéo"
+    },
+    "brand": {
+      "nom": "Extron",
+      "description": "Spécialiste des solutions AV"
+    },
+    "product": {
+      "nom": "Extron DTP HDMI 4K 230 Rx",
+      "description": "Récepteur DTP HDMI 4K avec intégration réseau.",
+      "prix": 499.99,
+      "stock": 55,
+      "etat": "disponible",
+      "ean_code": "8080808080808",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "AV",
+        "attributes": [
+          {"nom_attribut": "Résolution max", "valeur": "4K60", "data_type": "string", "unit": null},
+          {"nom_attribut": "Distance max", "valeur": "70", "data_type": "int", "unit": "m"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "extron_dtp_rx.jpg", "alt_text": "Extron DTP HDMI 4K 230 Rx"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/extron_dtp_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 55, "stock_reserve": 5, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Câbles pour ordinateurs et périphériques",
+      "parent_category": "Informatique & électronique",
+      "description": "Câbles pour PC et appareils périphériques"
+    },
+    "brand": {
+      "nom": "Anker",
+      "description": "Accessoires et câbles de qualité"
+    },
+    "product": {
+      "nom": "Anker PowerLine III USB-C to USB-C",
+      "description": "Câble USB-C vers USB-C, 1.8m, support 100W.",
+      "prix": 29.99,
+      "stock": 180,
+      "etat": "disponible",
+      "ean_code": "9090909090909",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "1.8m", "prix_supplémentaire": 0, "stock": 180}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Câble",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "USB-C", "data_type": "string", "unit": null},
+          {"nom_attribut": "Puissance max", "valeur": "100", "data_type": "int", "unit": "W"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "anker_powerline3.jpg", "alt_text": "Anker PowerLine III USB-C Cable"}
+    ],
+    "documents": [],
+    "related_products": [
+      {"related_product_nom": "Anker PowerPort III Charger", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 180, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Accessoires pour caméras",
+      "parent_category": "Équipement photo et vidéo",
+      "description": "Accessoires divers pour caméras"
+    },
+    "brand": {
+      "nom": "Manfrotto",
+      "description": "Fabricant de trépieds et accessoires photo"
+    },
+    "product": {
+      "nom": "Manfrotto Compact Action Tripod",
+      "description": "Trépied compact et léger pour appareils photo.",
+      "prix": 79.99,
+      "stock": 120,
+      "etat": "disponible",
+      "ean_code": "1112223334445",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 60},
+          {"valeur": "Rouge", "prix_supplémentaire": 5, "stock": 60}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Dimensions",
+        "attributes": [
+          {"nom_attribut": "Hauteur max", "valeur": "155", "data_type": "int", "unit": "cm"},
+          {"nom_attribut": "Poids", "valeur": "1.2", "data_type": "float", "unit": "kg"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "manfrotto_compact_action.jpg", "alt_text": "Manfrotto Compact Action Tripod"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/manfrotto_compact_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Manfrotto Camera Bag", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 120, "stock_reserve": 10, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Accessoires d’équipements de télécommunications",
+      "parent_category": "Télécommunications & navigation",
+      "description": "Accessoires pour télécommunications"
+    },
+    "brand": {
+      "nom": "Plantronics",
+      "description": "Fabricant de casques et accessoires audio"
+    },
+    "product": {
+      "nom": "Plantronics Voyager Focus UC",
+      "description": "Casque Bluetooth avec réduction active du bruit.",
+      "prix": 199.99,
+      "stock": 80,
+      "etat": "disponible",
+      "ean_code": "2223334445556",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "Gris", "prix_supplémentaire": 10, "stock": 30}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Autonomie", "valeur": "12", "data_type": "int", "unit": "heures"},
+          {"nom_attribut": "Poids", "valeur": "125", "data_type": "int", "unit": "g"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "plantronics_voyager_focus.jpg", "alt_text": "Plantronics Voyager Focus UC"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/plantronics_voyager_focus_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Plantronics Battery Pack", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 80, "stock_reserve": 8, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Pompes à chaleur",
+      "parent_category": "Photovoltaïque",
+      "description": "Systèmes de chauffage écologiques"
+    },
+    "brand": {
+      "nom": "Hitachi",
+      "description": "Spécialiste en solutions HVAC"
+    },
+    "product": {
+      "nom": "Hitachi Yutaki S80",
+      "description": "Pompe à chaleur air/eau pour chauffage et climatisation.",
+      "prix": 4200.00,
+      "stock": 20,
+      "etat": "disponible",
+      "ean_code": "3334445556667",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Chauffage",
+        "attributes": [
+          {"nom_attribut": "Puissance calorifique", "valeur": "8", "data_type": "int", "unit": "kW"},
+          {"nom_attribut": "EER", "valeur": "3.9", "data_type": "float", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "hitachi_yutaki_s80.jpg", "alt_text": "Hitachi Yutaki S80"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/hitachi_yutaki_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouahigouya Logistics Center", "adresse": "Zone commerciale, Ouahigouya", "stock_total": 20, "stock_reserve": 3, "seuil_alerte": 2}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Panneaux solaires",
+      "parent_category": "Photovoltaïque",
+      "description": "Modules photovoltaïques"
+    },
+    "brand": {
+      "nom": "Canadian Solar",
+      "description": "Fabricant de panneaux solaires"
+    },
+    "product": {
+      "nom": "Canadian Solar HiKu CS3W-405MS",
+      "description": "Panneau solaire monocristallin haute efficacité 405W.",
+      "prix": 269.99,
+      "stock": 100,
+      "etat": "disponible",
+      "ean_code": "4445556667778",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Photovoltaïque",
+        "attributes": [
+          {"nom_attribut": "Puissance", "valeur": "405", "data_type": "int", "unit": "W"},
+          {"nom_attribut": "Type de cellule", "valeur": "Monocristallin", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "canadian_solar_hiku.jpg", "alt_text": "Canadian Solar HiKu CS3W-405MS"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/canadian_solar_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Canadian Solar Mounting Kit", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 100, "stock_reserve": 10, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Boîtiers éléctriques et accessoires",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Boîtiers et coffrets électriques"
+    },
+    "brand": {
+      "nom": "Schneider Electric",
+      "description": "Leader en gestion d’énergie"
+    },
+    "product": {
+      "nom": "Schneider Electric Spacial SF",
+      "description": "Boîtier électrique IP66 pour usage industriel.",
+      "prix": 249.99,
+      "stock": 50,
+      "etat": "disponible",
+      "ean_code": "5556667778889",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Dimension",
+        "valeurs": [
+          {"valeur": "600x600x250mm", "prix_supplémentaire": 0, "stock": 30},
+          {"valeur": "800x600x300mm", "prix_supplémentaire": 50, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Protection",
+        "attributes": [
+          {"nom_attribut": "Indice de protection", "valeur": "IP66", "data_type": "string", "unit": null},
+          {"nom_attribut": "Matériau", "valeur": "Acier inoxydable", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "schneider_spacial_sf.jpg", "alt_text": "Schneider Electric Spacial SF"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/schneider_spacial_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Schneider Mounting Accessories", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 50, "stock_reserve": 5, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Outils",
+      "parent_category": null,
+      "description": "Outils professionnels et manuels"
+    },
+    "brand": {
+      "nom": "Makita",
+      "description": "Fabricant d’outils électriques"
+    },
+    "product": {
+      "nom": "Makita DHP481Z",
+      "description": "Perceuse visseuse sans fil 18V, sans batterie ni chargeur.",
+      "prix": 129.99,
+      "stock": 60,
+      "etat": "disponible",
+      "ean_code": "6667778889990",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Tool",
+        "attributes": [
+          {"nom_attribut": "Couple maxi", "valeur": "54", "data_type": "int", "unit": "Nm"},
+          {"nom_attribut": "Poids", "valeur": "1.7", "data_type": "float", "unit": "kg"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "makita_dhp481z.jpg", "alt_text": "Makita DHP481Z"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/makita_dhp481z_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Makita Battery 18V", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 60, "stock_reserve": 6, "seuil_alerte": 8}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Accessoires d’écran de mur vidéo",
+      "parent_category": "Signalisations",
+      "description": "Accessoires pour écrans géants"
+    },
+    "brand": {
+      "nom": "Barco",
+      "description": "Solutions d'affichage professionnel"
+    },
+    "product": {
+      "nom": "Barco UniSee Mounting System",
+      "description": "Système de montage modulaire pour murs vidéo.",
+      "prix": 3999.99,
+      "stock": 10,
+      "etat": "disponible",
+      "ean_code": "7778889990001",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Montage",
+        "attributes": [
+          {"nom_attribut": "Compatibilité", "valeur": "55 pouces", "data_type": "string", "unit": null},
+          {"nom_attribut": "Poids max", "valeur": "15", "data_type": "int", "unit": "kg"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "barco_unisee_mount.jpg", "alt_text": "Barco UniSee Mounting System"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/barco_unisee_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 10, "stock_reserve": 1, "seuil_alerte": 1}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Outils",
+      "parent_category": null,
+      "description": "Outils et accessoires"
+    },
+    "brand": {
+      "nom": "DeWalt",
+      "description": "Fabricant reconnu d’outils électriques"
+    },
+    "product": {
+      "nom": "DeWalt DCD791D2",
+      "description": "Perceuse sans fil 18V brushless avec batterie.",
+      "prix": 199.99,
+      "stock": 55,
+      "etat": "disponible",
+      "ean_code": "8899001122334",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Batterie",
+        "valeurs": [
+          {"valeur": "2.0 Ah", "prix_supplémentaire": 0, "stock": 25},
+          {"valeur": "5.0 Ah", "prix_supplémentaire": 50, "stock": 30}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performances",
+        "attributes": [
+          {"nom_attribut": "Vitesse", "valeur": "0-2000", "data_type": "int", "unit": "rpm"},
+          {"nom_attribut": "Poids", "valeur": "1.4", "data_type": "float", "unit": "kg"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "dewalt_dcd791d2.jpg", "alt_text": "DeWalt DCD791D2"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/dewalt_dcd791d2_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "DeWalt Charger", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 55, "stock_reserve": 6, "seuil_alerte": 7}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Télécommunications & navigation",
+      "parent_category": null,
+      "description": "Équipements pour télécommunications et navigation"
+    },
+    "brand": {
+      "nom": "Ericsson",
+      "description": "Fournisseur leader de solutions télécom"
+    },
+    "product": {
+      "nom": "Ericsson Radio Base Station",
+      "description": "Station de base radio pour réseau GSM/LTE avancé.",
+      "prix": 9500.00,
+      "stock": 20,
+      "etat": "disponible",
+      "ean_code": "2000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Modèle",
+        "valeurs": [
+          {"valeur": "RBS 6000", "prix_supplémentaire": 0, "stock": 15},
+          {"valeur": "RBS 6301", "prix_supplémentaire": 500, "stock": 5}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Caractéristiques techniques",
+        "attributes": [
+          {"nom_attribut": "Fréquence", "valeur": "900 MHz", "data_type": "string", "unit": null},
+          {"nom_attribut": "Puissance maximale", "valeur": "20 W", "data_type": "int", "unit": "W"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "ericsson_rbs6000.jpg", "alt_text": "Ericsson RBS 6000"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/ericsson_rbs6000_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Ericsson Antenna", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 20, "stock_reserve": 2, "seuil_alerte": 3}
+    ],
+    "variant_warehouses_stock": [
+      {
+        "variant_nom": "Modèle",
+        "variant_valeur": "RBS 6000",
+        "warehouses": [
+          {"nom": "Ouagadougou Central Warehouse", "stock_total": 15, "stock_reserve": 1, "seuil_alerte": 2}
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "nom": "Écrans et accessoires",
+      "parent_category": "Informatique & électronique",
+      "description": "Écrans et périphériques d’affichage"
+    },
+    "brand": {
+      "nom": "BenQ",
+      "description": "Fabricant d’écrans et projecteurs"
+    },
+    "product": {
+      "nom": "BenQ EX3501R",
+      "description": "Écran incurvé 35 pouces avec résolution UWQHD.",
+      "prix": 799.99,
+      "stock": 40,
+      "etat": "disponible",
+      "ean_code": "3000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Connectivité",
+        "valeurs": [
+          {"valeur": "HDMI", "prix_supplémentaire": 0, "stock": 20},
+          {"valeur": "DisplayPort", "prix_supplémentaire": 0, "stock": 20}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Affichage",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "3440x1440", "data_type": "string", "unit": null},
+          {"nom_attribut": "Taux de rafraîchissement", "valeur": "100", "data_type": "int", "unit": "Hz"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "benq_ex3501r.jpg", "alt_text": "Écran BenQ EX3501R"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/benq_ex3501r_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "BenQ Monitor Stand", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 40, "stock_reserve": 5, "seuil_alerte": 4}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Logiciels",
+      "parent_category": "Informatique & électronique",
+      "description": "Logiciels professionnels divers"
+    },
+    "brand": {
+      "nom": "Autodesk",
+      "description": "Logiciels pour conception et modélisation"
+    },
+    "product": {
+      "nom": "Autodesk AutoCAD 2025",
+      "description": "Logiciel de conception CAO 2D/3D pour professionnels.",
+      "prix": 1199.99,
+      "stock": 250,
+      "etat": "disponible",
+      "ean_code": "4000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Licence",
+        "valeurs": [
+          {"valeur": "Abonnement annuel", "prix_supplémentaire": 0, "stock": 200},
+          {"valeur": "Licence perpétuelle", "prix_supplémentaire": 400, "stock": 50}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Système",
+        "attributes": [
+          {"nom_attribut": "Plateforme", "valeur": "Windows, Mac", "data_type": "string", "unit": null},
+          {"nom_attribut": "RAM minimum", "valeur": "8GB", "data_type": "string", "unit": "Go"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "autodesk_autocad_2025.jpg", "alt_text": "Autodesk AutoCAD 2025"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/autodesk_autocad_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Autodesk Revit", "relation_type": "logiciel associé"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 250, "stock_reserve": 20, "seuil_alerte": 25}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Câbles pour ordinateurs et périphériques",
+      "parent_category": "Informatique & électronique",
+      "description": "Câbles haute performance"
+    },
+    "brand": {
+      "nom": "Cable Matters",
+      "description": "Fabricant de câbles et adaptateurs"
+    },
+    "product": {
+      "nom": "Cable Matters Thunderbolt 4 Cable",
+      "description": "Câble Thunderbolt 4, 2m, pour transfert ultra-rapide.",
+      "prix": 59.99,
+      "stock": 120,
+      "etat": "disponible",
+      "ean_code": "5000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "2m", "prix_supplémentaire": 0, "stock": 120},
+          {"valeur": "3m", "prix_supplémentaire": 10, "stock": 80}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Câble",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "Thunderbolt 4", "data_type": "string", "unit": null},
+          {"nom_attribut": "Débit", "valeur": "40 Gbps", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "cablematters_thunderbolt4.jpg", "alt_text": "Cable Matters Thunderbolt 4 Cable"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 120, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Pompes à chaleur",
+      "parent_category": "Photovoltaïque",
+      "description": "Systèmes de chauffage écologique"
+    },
+    "brand": {
+      "nom": "Samsung",
+      "description": "Leader en systèmes électroniques"
+    },
+    "product": {
+      "nom": "Samsung EHS Mono",
+      "description": "Pompe à chaleur air/eau monocourant haute efficacité.",
+      "prix": 3200.00,
+      "stock": 18,
+      "etat": "disponible",
+      "ean_code": "6000001234567",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Chauffage",
+        "attributes": [
+          {"nom_attribut": "Puissance nominale", "valeur": "7 kW", "data_type": "string", "unit": null},
+          {"nom_attribut": "COP", "valeur": "4.2", "data_type": "float", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "samsung_ehs_mono.jpg", "alt_text": "Samsung EHS Mono"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/samsung_ehs_mono_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 18, "stock_reserve": 3, "seuil_alerte": 3}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Boîtiers éléctriques et accessoires",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Coffrets électriques et accessoires"
+    },
+    "brand": {
+      "nom": "Eaton",
+      "description": "Solutions d’alimentation innovantes"
+    },
+    "product": {
+      "nom": "Eaton Power Xpert Qx",
+      "description": "Boîtier modulaire pour gestion d'énergie électrique.",
+      "prix": 699.99,
+      "stock": 35,
+      "etat": "disponible",
+      "ean_code": "7000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Dimension",
+        "valeurs": [
+          {"valeur": "800x600x250mm", "prix_supplémentaire": 0, "stock": 20},
+          {"valeur": "1000x800x300mm", "prix_supplémentaire": 100, "stock": 15}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Protection",
+        "attributes": [
+          {"nom_attribut": "Indice IP", "valeur": "IP55", "data_type": "string", "unit": null},
+          {"nom_attribut": "Matériau", "valeur": "Acier", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "eaton_power_xpert_qx.jpg", "alt_text": "Eaton Power Xpert Qx"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/eaton_power_xpert_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Eaton Surge Protector", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 35, "stock_reserve": 3, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Appareils intelligents pour la maison",
+      "parent_category": "Automatisation de la maison et sécurité",
+      "description": "Dispositifs connectés pour la maison intelligente"
+    },
+    "brand": {
+      "nom": "Google Nest",
+      "description": "Solutions pour maison connectée"
+    },
+    "product": {
+      "nom": "Google Nest Thermostat",
+      "description": "Thermostat intelligent programmable avec contrôle vocal.",
+      "prix": 129.99,
+      "stock": 100,
+      "etat": "disponible",
+      "ean_code": "8000001234567",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Couleur",
+        "valeurs": [
+          {"valeur": "Blanc", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "Noir", "prix_supplémentaire": 10, "stock": 30}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Contrôle",
+        "attributes": [
+          {"nom_attribut": "Compatibilité", "valeur": "Google Assistant, Alexa", "data_type": "string", "unit": null},
+          {"nom_attribut": "Écran", "valeur": "3\"", "data_type": "string", "unit": "pouces"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "google_nest_thermostat.jpg", "alt_text": "Google Nest Thermostat"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/google_nest_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Google Nest Temperature Sensor", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Banfora Regional Warehouse", "adresse": "PK7, Banfora", "stock_total": 100, "stock_reserve": 8, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Récepteurs audio",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Récepteurs et amplificateurs audio"
+    },
+    "brand": {
+      "nom": "Yamaha",
+      "description": "Fabricant de matériel audio"
+    },
+    "product": {
+      "nom": "Yamaha RX-V6A",
+      "description": "Récepteur AV 7.2 canaux avec Dolby Atmos.",
+      "prix": 649.99,
+      "stock": 45,
+      "etat": "disponible",
+      "ean_code": "9000001234567",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Puissance RMS", "valeur": "100", "data_type": "int", "unit": "W par canal"},
+          {"nom_attribut": "Canaux", "valeur": "7.2", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "yamaha_rx_v6a.jpg", "alt_text": "Yamaha RX-V6A"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/yamaha_rxv6a_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Yamaha Speaker Set", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 45, "stock_reserve": 4, "seuil_alerte": 5}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Distributions et traitements du signal",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Équipements de gestion de signaux audio/vidéo"
+    },
+    "brand": {
+      "nom": "Atlona",
+      "description": "Solutions AV professionnelles"
+    },
+    "product": {
+      "nom": "Atlona AT-HDVS-200",
+      "description": "Matériel de distribution HDMI multi-pièces.",
+      "prix": 399.99,
+      "stock": 70,
+      "etat": "disponible",
+      "ean_code": "9100001234567",
+      "is_active": true
+    },
+    "variants": [],
+    "specifications": [
+      {
+        "spec_category": "AV",
+        "attributes": [
+          {"nom_attribut": "Résolution prise en charge", "valeur": "4K UHD", "data_type": "string", "unit": null},
+          {"nom_attribut": "Nombre de sorties", "valeur": "2", "data_type": "int", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "atlona_at_hdvs_200.jpg", "alt_text": "Atlona AT-HDVS-200"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/atlona_at_hdvs_200_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 70, "stock_reserve": 6, "seuil_alerte": 8}
+    ],
+    "variant_warehouses_stock": []
+  }
+
+,
+
+  {
+    "category": {
+      "nom": "Équipements électriques et fournitures",
+      "parent_category": null,
+      "description": "Produits et matériels électriques"
+    },
+    "brand": {
+      "nom": "Schneider Electric",
+      "description": "Leader mondial dans la gestion de l'énergie"
+    },
+    "product": {
+      "nom": "Schneider Acti 9 iC60",
+      "description": "Disjoncteur modulaire protégeant les circuits électriques.",
+      "prix": 24.99,
+      "stock": 200,
+      "etat": "disponible",
+      "ean_code": "1234567890001",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Courant nominal",
+        "valeurs": [
+          {"valeur": "16 A", "prix_supplémentaire": 0, "stock": 100},
+          {"valeur": "32 A", "prix_supplémentaire": 5, "stock": 100}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Protection",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "Disjoncteur", "data_type": "string", "unit": null},
+          {"nom_attribut": "Nombre de pôles", "valeur": "1", "data_type": "int", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "schneider_acti_9_ic60.jpg", "alt_text": "Disjoncteur Schneider Acti 9 iC60"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/schneider_acti_9_ic60_manual.pdf", "type_document": "Fiche technique"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Schneider DIN Rail", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 200, "stock_reserve": 20, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Informatique & électronique",
+      "parent_category": null,
+      "description": "Catégorie principale informatique et électronique"
+    },
+    "brand": {
+      "nom": "HP",
+      "description": "Fabricant d'ordinateurs et périphériques"
+    },
+    "product": {
+      "nom": "HP Envy 13",
+      "description": "Ultrabook léger avec processeur Intel Core i5 et écran tactile.",
+      "prix": 899.99,
+      "stock": 120,
+      "etat": "disponible",
+      "ean_code": "2233445566778",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "RAM",
+        "valeurs": [
+          {"valeur": "8GB", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "16GB", "prix_supplémentaire": 150, "stock": 50}
+        ]
+      },
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Silver", "prix_supplémentaire": 0, "stock": 120}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Performance",
+        "attributes": [
+          {"nom_attribut": "Processeur", "valeur": "Intel Core i5-1135G7", "data_type": "string", "unit": null},
+          {"nom_attribut": "Stockage", "valeur": "512GB SSD", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "hp_envy_13_silver.jpg", "alt_text": "HP Envy 13 Silver"},
+      {"image": "hp_envy_13_side.jpg", "alt_text": "HP Envy 13 Vue côté"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/hp_envy_13_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "HP USB-C Dock", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 120, "stock_reserve": 10, "seuil_alerte": 10}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Câbles",
+      "parent_category": null,
+      "description": "Câbles pour divers usages"
+    },
+    "brand": {
+      "nom": "Belkin",
+      "description": "Fabricant d'accessoires et câbles"
+    },
+    "product": {
+      "nom": "Belkin HDMI 2.1 Cable",
+      "description": "Câble HDMI 2.1 3m compatible 8K.",
+      "prix": 39.99,
+      "stock": 250,
+      "etat": "disponible",
+      "ean_code": "3344556677889",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Longueur",
+        "valeurs": [
+          {"valeur": "3m", "prix_supplémentaire": 0, "stock": 250}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Câble",
+        "attributes": [
+          {"nom_attribut": "Version HDMI", "valeur": "2.1", "data_type": "string", "unit": null},
+          {"nom_attribut": "Support 8K", "valeur": "Oui", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "belkin_hdmi21_3m.jpg", "alt_text": "Belkin HDMI 2.1 Cable 3m"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Koudougou Depot", "adresse": "Périphérie Sud, Koudougou", "stock_total": 250, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Équipements audiovisuels",
+      "parent_category": null,
+      "description": "Matériel audiovisuel"
+    },
+    "brand": {
+      "nom": "JBL",
+      "description": "Fabricant de haut-parleurs et audio"
+    },
+    "product": {
+      "nom": "JBL Flip 6",
+      "description": "Enceinte Bluetooth portable avec son puissant.",
+      "prix": 129.99,
+      "stock": 180,
+      "etat": "disponible",
+      "ean_code": "4455667788990",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 100},
+          {"valeur": "Bleu", "prix_supplémentaire": 0, "stock": 80}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Puissance", "valeur": "20", "data_type": "int", "unit": "W"},
+          {"nom_attribut": "Autonomie", "valeur": "12", "data_type": "int", "unit": "heures"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "jbl_flip6_black.jpg", "alt_text": "JBL Flip 6 Noir"},
+      {"image": "jbl_flip6_blue.jpg", "alt_text": "JBL Flip 6 Bleu"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/jbl_flip6_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "JBL Carrying Case", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 180, "stock_reserve": 15, "seuil_alerte": 20}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Imprimantes et scanners",
+      "parent_category": "Informatique & électronique",
+      "description": "Périphériques d'impression"
+    },
+    "brand": {
+      "nom": "Canon",
+      "description": "Fabricant d’ordinateurs et périphériques"
+    },
+    "product": {
+      "nom": "Canon PIXMA TS8350",
+      "description": "Imprimante multifonction jet d'encre couleur.",
+      "prix": 199.99,
+      "stock": 75,
+      "etat": "disponible",
+      "ean_code": "5566778899003",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Connectivité",
+        "valeurs": [
+          {"valeur": "Wi-Fi", "prix_supplémentaire": 0, "stock": 50},
+          {"valeur": "USB", "prix_supplémentaire": 0, "stock": 25}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Impression",
+        "attributes": [
+          {"nom_attribut": "Résolution", "valeur": "4800x1200", "data_type": "string", "unit": "dpi"},
+          {"nom_attribut": "Vitesse", "valeur": "15", "data_type": "int", "unit": "ppm"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "canon_pixma_ts8350.jpg", "alt_text": "Canon PIXMA TS8350"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/canon_pixma_ts8350_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Canon Ink Cartridge", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 75, "stock_reserve": 5, "seuil_alerte": 8}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Stockages de données",
+      "parent_category": "Informatique & électronique",
+      "description": "Supports de stockage externes"
+    },
+    "brand": {
+      "nom": "Seagate",
+      "description": "Fabricant de disques durs et SSD"
+    },
+    "product": {
+      "nom": "Seagate Backup Plus Slim 2TB",
+      "description": "Disque dur externe 2 To portable USB 3.0.",
+      "prix": 89.99,
+      "stock": 150,
+      "etat": "disponible",
+      "ean_code": "6677889900114",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Capacité",
+        "valeurs": [
+          {"valeur": "2TB", "prix_supplémentaire": 0, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Stockage",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "HDD externe", "data_type": "string", "unit": null},
+          {"nom_attribut": "Interface", "valeur": "USB 3.0", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "seagate_backup_plus_slim.jpg", "alt_text": "Seagate Backup Plus Slim 2TB"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/seagate_backup_plus_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Seagate HDD Enclosure", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 150, "stock_reserve": 10, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Casques audio et portables",
+      "parent_category": "Équipements audiovisuels",
+      "description": "Casques et écouteurs sans fil ou filaires"
+    },
+    "brand": {
+      "nom": "Sennheiser",
+      "description": "Fabricant d’équipements audio"
+    },
+    "product": {
+      "nom": "Sennheiser Momentum 4 Wireless",
+      "description": "Casque Bluetooth circum-auriculaire haute fidélité.",
+      "prix": 349.99,
+      "stock": 110,
+      "etat": "disponible",
+      "ean_code": "7788990011224",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Couleur",
+        "valeurs": [
+          {"valeur": "Noir", "prix_supplémentaire": 0, "stock": 70},
+          {"valeur": "Gris", "prix_supplémentaire": 0, "stock": 40}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Audio",
+        "attributes": [
+          {"nom_attribut": "Autonomie", "valeur": "17", "data_type": "int", "unit": "heures"}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "sennheiser_momentum4.jpg", "alt_text": "Sennheiser Momentum 4 Wireless"}
+    ],
+    "documents": [
+      {"url_document": "https://example.com/manuals/sennheiser_momentum4_manual.pdf", "type_document": "Manuel utilisateur"}
+    ],
+    "related_products": [
+      {"related_product_nom": "Sennheiser Carrying Case", "relation_type": "accessoire"}
+    ],
+    "warehouses": [
+      {"nom": "Bobo-Dioulasso Storage", "adresse": "Quartier Dioulassoba, Bobo-Dioulasso", "stock_total": 110, "stock_reserve": 10, "seuil_alerte": 15}
+    ],
+    "variant_warehouses_stock": []
+  },
+  {
+    "category": {
+      "nom": "Dispositifs de commande électrique",
+      "parent_category": "Équipements électriques et fournitures",
+      "description": "Interrupteurs, boutons et commandes"
+    },
+    "brand": {
+      "nom": "Legrand",
+      "description": "Fabricant de matériel électrique"
+    },
+    "product": {
+      "nom": "Legrand Mosaic Interrupteur",
+      "description": "Interrupteur électrique modulable pour installations.",
+      "prix": 12.99,
+      "stock": 300,
+      "etat": "disponible",
+      "ean_code": "8899001122335",
+      "is_active": true
+    },
+    "variants": [
+      {
+        "nom": "Color",
+        "valeurs": [
+          {"valeur": "Blanc", "prix_supplémentaire": 0, "stock": 150},
+          {"valeur": "Gris", "prix_supplémentaire": 0, "stock": 150}
+        ]
+      }
+    ],
+    "specifications": [
+      {
+        "spec_category": "Caractéristiques",
+        "attributes": [
+          {"nom_attribut": "Type", "valeur": "Interrupteur simple", "data_type": "string", "unit": null}
+        ]
+      }
+    ],
+    "images": [
+      {"image": "legrand_mosaic_interrupteur.jpg", "alt_text": "Legrand Mosaic Interrupteur"}
+    ],
+    "documents": [],
+    "related_products": [],
+    "warehouses": [
+      {"nom": "Ouagadougou Central Warehouse", "adresse": "Zone industrielle, Ouagadougou", "stock_total": 300, "stock_reserve": 30, "seuil_alerte": 40}
+    ],
+    "variant_warehouses_stock": []
   }
 ]
+
+
