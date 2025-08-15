@@ -16,7 +16,7 @@ from .serializers import (
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-
+    permission_classes = [permissions.AllowAny]
 
 class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
